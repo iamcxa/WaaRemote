@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *LabelServerIP;
 @property (weak, nonatomic) IBOutlet UITextField *textboxServerIp;
 - (IBAction)btnConnect:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *message;
 
 
 @end
@@ -42,7 +43,7 @@
 }
 
 -(BOOL)CheckIP:(NSString *)ServerIP{
-   
+    
     
     if (![ServerIP rangeOfString:@"."].length==0) {
         
@@ -72,18 +73,207 @@
             }else [self ShowAlerts:@"IP區段1格式錯誤！"];return false;
         }else [self ShowAlerts:@"IP輸入不完整！"];return false;
     }else [self ShowAlerts:@"IP格式錯誤！"];  return false;
-    
 }
 
 -(void)ConnectSocket{
     
 }
 
+//---------------------------------------------------------//
+
+-(void)stream:(NSStream *)theStream handleEvent:(NSStreamEvent)streamEvent {
+    
+    NSString *event;
+    
+    switch (streamEvent) {
+            
+        case NSStreamEventNone:
+            
+            event = @"NSStreamEventNone";
+            
+            break;
+            
+        case NSStreamEventOpenCompleted:
+            
+            event = @"NSStreamEventOpenCompleted";
+            
+            break;
+            
+        case NSStreamEventHasBytesAvailable:
+            
+            event = @"NSStreamEventHasBytesAvailable";
+            
+            if (flag ==1 && theStream == _inputStream) {
+                
+                NSMutableData *input = [[NSMutableData alloc] init];
+                
+                uint8_t buffer[1024];
+                
+                int len;
+                
+                while([_inputStream hasBytesAvailable])
+                    
+                {
+                    
+                    len = [_inputStream read:buffer maxLength:sizeof(buffer)];
+                    
+                    if (len > 0)
+                        
+                    {
+                        
+                        [input appendBytes:buffer length:len];
+                        
+                    }
+                    
+                }
+                
+                NSString *resultstring = [[NSString alloc]
+                                          
+                                          initWithData:input encoding:NSUTF8StringEncoding];
+                
+                NSLog(@"接收:%@",resultstring);
+                
+                _message.text = resultstring;
+                
+            }
+            
+            break;
+            
+        case NSStreamEventHasSpaceAvailable:
+            
+            event = @"NSStreamEventHasSpaceAvailable";
+            
+            if (flag ==0 && theStream == _outputStream) {
+                
+                //输出
+                
+                UInt8 buff[] = "Hello Server!";
+                
+                [_outputStream write:buff maxLength: strlen((const char*)buff)+1];
+                
+                //关闭输出流
+                
+                [_outputStream close];
+                
+            }
+            
+            break;
+            
+        case NSStreamEventErrorOccurred:
+            
+            event = @"NSStreamEventErrorOccurred";
+            
+            [self close];
+            
+            break;
+            
+        case NSStreamEventEndEncountered:
+            
+            event = @"NSStreamEventEndEncountered";
+            
+            NSLog(@"Error:%d:%@",[[theStream streamError] code],
+                  
+                  [[theStream streamError] localizedDescription]);
+            
+            break;
+            
+        default:
+            
+            [self close];
+            
+            event = @"Unknown";
+            
+            break;
+            
+    }
+    
+    NSLog(@"event——%@",event);
+    
+}
+
+- (void)initNetworkCommunication
+
+{
+    
+    CFReadStreamRef readStream;
+    
+    CFWriteStreamRef writeStream;
+    
+    CFStreamCreatePairWithSocketToHost(NULL,
+                                       (CFStringRef)@"192.168.1.103", PORT, &readStream, &writeStream);
+    
+    _inputStream = (__bridge_transfer NSInputStream *)readStream;
+    
+    _outputStream = (__bridge_transfer NSOutputStream*)writeStream;
+    
+    [_inputStream setDelegate:self];
+    
+    [_outputStream setDelegate:self];
+    
+    [_inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
+     
+                            forMode:NSDefaultRunLoopMode];
+    
+    [_outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
+     
+                             forMode:NSDefaultRunLoopMode];
+    
+    [_inputStream open];
+    
+    [_outputStream open];
+    
+}
+
+
+/* 点击发送按钮  */
+
+- (IBAction)sendData:(id)sender {
+    
+    flag = 0;
+    
+    [self initNetworkCommunication];
+    
+}
+
+/* 点击接收按钮  */
+
+- (IBAction)receiveData:(id)sender {
+    
+    flag = 1;
+    
+    [self initNetworkCommunication];
+    
+}
+
+-(void)close
+
+{
+    
+    [_outputStream close];
+    
+    [_outputStream removeFromRunLoop:[NSRunLoop currentRunLoop]
+     
+                             forMode:NSDefaultRunLoopMode];
+    
+    [_outputStream setDelegate:nil];
+    
+    [_inputStream close];
+    
+    [_inputStream removeFromRunLoop:[NSRunLoop currentRunLoop]
+     
+                            forMode:NSDefaultRunLoopMode];
+    
+    [_inputStream setDelegate:nil];
+    
+}
+
+//---------------------------------------------------------//
+
 
 - (IBAction)btnConnect:(id)sender
 {
     
- NSString *ServerIP=self.textboxServerIp.text;
+    NSString *ServerIP=self.textboxServerIp.text;
     
     if ([self CheckIP:ServerIP]) {
         [self ShowAlerts:@"IP驗證成功！"];
