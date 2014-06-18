@@ -10,7 +10,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-#define PORT 9000
+#define PORT 3579
 
 
 @interface ViewController : UIViewController<NSStreamDelegate>

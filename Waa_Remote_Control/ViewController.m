@@ -66,6 +66,11 @@
                 if ((IPb<256)&&(IPc>0)){
                     if ((IPc<256)&&(IPa>0)){
                         if ((IPd<256)&&(IPa>0)){
+                            
+                            flag = 0;
+                            
+                            [self initNetworkCommunication:ServerIP];
+
                             return true;
                         }else [self ShowAlerts:@"IP區段4格式錯誤！"];return false;
                     }else [self ShowAlerts:@"IP區段3格式錯誤！"];return false;
@@ -147,7 +152,9 @@
                 
                 //输出
                 
-                UInt8 buff[] = "Hello Server!";
+                UInt8 buff[] = "MRCode_CC_00";
+                
+                [self ShowAlerts:@"Hello Server!"];
                 
                 [_outputStream write:buff maxLength: strlen((const char*)buff)+1];
                 
@@ -191,7 +198,7 @@
     
 }
 
-- (void)initNetworkCommunication
+- (void)initNetworkCommunication:(NSString *)ServerIP
 
 {
     
@@ -200,7 +207,7 @@
     CFWriteStreamRef writeStream;
     
     CFStreamCreatePairWithSocketToHost(NULL,
-                                       (CFStringRef)@"192.168.1.103", PORT, &readStream, &writeStream);
+                                       (CFStringRef)CFBridgingRetain(ServerIP), PORT, &readStream, &writeStream);
     
     _inputStream = (__bridge_transfer NSInputStream *)readStream;
     
@@ -227,6 +234,7 @@
 
 /* 点击发送按钮  */
 
+/*
 - (IBAction)sendData:(id)sender {
     
     flag = 0;
@@ -234,9 +242,11 @@
     [self initNetworkCommunication];
     
 }
+ */
 
 /* 点击接收按钮  */
 
+/*
 - (IBAction)receiveData:(id)sender {
     
     flag = 1;
@@ -244,6 +254,7 @@
     [self initNetworkCommunication];
     
 }
+ */
 
 -(void)close
 
