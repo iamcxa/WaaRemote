@@ -62,14 +62,15 @@
             NSLog(@"IPc: %d",IPc);
             NSLog(@"IPd: %d",IPd);
             
-            if ((IPa<256)&&(IPa>0)){
-                if ((IPb<256)&&(IPc>0)){
-                    if ((IPc<256)&&(IPa>0)){
-                        if ((IPd<256)&&(IPa>0)){
+            if ((IPa<256)&&(IPa>=0)){
+                if ((IPb<256)&&(IPc>=0)){
+                    if ((IPc<256)&&(IPa>=0)){
+                        if ((IPd<256)&&(IPa>=0)){
                             
                             flag = 0;
                             
                             [self initNetworkCommunication:ServerIP];
+                           
 
                             return true;
                         }else [self ShowAlerts:@"IP區段4格式錯誤！"];return false;
@@ -151,15 +152,12 @@
             if (flag ==0 && theStream == _outputStream) {
                 
                 //输出
-                
                 UInt8 buff[] = "MRCode_CC_00";
                 
-                [self ShowAlerts:@"Hello Server!"];
-                
-                [_outputStream write:buff maxLength: strlen((const char*)buff)+1];
+                if([_outputStream write:buff maxLength: strlen((const char*)buff)+1] > 0)  NSLog(@"out: %d",[_outputStream write:buff maxLength: strlen((const char*)buff)+1]);
+
                 
                 //关闭输出流
-                
                 [_outputStream close];
                 
             }
@@ -241,7 +239,7 @@
     
     [self initNetworkCommunication];
     
-}
+}c
  */
 
 /* 点击接收按钮  */
@@ -281,6 +279,9 @@
 //---------------------------------------------------------//
 
 
+//---------------------------------------------------------//
+
+
 - (IBAction)btnConnect:(id)sender
 {
     
@@ -288,6 +289,7 @@
     
     if ([self CheckIP:ServerIP]) {
         [self ShowAlerts:@"IP驗證成功！"];
+
     }else{
         [self ShowAlerts:@"IP驗證失敗！"];
     }

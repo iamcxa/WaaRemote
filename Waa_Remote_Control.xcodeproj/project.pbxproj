@@ -748,6 +748,7 @@
 				481A573B194391D0006E9A0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		481A573C194391D0006E9A0F /* Build configuration list for PBXNativeTarget "Waa_Remote_ControlTests" */ = {
 			isa = XCConfigurationList;
@@ -756,6 +757,7 @@
 				481A573E194391D0006E9A0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
