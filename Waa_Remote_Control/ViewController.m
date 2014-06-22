@@ -70,6 +70,7 @@
                             flag = 0;
                             
                             [self initNetworkCommunication:ServerIP];
+                           
 
                             return true;
                         }else [self ShowAlerts:@"IP區段4格式錯誤！"];return false;
@@ -165,7 +166,6 @@
                 [self ShowAlerts:@"Hello Server!"];
                 
                 //关闭输出流
-                
                 [_outputStream close];
                 
             }
@@ -247,7 +247,7 @@
     
     [self initNetworkCommunication];
     
-}
+}c
  */
 
 /* 点击接收按钮  */
@@ -287,6 +287,9 @@
 //---------------------------------------------------------//
 
 
+//---------------------------------------------------------//
+
+
 - (IBAction)btnConnect:(id)sender
 {
     
@@ -294,6 +297,7 @@
     
     if ([self CheckIP:ServerIP]) {
         [self ShowAlerts:@"IP驗證成功！"];
+
     }else{
         [self ShowAlerts:@"IP驗證失敗！"];
     }
