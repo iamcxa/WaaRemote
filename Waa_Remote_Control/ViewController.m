@@ -62,10 +62,10 @@
             NSLog(@"IPc: %d",IPc);
             NSLog(@"IPd: %d",IPd);
             
-            if ((IPa<256)&&(IPa>0)){
-                if ((IPb<256)&&(IPc>0)){
-                    if ((IPc<256)&&(IPa>0)){
-                        if ((IPd<256)&&(IPa>0)){
+            if ((IPa<256)&&(IPa>=0)){
+                if ((IPb<256)&&(IPc>=0)){
+                    if ((IPc<256)&&(IPa>=0)){
+                        if ((IPd<256)&&(IPa>=0)){
                             
                             flag = 0;
                             
@@ -152,11 +152,17 @@
                 
                 //输出
                 
-                UInt8 buff[] = "MRCode_CC_00";
+                NSData *_dataToSend = [NSData dataWithBytes:"123456\n" length:20];  //可用 後面的 length:20 好像不會影響
+                //[_outputStream write:[_dataToSend bytes] maxLength:[_dataToSend length]];
                 
+                uint8_t buff[] = "MRCode_CC_00"; //不可用
+                //[_outputStream write:buff maxLength: strlen((const char*)buff)+1];
+                
+                
+                Byte buff2[] = "123456789\n";  //可用
+                [_outputStream write:buff2 maxLength:sizeof(buff2)];
+
                 [self ShowAlerts:@"Hello Server!"];
-                
-                [_outputStream write:buff maxLength: strlen((const char*)buff)+1];
                 
                 //关闭输出流
                 
