@@ -319,4 +319,8 @@
 
 
 
+- (IBAction)test:(id)sender {
+}
+- (IBAction)Test:(UIButton *)sender {
+}
 @end
