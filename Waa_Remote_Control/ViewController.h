@@ -18,6 +18,7 @@
     int flag;
 }
 
+@property (weak, nonatomic) IBOutlet UIButton *hhh;
 
 
 @property (nonatomic, retain) NSInputStream *inputStream;

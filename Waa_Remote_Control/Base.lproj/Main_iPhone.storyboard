@@ -46,7 +46,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="連線" backgroundImage="v1.png">
-                                    <color key="titleColor" patternImage="E74855F9-9F0E-4C82-80B9-963D1EB0F133" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="10ADA606-6B82-4FE8-AA90-FC9E3C6771EE" colorSpace="pattern"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="msg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjW-So-iZQ">
-                                <rect key="frame" x="139" y="205" width="42" height="21"/>
+                                <rect key="frame" x="66" y="301" width="189" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,6 +65,7 @@
                     </view>
                     <connections>
                         <outlet property="LabelServerIP" destination="ACn-sq-1kU" id="L8I-Rm-Ivx"/>
+                        <outlet property="hhh" destination="HDE-Ad-mq8" id="GSA-VT-lJp"/>
                         <outlet property="message" destination="xjW-So-iZQ" id="Lu9-Yc-0XU"/>
                         <outlet property="textboxServerIp" destination="mgH-KM-sag" id="L4e-VO-gPj"/>
                     </connections>
@@ -103,7 +104,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="E74855F9-9F0E-4C82-80B9-963D1EB0F133" width="256" height="256">
+        <image name="10ADA606-6B82-4FE8-AA90-FC9E3C6771EE" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

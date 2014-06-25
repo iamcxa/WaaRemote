@@ -67,11 +67,8 @@
                     if ((IPc<256)&&(IPa>=0)){
                         if ((IPd<256)&&(IPa>=0)){
                             
-                            flag = 0;
-                            
                             [self initNetworkCommunication:ServerIP];
-                           
-
+                            
                             return true;
                         }else [self ShowAlerts:@"IP區段4格式錯誤！"];return false;
                     }else [self ShowAlerts:@"IP區段3格式錯誤！"];return false;
@@ -109,7 +106,8 @@
             
             event = @"NSStreamEventHasBytesAvailable";
             
-            if (flag ==1 && theStream == _inputStream) {
+           // if (flag ==1 && theStream == _inputStream) {
+                if (theStream == _inputStream) {
                 
                 NSMutableData *input = [[NSMutableData alloc] init];
                 
@@ -149,21 +147,22 @@
             
             event = @"NSStreamEventHasSpaceAvailable";
             
-            if (flag ==0 && theStream == _outputStream) {
+            //if (flag ==0 && theStream == _outputStream) {
+                if (theStream == _outputStream) {
                 
                 //输出
                 
-                NSData *_dataToSend = [NSData dataWithBytes:"123456\n" length:20];  //可用 後面的 length:20 好像不會影響
+               // NSData *_dataToSend = [NSData dataWithBytes:"123456" length:20];  //可用 後面的 length:20 好像不會影響
                 //[_outputStream write:[_dataToSend bytes] maxLength:[_dataToSend length]];
                 
-                uint8_t buff[] = "MRCode_CC_00"; //不可用
+                //uint8_t buff[] = "MRCode_CC"; //不可用
                 //[_outputStream write:buff maxLength: strlen((const char*)buff)+1];
                 
                 
-                Byte buff2[] = "123456789\n";  //可用
-                [_outputStream write:buff2 maxLength:sizeof(buff2)];
-
-                [self ShowAlerts:@"Hello Server!"];
+                Byte buff2[] = "MRCode_CC_01\n";  //可用
+                [_outputStream write:buff2 maxLength:strlen((const char*)buff2)+1];
+                
+                // [self ShowAlerts:@"Hello Server!"];
                 
                 //关闭输出流
                 [_outputStream close];
@@ -241,25 +240,25 @@
 /* 点击发送按钮  */
 
 /*
-- (IBAction)sendData:(id)sender {
-    
-    flag = 0;
-    
-    [self initNetworkCommunication];
-    
-}c
+ - (IBAction)sendData:(id)sender {
+ 
+ flag = 0;
+ 
+ [self initNetworkCommunication];
+ 
+ }c
  */
 
 /* 点击接收按钮  */
 
 /*
-- (IBAction)receiveData:(id)sender {
-    
-    flag = 1;
-    
-    [self initNetworkCommunication];
-    
-}
+ - (IBAction)receiveData:(id)sender {
+ 
+ flag = 1;
+ 
+ [self initNetworkCommunication];
+ 
+ }
  */
 
 -(void)close
@@ -296,8 +295,8 @@
     NSString *ServerIP=self.textboxServerIp.text;
     
     if ([self CheckIP:ServerIP]) {
-        [self ShowAlerts:@"IP驗證成功！"];
-
+        //[self ShowAlerts:@"IP驗證成功！"];
+        
     }else{
         [self ShowAlerts:@"IP驗證失敗！"];
     }
