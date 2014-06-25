@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ViewModeSetection.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *LabelServerIP;
@@ -106,8 +107,8 @@
             
             event = @"NSStreamEventHasBytesAvailable";
             
-           // if (flag ==1 && theStream == _inputStream) {
-                if (theStream == _inputStream) {
+            // if (flag ==1 && theStream == _inputStream) {
+            if (theStream == _inputStream) {
                 
                 NSMutableData *input = [[NSMutableData alloc] init];
                 
@@ -148,11 +149,11 @@
             event = @"NSStreamEventHasSpaceAvailable";
             
             //if (flag ==0 && theStream == _outputStream) {
-                if (theStream == _outputStream) {
+            if (theStream == _outputStream) {
                 
                 //输出
                 
-               // NSData *_dataToSend = [NSData dataWithBytes:"123456" length:20];  //可用 後面的 length:20 好像不會影響
+                // NSData *_dataToSend = [NSData dataWithBytes:"123456" length:20];  //可用 後面的 length:20 好像不會影響
                 //[_outputStream write:[_dataToSend bytes] maxLength:[_dataToSend length]];
                 
                 //uint8_t buff[] = "MRCode_CC"; //不可用
@@ -295,10 +296,14 @@
     NSString *ServerIP=self.textboxServerIp.text;
     
     if ([self CheckIP:ServerIP]) {
-        //[self ShowAlerts:@"IP驗證成功！"];
         
-    }else{
-        [self ShowAlerts:@"IP驗證失敗！"];
+        UIStoryboard *board=[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        
+        UIViewController *vc=[board instantiateViewControllerWithIdentifier:@"ViewModeSetection"];
+        
+        [self presentViewController:vc animated:YES completion:nil];
+     
+      
     }
     
     

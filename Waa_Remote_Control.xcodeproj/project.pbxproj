@@ -81,6 +81,7 @@
 		481A57B619439264006E9A0F /* arc.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577B19439264006E9A0F /* arc.png */; };
 		481A57B719439264006E9A0F /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577C19439264006E9A0F /* ic_launcher.png */; };
 		481A57BA194395BA006E9A0F /* ViewModeSetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A57B9194395BA006E9A0F /* ViewModeSetection.m */; };
+		487BE2E1195AD5F80033A6B6 /* ViewPowerpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,8 @@
 		481A577C19439264006E9A0F /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		481A57B8194395BA006E9A0F /* ViewModeSetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewModeSetection.h; sourceTree = "<group>"; };
 		481A57B9194395BA006E9A0F /* ViewModeSetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewModeSetection.m; sourceTree = "<group>"; };
+		487BE2DF195AD5F80033A6B6 /* ViewPowerpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPowerpoint.h; sourceTree = "<group>"; };
+		487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPowerpoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +246,8 @@
 				481A5720194391D0006E9A0F /* ViewController.m */,
 				481A5722194391D0006E9A0F /* Images.xcassets */,
 				481A570E194391D0006E9A0F /* Supporting Files */,
+				487BE2DF195AD5F80033A6B6 /* ViewPowerpoint.h */,
+				487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */,
 			);
 			path = Waa_Remote_Control;
 			sourceTree = "<group>";
@@ -534,6 +539,7 @@
 				481A5721194391D0006E9A0F /* ViewController.m in Sources */,
 				481A5718194391D0006E9A0F /* AppDelegate.m in Sources */,
 				481A5714194391D0006E9A0F /* main.m in Sources */,
+				487BE2E1195AD5F80033A6B6 /* ViewPowerpoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
