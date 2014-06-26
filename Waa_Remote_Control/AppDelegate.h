@@ -7,16 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
-#import "ViewModeSetection.h"
-#import "ViewPowerpoint.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong,nonatomic) ViewController *viewController;
-@property (strong,nonatomic) ViewModeSetection *viewModeSetection;
-@property (strong,nonatomic) ViewPowerpoint *viewPowerpoint;
 
 @end

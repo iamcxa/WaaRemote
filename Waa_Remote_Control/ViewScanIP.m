@@ -6,8 +6,7 @@
 //  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "ViewModeSetection.h"
+#import "ViewScanIP.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *LabelServerIP;
@@ -15,10 +14,13 @@
 - (IBAction)btnConnect:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *message;
 
+//@property(weak, nonatomic)  NSMutableString *resultstring;
 
 @end
 
 @implementation ViewController
+
+NSString *resultstring=nil;
 
 - (void)viewDidLoad
 {
@@ -112,7 +114,7 @@
                 
                 NSMutableData *input = [[NSMutableData alloc] init];
                 
-                uint8_t buffer[1024];
+                Byte buffer[1024];
                 
                 int len;
                 
@@ -132,13 +134,32 @@
                     
                 }
                 
-                NSString *resultstring = [[NSString alloc]
-                                          
-                                          initWithData:input encoding:NSUTF8StringEncoding];
+               resultstring =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
                 
-                NSLog(@"接收:%@",resultstring);
                 
-                _message.text = resultstring;
+                //_resultstring=[[NSMutableString alloc]
+                              // initWithData:input encoding:NSUTF8StringEncoding];
+
+            _message.text = resultstring;
+                
+                NSLog(@"resultstring:'%@'", resultstring);
+                
+                
+                if([resultstring isEqual:@"Connected"]){
+                    
+                    UIStoryboard *board=[UIStoryboard
+                                         storyboardWithName:@"Main_iPhone" bundle:nil];
+                    UIViewController *vc=[board instantiateViewControllerWithIdentifier:@"ViewModeSetection"];
+                    
+                    [self presentViewController:vc animated:YES completion:nil];
+                    
+                }else{
+                    
+                    [self ShowAlerts:@"連線失敗！"];
+                    
+                }
+
+                
                 
             }
             
@@ -152,18 +173,8 @@
             if (theStream == _outputStream) {
                 
                 //输出
-                
-                // NSData *_dataToSend = [NSData dataWithBytes:"123456" length:20];  //可用 後面的 length:20 好像不會影響
-                //[_outputStream write:[_dataToSend bytes] maxLength:[_dataToSend length]];
-                
-                //uint8_t buff[] = "MRCode_CC"; //不可用
-                //[_outputStream write:buff maxLength: strlen((const char*)buff)+1];
-                
-                
-                Byte buff2[] = "MRCode_CC_01\n";  //可用
+                Byte buff2[] = "Connect\n";
                 [_outputStream write:buff2 maxLength:strlen((const char*)buff2)+1];
-                
-                // [self ShowAlerts:@"Hello Server!"];
                 
                 //关闭输出流
                 [_outputStream close];
@@ -295,16 +306,7 @@
     
     NSString *ServerIP=self.textboxServerIp.text;
     
-    if ([self CheckIP:ServerIP]) {
-        
-        UIStoryboard *board=[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-        
-        UIViewController *vc=[board instantiateViewControllerWithIdentifier:@"ViewModeSetection"];
-        
-        [self presentViewController:vc animated:YES completion:nil];
-     
-      
-    }
+    [self CheckIP:ServerIP];
     
     
 }

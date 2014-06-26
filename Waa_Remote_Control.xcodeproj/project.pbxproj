@@ -15,7 +15,7 @@
 		481A5718194391D0006E9A0F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A5717194391D0006E9A0F /* AppDelegate.m */; };
 		481A571B194391D0006E9A0F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481A5719194391D0006E9A0F /* Main_iPhone.storyboard */; };
 		481A571E194391D0006E9A0F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481A571C194391D0006E9A0F /* Main_iPad.storyboard */; };
-		481A5721194391D0006E9A0F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A5720194391D0006E9A0F /* ViewController.m */; };
+		481A5721194391D0006E9A0F /* ViewScanIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A5720194391D0006E9A0F /* ViewScanIP.m */; };
 		481A5723194391D0006E9A0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481A5722194391D0006E9A0F /* Images.xcassets */; };
 		481A572A194391D0006E9A0F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5729194391D0006E9A0F /* XCTest.framework */; };
 		481A572B194391D0006E9A0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5707194391D0006E9A0F /* Foundation.framework */; };
@@ -80,8 +80,12 @@
 		481A57B519439264006E9A0F /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577919439264006E9A0F /* ic_launcher.png */; };
 		481A57B619439264006E9A0F /* arc.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577B19439264006E9A0F /* arc.png */; };
 		481A57B719439264006E9A0F /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577C19439264006E9A0F /* ic_launcher.png */; };
-		481A57BA194395BA006E9A0F /* ViewModeSetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A57B9194395BA006E9A0F /* ViewModeSetection.m */; };
+		481A57BA194395BA006E9A0F /* ViewSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A57B9194395BA006E9A0F /* ViewSelect.m */; };
 		487BE2E1195AD5F80033A6B6 /* ViewPowerpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */; };
+		487BE2ED195C96D90033A6B6 /* ViewVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2EC195C96D90033A6B6 /* ViewVideo.m */; };
+		487BE2F0195C97010033A6B6 /* ViewPower.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2EF195C97010033A6B6 /* ViewPower.m */; };
+		487BE2F3195C97750033A6B6 /* ViewHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2F2195C97750033A6B6 /* ViewHelp.m */; };
+		487BE2F6195C9BED0033A6B6 /* ViewMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2F5195C9BED0033A6B6 /* ViewMusic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,8 +111,8 @@
 		481A5717194391D0006E9A0F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		481A571A194391D0006E9A0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		481A571D194391D0006E9A0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		481A571F194391D0006E9A0F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		481A5720194391D0006E9A0F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		481A571F194391D0006E9A0F /* ViewScanIP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewScanIP.h; sourceTree = "<group>"; };
+		481A5720194391D0006E9A0F /* ViewScanIP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewScanIP.m; sourceTree = "<group>"; };
 		481A5722194391D0006E9A0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		481A5728194391D0006E9A0F /* Waa_Remote_ControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Waa_Remote_ControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		481A5729194391D0006E9A0F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -173,10 +177,18 @@
 		481A577919439264006E9A0F /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		481A577B19439264006E9A0F /* arc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arc.png; sourceTree = "<group>"; };
 		481A577C19439264006E9A0F /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
-		481A57B8194395BA006E9A0F /* ViewModeSetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewModeSetection.h; sourceTree = "<group>"; };
-		481A57B9194395BA006E9A0F /* ViewModeSetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewModeSetection.m; sourceTree = "<group>"; };
+		481A57B8194395BA006E9A0F /* ViewSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSelect.h; sourceTree = "<group>"; };
+		481A57B9194395BA006E9A0F /* ViewSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSelect.m; sourceTree = "<group>"; };
 		487BE2DF195AD5F80033A6B6 /* ViewPowerpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPowerpoint.h; sourceTree = "<group>"; };
 		487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPowerpoint.m; sourceTree = "<group>"; };
+		487BE2EB195C96D90033A6B6 /* ViewVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewVideo.h; sourceTree = "<group>"; };
+		487BE2EC195C96D90033A6B6 /* ViewVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewVideo.m; sourceTree = "<group>"; };
+		487BE2EE195C97010033A6B6 /* ViewPower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPower.h; sourceTree = "<group>"; };
+		487BE2EF195C97010033A6B6 /* ViewPower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPower.m; sourceTree = "<group>"; };
+		487BE2F1195C97750033A6B6 /* ViewHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewHelp.h; sourceTree = "<group>"; };
+		487BE2F2195C97750033A6B6 /* ViewHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewHelp.m; sourceTree = "<group>"; };
+		487BE2F4195C9BED0033A6B6 /* ViewMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewMusic.h; sourceTree = "<group>"; };
+		487BE2F5195C9BED0033A6B6 /* ViewMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewMusic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,18 +248,25 @@
 		481A570D194391D0006E9A0F /* Waa_Remote_Control */ = {
 			isa = PBXGroup;
 			children = (
+				481A570E194391D0006E9A0F /* Supporting Files */,
 				481A5716194391D0006E9A0F /* AppDelegate.h */,
 				481A5717194391D0006E9A0F /* AppDelegate.m */,
 				481A5719194391D0006E9A0F /* Main_iPhone.storyboard */,
 				481A571C194391D0006E9A0F /* Main_iPad.storyboard */,
-				481A57B8194395BA006E9A0F /* ViewModeSetection.h */,
-				481A57B9194395BA006E9A0F /* ViewModeSetection.m */,
-				481A571F194391D0006E9A0F /* ViewController.h */,
-				481A5720194391D0006E9A0F /* ViewController.m */,
-				481A5722194391D0006E9A0F /* Images.xcassets */,
-				481A570E194391D0006E9A0F /* Supporting Files */,
+				481A571F194391D0006E9A0F /* ViewScanIP.h */,
+				481A5720194391D0006E9A0F /* ViewScanIP.m */,
+				481A57B8194395BA006E9A0F /* ViewSelect.h */,
+				481A57B9194395BA006E9A0F /* ViewSelect.m */,
 				487BE2DF195AD5F80033A6B6 /* ViewPowerpoint.h */,
 				487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */,
+				487BE2EB195C96D90033A6B6 /* ViewVideo.h */,
+				487BE2EC195C96D90033A6B6 /* ViewVideo.m */,
+				487BE2EE195C97010033A6B6 /* ViewPower.h */,
+				487BE2EF195C97010033A6B6 /* ViewPower.m */,
+				487BE2F1195C97750033A6B6 /* ViewHelp.h */,
+				487BE2F2195C97750033A6B6 /* ViewHelp.m */,
+				487BE2F4195C9BED0033A6B6 /* ViewMusic.h */,
+				487BE2F5195C9BED0033A6B6 /* ViewMusic.m */,
 			);
 			path = Waa_Remote_Control;
 			sourceTree = "<group>";
@@ -255,6 +274,7 @@
 		481A570E194391D0006E9A0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				481A5722194391D0006E9A0F /* Images.xcassets */,
 				481A573F19439264006E9A0F /* pictures */,
 				481A570F194391D0006E9A0F /* Waa_Remote_Control-Info.plist */,
 				481A5710194391D0006E9A0F /* InfoPlist.strings */,
@@ -535,8 +555,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				481A57BA194395BA006E9A0F /* ViewModeSetection.m in Sources */,
-				481A5721194391D0006E9A0F /* ViewController.m in Sources */,
+				487BE2F6195C9BED0033A6B6 /* ViewMusic.m in Sources */,
+				487BE2F0195C97010033A6B6 /* ViewPower.m in Sources */,
+				487BE2F3195C97750033A6B6 /* ViewHelp.m in Sources */,
+				487BE2ED195C96D90033A6B6 /* ViewVideo.m in Sources */,
+				481A57BA194395BA006E9A0F /* ViewSelect.m in Sources */,
+				481A5721194391D0006E9A0F /* ViewScanIP.m in Sources */,
 				481A5718194391D0006E9A0F /* AppDelegate.m in Sources */,
 				481A5714194391D0006E9A0F /* main.m in Sources */,
 				487BE2E1195AD5F80033A6B6 /* ViewPowerpoint.m in Sources */,
