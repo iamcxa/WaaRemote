@@ -81,10 +81,6 @@ NSString *resultstring=nil;
     }else [self ShowAlerts:@"IP格式錯誤！"];  return false;
 }
 
--(void)ConnectSocket{
-    
-}
-
 //---------------------------------------------------------//
 
 -(void)stream:(NSStream *)theStream handleEvent:(NSStreamEvent)streamEvent {
@@ -134,16 +130,11 @@ NSString *resultstring=nil;
                     
                 }
                 
-               resultstring =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
+                resultstring =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
                 
-                
-                //_resultstring=[[NSMutableString alloc]
-                              // initWithData:input encoding:NSUTF8StringEncoding];
-
-            _message.text = resultstring;
+                _message.text = resultstring;
                 
                 NSLog(@"resultstring:'%@'", resultstring);
-                
                 
                 if([resultstring isEqual:@"Connected"]){
                     
@@ -153,13 +144,7 @@ NSString *resultstring=nil;
                     
                     [self presentViewController:vc animated:YES completion:nil];
                     
-                }else{
-                    
-                    [self ShowAlerts:@"連線失敗！"];
-                    
                 }
-
-                
                 
             }
             
@@ -187,6 +172,8 @@ NSString *resultstring=nil;
             
             event = @"NSStreamEventErrorOccurred";
             
+            [self ShowAlerts:@"連線失敗！"];
+            
             [self close];
             
             break;
@@ -198,6 +185,8 @@ NSString *resultstring=nil;
             NSLog(@"Error:%d:%@",[[theStream streamError] code],
                   
                   [[theStream streamError] localizedDescription]);
+            
+            [self ShowAlerts:@"與伺服器連線結束！"];
             
             break;
             
@@ -303,11 +292,11 @@ NSString *resultstring=nil;
 
 - (IBAction)btnConnect:(id)sender
 {
-    
     NSString *ServerIP=self.textboxServerIp.text;
     
-    [self CheckIP:ServerIP];
-    
+    if([self CheckIP:ServerIP]){
+        
+    }
     
 }
 
