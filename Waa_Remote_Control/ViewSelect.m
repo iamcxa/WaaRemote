@@ -1,5 +1,5 @@
 //
-//  ViewModeSetection.m
+//  ViewSelect.m
 //  Waa_Remote_Control
 //
 //  Created by iamcxa on 2014/6/8.
@@ -8,11 +8,11 @@
 
 #import "ViewSelect.h"
 
-@interface ViewModeSetection ()
+@interface ViewSelect ()
 
 @end
 
-@implementation ViewModeSetection
+@implementation ViewSelect
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
