@@ -13,6 +13,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+
+    //實例化示圖
+   // self.viewController=[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    //self.viewModeSetection=[[ViewModeSetection alloc] initWithNibName:@"ViewModeSetection" bundle:nil];
+    //self.viewPowerpoint=[[ViewPowerpoint alloc] initWithNibName:@"ViewPowerpoint" bundle:nil];
+    
+    //self.window.rootViewController = self.viewController;
+    
     return YES;
 }
 							

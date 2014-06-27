@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ViewScanIP.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *LabelServerIP;
@@ -14,10 +14,13 @@
 - (IBAction)btnConnect:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *message;
 
+//@property(weak, nonatomic)  NSMutableString *resultstring;
 
 @end
 
 @implementation ViewController
+
+NSString *resultstring=nil;
 
 - (void)viewDidLoad
 {
@@ -67,11 +70,8 @@
                     if ((IPc<256)&&(IPa>=0)){
                         if ((IPd<256)&&(IPa>=0)){
                             
-                            flag = 0;
-                            
                             [self initNetworkCommunication:ServerIP];
-                           
-
+                            
                             return true;
                         }else [self ShowAlerts:@"IP區段4格式錯誤！"];return false;
                     }else [self ShowAlerts:@"IP區段3格式錯誤！"];return false;
@@ -79,10 +79,6 @@
             }else [self ShowAlerts:@"IP區段1格式錯誤！"];return false;
         }else [self ShowAlerts:@"IP輸入不完整！"];return false;
     }else [self ShowAlerts:@"IP格式錯誤！"];  return false;
-}
-
--(void)ConnectSocket{
-    
 }
 
 //---------------------------------------------------------//
@@ -109,11 +105,12 @@
             
             event = @"NSStreamEventHasBytesAvailable";
             
-            if (flag ==1 && theStream == _inputStream) {
+            // if (flag ==1 && theStream == _inputStream) {
+            if (theStream == _inputStream) {
                 
                 NSMutableData *input = [[NSMutableData alloc] init];
                 
-                uint8_t buffer[1024];
+                Byte buffer[1024];
                 
                 int len;
                 
@@ -133,13 +130,21 @@
                     
                 }
                 
-                NSString *resultstring = [[NSString alloc]
-                                          
-                                          initWithData:input encoding:NSUTF8StringEncoding];
-                
-                NSLog(@"接收:%@",resultstring);
+                resultstring =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
                 
                 _message.text = resultstring;
+                
+                NSLog(@"resultstring:'%@'", resultstring);
+                
+                if([resultstring isEqual:@"Connected"]){
+                    
+                    UIStoryboard *board=[UIStoryboard
+                                         storyboardWithName:@"Main_iPhone" bundle:nil];
+                    UIViewController *vc=[board instantiateViewControllerWithIdentifier:@"ViewModeSetection"];
+                    
+                    [self presentViewController:vc animated:YES completion:nil];
+                    
+                }
                 
             }
             
@@ -149,21 +154,12 @@
             
             event = @"NSStreamEventHasSpaceAvailable";
             
-            if (flag ==0 && theStream == _outputStream) {
+            //if (flag ==0 && theStream == _outputStream) {
+            if (theStream == _outputStream) {
                 
                 //输出
-                
-                NSData *_dataToSend = [NSData dataWithBytes:"123456\n" length:20];  //可用 後面的 length:20 好像不會影響
-                //[_outputStream write:[_dataToSend bytes] maxLength:[_dataToSend length]];
-                
-                uint8_t buff[] = "MRCode_CC_00"; //不可用
-                //[_outputStream write:buff maxLength: strlen((const char*)buff)+1];
-                
-                
-                Byte buff2[] = "123456789\n";  //可用
-                [_outputStream write:buff2 maxLength:sizeof(buff2)];
-
-                [self ShowAlerts:@"Hello Server!"];
+                Byte buff2[] = "Connect\n";
+                [_outputStream write:buff2 maxLength:strlen((const char*)buff2)+1];
                 
                 //关闭输出流
                 [_outputStream close];
@@ -176,6 +172,8 @@
             
             event = @"NSStreamEventErrorOccurred";
             
+            [self ShowAlerts:@"連線失敗！"];
+            
             [self close];
             
             break;
@@ -187,6 +185,8 @@
             NSLog(@"Error:%d:%@",[[theStream streamError] code],
                   
                   [[theStream streamError] localizedDescription]);
+            
+            [self ShowAlerts:@"與伺服器連線結束！"];
             
             break;
             
@@ -241,25 +241,25 @@
 /* 点击发送按钮  */
 
 /*
-- (IBAction)sendData:(id)sender {
-    
-    flag = 0;
-    
-    [self initNetworkCommunication];
-    
-}c
+ - (IBAction)sendData:(id)sender {
+ 
+ flag = 0;
+ 
+ [self initNetworkCommunication];
+ 
+ }c
  */
 
 /* 点击接收按钮  */
 
 /*
-- (IBAction)receiveData:(id)sender {
-    
-    flag = 1;
-    
-    [self initNetworkCommunication];
-    
-}
+ - (IBAction)receiveData:(id)sender {
+ 
+ flag = 1;
+ 
+ [self initNetworkCommunication];
+ 
+ }
  */
 
 -(void)close
@@ -292,16 +292,11 @@
 
 - (IBAction)btnConnect:(id)sender
 {
-    
     NSString *ServerIP=self.textboxServerIp.text;
     
-    if ([self CheckIP:ServerIP]) {
-        [self ShowAlerts:@"IP驗證成功！"];
-
-    }else{
-        [self ShowAlerts:@"IP驗證失敗！"];
+    if([self CheckIP:ServerIP]){
+        
     }
-    
     
 }
 
@@ -319,8 +314,4 @@
 
 
 
-- (IBAction)test:(id)sender {
-}
-- (IBAction)Test:(UIButton *)sender {
-}
 @end

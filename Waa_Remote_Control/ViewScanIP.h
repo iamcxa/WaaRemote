@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+
+
 #include <sys/socket.h>
 #include <netinet/in.h>
 
@@ -19,8 +21,15 @@
 }
 
 
+@property (weak, nonatomic) IBOutlet UIButton *hhh;
+
 
 @property (nonatomic, retain) NSInputStream *inputStream;
 
 @property (nonatomic, retain) NSOutputStream *outputStream;
+
+
+
+
+
 @end

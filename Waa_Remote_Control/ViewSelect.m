@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 iamcxa. All rights reserved.
 //
 
-#import "ViewModeSetection.h"
+#import "ViewSelect.h"
 
 @interface ViewModeSetection ()
 
@@ -46,4 +46,8 @@
  }
  */
 
+- (IBAction)btnPowerPoint:(id)sender {
+    
+    
+}
 @end
