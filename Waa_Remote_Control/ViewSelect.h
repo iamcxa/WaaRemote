@@ -1,5 +1,5 @@
 //
-//  ViewModeSetection.h
+//  ViewSelect.h
 //  Waa_Remote_Control
 //
 //  Created by iamcxa on 2014/6/8.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewModeSetection : UIViewController
+@interface ViewSelect : UIViewController
 - (IBAction)btnPowerPoint:(id)sender;
 
 @end
