@@ -75,7 +75,7 @@ NSString *thisSocketMsg=nil;
                 
                 resultstring =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
                 
-                [self ShowAlerts:resultstring];
+                //[self ShowAlerts:resultstring];
 
 //                _message.text = resultstring;
                 

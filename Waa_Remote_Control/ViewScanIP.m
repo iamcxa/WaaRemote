@@ -79,9 +79,10 @@
                             
                             [_clientsocket initNetworkCommunication:ServerIP];
                             
-                            Common *Variable=[[Common alloc]init];
                             
-                            [Variable setServerIP:ServerIP];
+                            //Common *Variable=[[Common alloc]init];
+                            
+                          //  [Variable setServerIP:ServerIP];
                             
 //                            [Variable setThisMessage:@"Connect"];
 //                            [Variable ServerCommunication];
@@ -105,7 +106,7 @@
 
 - (IBAction)btnConnect:(id)sender
 {
-    NSString *ServerIP=self.textboxServerIp.text;
+   ServerIP=self.textboxServerIp.text;
     
     if([self CheckIP:ServerIP]){
         

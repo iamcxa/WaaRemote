@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ClientSocket.h"
+#import "Common.h"
 
 @interface ViewVideo : UIViewController
 - (IBAction)btnPowerOff:(id)sender;

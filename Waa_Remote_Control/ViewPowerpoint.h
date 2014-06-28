@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ClientSocket.h"
+#import "Common.h"
 
-@interface ViewPowerpoint : UIViewController
+@interface ViewPowerpoint : UIViewController<NSStreamDelegate>
 - (IBAction)btnHome:(id)sender;
 - (IBAction)btnHelp:(id)sender;
 - (IBAction)btnVolumeUp:(id)sender;
@@ -19,5 +21,7 @@
 - (IBAction)btnFilelist:(id)sender;
 - (IBAction)btnTimeAdd:(id)sender;
 - (IBAction)btnTimeReduce:(id)sender;
+@property (retain, nonatomic)ClientSocket *clientsocket;
+
 
 @end

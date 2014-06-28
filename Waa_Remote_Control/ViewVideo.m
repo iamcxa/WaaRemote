@@ -7,6 +7,8 @@
 //
 
 #import "ViewVideo.h"
+#import "ClientSocket.h"
+#import "Common.h"
 
 @implementation ViewVideo
 

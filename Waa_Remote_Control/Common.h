@@ -9,17 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "ClientSocket.h"
 
-@interface Common :NSObject{
+NSString *ServerIP;
+
+@interface Common :NSObject<NSStreamDelegate>{
     
     NSString *ServerIP;
 }
 
-@property (retain)NSString *ServerIP;
+//@property (retain)NSString *ServerIP;
 
 //@property (retain, nonatomic)ClientSocket *CommonSocket;
 //
 //-(void)ServerCommunication;
 //
 //-(void) setThisMessage:(NSString *)thisMessage;
+
+@property (retain, nonatomic)ClientSocket *clientsocket;
 
 @end

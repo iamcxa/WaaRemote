@@ -11,7 +11,7 @@
 
 @implementation Common
 
-@synthesize ServerIP;
+//@synthesize ServerIP;
 
 NSString *thisMsg=nil;
 
@@ -27,5 +27,6 @@ NSString *thisMsg=nil;
 //-(void) setThisMessage:(NSString *)thisMessage{
 //    thisMsg=[thisMessage stringByAppendingString:@"\n"];
 //}
+
 
 @end

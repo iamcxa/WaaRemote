@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "ClientSocket.h"
+#import "Common.h"
 
-@interface ViewSelect : UIViewController
+@interface ViewSelect : UIViewController<NSStreamDelegate>
 - (IBAction)btnDisconnect:(id)sender;
 - (IBAction)btnPowerPoint:(id)sender;
 - (IBAction)btnHelp:(id)sender;

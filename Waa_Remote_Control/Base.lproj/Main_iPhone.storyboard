@@ -46,7 +46,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="連線" backgroundImage="v1.png">
-                                    <color key="titleColor" patternImage="2E589FBA-2F5D-43E7-BEBF-F7838CE831A1" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="4BE0B9D0-3E37-4D0B-AFFC-E93C49B946F0" colorSpace="pattern"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -287,7 +287,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnHelp:" destination="eXu-27-SPi" eventType="touchUpInside" id="Zyt-eD-Jwj"/>
                                     <segue destination="YhL-vs-eTc" kind="modal" id="FpR-v1-7xI"/>
                                 </connections>
                             </button>
@@ -760,10 +759,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zlo-ZP-3wU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="87" y="43" width="213" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                             </webView>
                             <button opaque="NO" alpha="0.25" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPJ-E2-cZy">
                                 <rect key="frame" x="20" y="20" width="48" height="48"/>
@@ -786,7 +784,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2E589FBA-2F5D-43E7-BEBF-F7838CE831A1" width="256" height="256">
+        <image name="4BE0B9D0-3E37-4D0B-AFFC-E93C49B946F0" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5273,6 +5271,6 @@ AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QeI-6b-nbC"/>
+        <segue reference="FpR-v1-7xI"/>
     </inferredMetricsTieBreakers>
 </document>
