@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewHelp :UIViewController
+- (IBAction)btnDisconnect:(id)sender;
+- (IBAction)btnMenu:(id)sender;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 

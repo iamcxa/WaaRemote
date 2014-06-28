@@ -91,4 +91,8 @@
 
 - (IBAction)btnTimeReduce:(id)sender {
 }
+
+- (IBAction)btnMenu:(id)sender {
+      [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

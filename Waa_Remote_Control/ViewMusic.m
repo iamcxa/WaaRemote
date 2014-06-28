@@ -9,5 +9,8 @@
 #import "ViewMusic.h"
 
 @implementation ViewMusic
+- (IBAction)btnMenu:(id)sender {
+      [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

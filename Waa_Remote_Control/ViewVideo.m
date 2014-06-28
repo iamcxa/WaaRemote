@@ -18,6 +18,7 @@
 }
 
 - (IBAction)btnMenu:(id)sender {
+      [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)btnItemNext:(id)sender {

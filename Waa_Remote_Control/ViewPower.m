@@ -30,4 +30,8 @@
 - (IBAction)btnPCSOff:(id)sender {
      [self LetDoIt:@"MRCode_CC_02"];
 }
+
+- (IBAction)btnMenu:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

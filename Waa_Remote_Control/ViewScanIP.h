@@ -21,9 +21,6 @@
 }
 
 -(void)go;
-
-@property (weak, nonatomic) IBOutlet UIButton *hhh;
-
 @property (retain, nonatomic)ClientSocket *clientsocket;
 
 @end

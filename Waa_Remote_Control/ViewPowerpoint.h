@@ -21,6 +21,7 @@
 - (IBAction)btnFilelist:(id)sender;
 - (IBAction)btnTimeAdd:(id)sender;
 - (IBAction)btnTimeReduce:(id)sender;
+- (IBAction)btnMenu:(id)sender;
 @property (retain, nonatomic)ClientSocket *clientsocket;
 
 
