@@ -87,6 +87,7 @@
 		487BE2F3195C97750033A6B6 /* ViewHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2F2195C97750033A6B6 /* ViewHelp.m */; };
 		487BE2F6195C9BED0033A6B6 /* ViewMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2F5195C9BED0033A6B6 /* ViewMusic.m */; };
 		8B542EBD195D3E9500732543 /* ClientSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B542EBC195D3E9500732543 /* ClientSocket.m */; };
+		8BAB5B3C195E9245006F3EF4 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB5B3B195E9245006F3EF4 /* Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +193,8 @@
 		487BE2F5195C9BED0033A6B6 /* ViewMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewMusic.m; sourceTree = "<group>"; };
 		8B542EBB195D3E9500732543 /* ClientSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientSocket.h; path = ../ClientSocket.h; sourceTree = "<group>"; };
 		8B542EBC195D3E9500732543 /* ClientSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientSocket.m; path = ../ClientSocket.m; sourceTree = "<group>"; };
+		8BAB5B3A195E9245006F3EF4 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		8BAB5B3B195E9245006F3EF4 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +275,8 @@
 				487BE2F5195C9BED0033A6B6 /* ViewMusic.m */,
 				8B542EBB195D3E9500732543 /* ClientSocket.h */,
 				8B542EBC195D3E9500732543 /* ClientSocket.m */,
+				8BAB5B3A195E9245006F3EF4 /* Common.h */,
+				8BAB5B3B195E9245006F3EF4 /* Common.m */,
 			);
 			path = Waa_Remote_Control;
 			sourceTree = "<group>";
@@ -564,6 +569,7 @@
 				487BE2F0195C97010033A6B6 /* ViewPower.m in Sources */,
 				487BE2F3195C97750033A6B6 /* ViewHelp.m in Sources */,
 				487BE2ED195C96D90033A6B6 /* ViewVideo.m in Sources */,
+				8BAB5B3C195E9245006F3EF4 /* Common.m in Sources */,
 				481A57BA194395BA006E9A0F /* ViewSelect.m in Sources */,
 				481A5721194391D0006E9A0F /* ViewScanIP.m in Sources */,
 				481A5718194391D0006E9A0F /* AppDelegate.m in Sources */,

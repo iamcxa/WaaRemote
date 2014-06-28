@@ -19,7 +19,7 @@
 
 - (void)initNetworkCommunication:(NSString *)ServerIP ;
 
--(void) setMessage:(NSString *)Msg;
+-(void) setSocketMessage:(NSString *)SocketMsg;
 
 @property (nonatomic, retain) NSInputStream *inputStream;
 

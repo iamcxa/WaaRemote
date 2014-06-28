@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *hhh;
 
 @property (retain, nonatomic)ClientSocket *clientsocket;
+
 //@property (nonatomic, retain) NSInputStream *inputStream;
 //
 //@property (nonatomic, retain) NSOutputStream *outputStream;

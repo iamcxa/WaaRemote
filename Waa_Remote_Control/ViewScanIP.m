@@ -8,6 +8,7 @@
 
 #import "ViewScanIP.h"
 #import "ClientSocket.h"
+#import "Common.h"
 
 @interface ViewScanIP ()
 @property (weak, nonatomic) IBOutlet UILabel *LabelServerIP;
@@ -74,9 +75,23 @@
                             
                             _clientsocket = [[ClientSocket alloc]init];
                             
-                            [_clientsocket setMessage:@"Connect"];
+                            [_clientsocket setSocketMessage:@"Connect"];
                             
                             [_clientsocket initNetworkCommunication:ServerIP];
+//                            
+//                            @try {
+//                                Common *Variable=[[Common alloc]init];
+//                                [Variable setServerIP:ServerIP];
+//                                [Variable setThisMessage:@"Connect"];
+//                                [Variable ServerCommunication];
+//
+//                            }
+//                            @catch (NSException *exception) {
+//                                NSLog(@"%@",exception);
+//
+//                            }
+//                            
+                            //NSLog(@"%@",[Variable ServerIP]);
                             
                             return true;
                         }else [self ShowAlerts:@"IP區段4格式錯誤！"];return false;
