@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -78,19 +78,13 @@
                             [_clientsocket setSocketMessage:@"Connect"];
                             
                             [_clientsocket initNetworkCommunication:ServerIP];
-//                            
-//                            @try {
-//                                Common *Variable=[[Common alloc]init];
-//                                [Variable setServerIP:ServerIP];
-//                                [Variable setThisMessage:@"Connect"];
-//                                [Variable ServerCommunication];
-//
-//                            }
-//                            @catch (NSException *exception) {
-//                                NSLog(@"%@",exception);
-//
-//                            }
-//                            
+                            
+                            Common *Variable=[[Common alloc]init];
+                            
+                            [Variable setServerIP:ServerIP];
+                            
+//                            [Variable setThisMessage:@"Connect"];
+//                            [Variable ServerCommunication];
                             //NSLog(@"%@",[Variable ServerIP]);
                             
                             return true;

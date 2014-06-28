@@ -16,10 +16,10 @@
 
 @property (retain)NSString *ServerIP;
 
-@property (retain, nonatomic)ClientSocket *CommonSocket;
-
--(void)ServerCommunication;
-
--(void) setThisMessage:(NSString *)thisMessage;
+//@property (retain, nonatomic)ClientSocket *CommonSocket;
+//
+//-(void)ServerCommunication;
+//
+//-(void) setThisMessage:(NSString *)thisMessage;
 
 @end
