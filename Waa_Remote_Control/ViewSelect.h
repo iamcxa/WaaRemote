@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ClientSocket.h"
+
 @interface ViewSelect : UIViewController
+- (IBAction)btnDisconnect:(id)sender;
 - (IBAction)btnPowerPoint:(id)sender;
+- (IBAction)btnHelp:(id)sender;
+- (IBAction)btnPower:(id)sender;
+- (IBAction)btnMovie:(id)sender;
+- (IBAction)btnMusic:(id)sender;
 
 @end

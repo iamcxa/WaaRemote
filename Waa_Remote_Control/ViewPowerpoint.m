@@ -52,4 +52,28 @@
 
 - (IBAction)btnHelp:(id)sender {
 }
+
+- (IBAction)btnVolumeUp:(id)sender {
+}
+
+- (IBAction)btnVolumeDown:(id)sender {
+}
+
+- (IBAction)btnPageBack:(id)sender {
+}
+
+- (IBAction)btnPageNext:(id)sender {
+}
+
+- (IBAction)btnAction:(id)sender {
+}
+
+- (IBAction)btnFilelist:(id)sender {
+}
+
+- (IBAction)btnTimeAdd:(id)sender {
+}
+
+- (IBAction)btnTimeReduce:(id)sender {
+}
 @end
