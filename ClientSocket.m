@@ -85,18 +85,7 @@ NSString *Msg=nil;
                     @try {
                         
                         ViewScanIP *vsip= [[ViewScanIP alloc]init];
-                        
                         [vsip go];
-                        
-//                        UIStoryboard *board=[UIStoryboard
-//                                             storyboardWithName:@"Main_iPhone" bundle:nil];
-//                        UIViewController *vc=[board instantiateViewControllerWithIdentifier:@"ViewSelect"];
-//                        UIViewController *vcIP=[board instantiateViewControllerWithIdentifier:@"ViewScanIP"];
-//                        [vcIP.view addSubview:vc.view];
-//                        [vcIP addChildViewController:vc];
-//
-//                        [vcIP presentViewController:vc animated:YES completion:nil];
-
                     }
                     @catch (NSException *exception) {
                         NSLog(@"%@",exception);
