@@ -24,6 +24,6 @@ NSString *ServerIP;
 //
 //-(void) setThisMessage:(NSString *)thisMessage;
 
-@property (retain, nonatomic)ClientSocket *clientsocket;
+//@property (retain, nonatomic)ClientSocket *clientsocket;
 
 @end

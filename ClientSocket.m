@@ -60,19 +60,19 @@ NSString *thisSocketMsg=nil;
                 while([_inputStream hasBytesAvailable])
                     
                 {
-                    
+                
                     len = [_inputStream read:buffer maxLength:sizeof(buffer)];
                     
                     if (len > 0)
                         
                     {
-                        
+                
                         [input appendBytes:buffer length:len];
                         
                     }
                     
                 }
-                
+    
                 resultstring =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
                 
                 //[self ShowAlerts:resultstring];

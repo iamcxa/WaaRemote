@@ -15,7 +15,7 @@
 //#define PORT 3579
 
 
-@interface ViewScanIP : UIViewController<NSStreamDelegate>
+@interface ViewScanIP : UIViewController
 {
     int flag;
 }
