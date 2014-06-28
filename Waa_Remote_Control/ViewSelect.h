@@ -14,7 +14,6 @@
 - (IBAction)btnDisconnect:(id)sender;
 - (IBAction)btnPowerPoint:(id)sender;
 - (IBAction)btnHelp:(id)sender;
-- (IBAction)btnPower:(id)sender;
 - (IBAction)btnMovie:(id)sender;
 - (IBAction)btnMusic:(id)sender;
 

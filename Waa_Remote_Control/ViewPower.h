@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewComputerControl : UIViewController
+@interface ViewPower : UIViewController
+- (IBAction)btnPCSleep:(id)sender;
+- (IBAction)btnPCRest:(id)sender;
+- (IBAction)btnPCSOff:(id)sender;
 
 @end

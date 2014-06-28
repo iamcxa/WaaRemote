@@ -74,8 +74,7 @@
 - (IBAction)btnHelp:(id)sender {
 }
 
-- (IBAction)btnPower:(id)sender {
-}
+
 
 - (IBAction)btnMovie:(id)sender {
 }

@@ -9,5 +9,21 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewVideo : UIViewController
+- (IBAction)btnPowerOff:(id)sender;
+- (IBAction)btnHelp:(id)sender;
+- (IBAction)btnMenu:(id)sender;
+- (IBAction)btnItemNext:(id)sender;
+- (IBAction)btnItemLast:(id)sender;
+- (IBAction)btnPlayFaster:(id)sender;
+- (IBAction)btnPlaySlower:(id)sender;
+- (IBAction)BtnStop:(id)sender;
+- (IBAction)btnPlay:(id)sender;
+- (IBAction)btnMute:(id)sender;
+- (IBAction)btnVolumeDown:(id)sender;
+- (IBAction)btnVolumeUp:(id)sender;
+- (IBAction)btnFilelist:(id)sender;
+- (IBAction)btnFullScreen:(id)sender;
+- (IBAction)btnPlayRepeat:(id)sender;
+- (IBAction)btnPlayRandom:(id)sender;
 
 @end

@@ -8,6 +8,14 @@
 
 #import "ViewPower.h"
 
-@implementation ViewComputerControl
+@implementation ViewPower
 
+- (IBAction)btnPCSleep:(id)sender {
+}
+
+- (IBAction)btnPCRest:(id)sender {
+}
+
+- (IBAction)btnPCSOff:(id)sender {
+}
 @end
