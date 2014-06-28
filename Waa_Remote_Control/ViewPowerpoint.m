@@ -64,7 +64,7 @@
 
 - (IBAction)btnVolumeUp:(id)sender {
     //[self LetDoIt:@"MRCode_PPT_14"];
-    [self LetDoIt:@"MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14MRCode_PPT_14"];
+    [self LetDoIt:@"MRCode_PPT_14"];
 }
 
 - (IBAction)btnVolumeDown:(id)sender {

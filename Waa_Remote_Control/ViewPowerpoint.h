@@ -12,7 +12,7 @@
 
 @interface ViewPowerpoint : UIViewController<NSStreamDelegate>
 - (IBAction)btnHome:(id)sender;
-- (IBAction)btnHelp:(id)sender;
+//- (IBAction)btnHelp:(id)sender;
 - (IBAction)btnVolumeUp:(id)sender;
 - (IBAction)btnVolumeDown:(id)sender;
 - (IBAction)btnPageBack:(id)sender;

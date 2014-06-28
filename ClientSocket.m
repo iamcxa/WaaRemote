@@ -57,9 +57,11 @@ NSString *thisSocketMsg=nil;
                 
                 int len;
                 
+                
                 while([_inputStream hasBytesAvailable])
                     
                 {
+                    usleep(20000);
                     
                     len = [_inputStream read:buffer maxLength:1024];
                     
