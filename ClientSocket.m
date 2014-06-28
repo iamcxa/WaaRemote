@@ -61,7 +61,7 @@ NSString *thisSocketMsg=nil;
                     
                 {
                     
-                    len = [_inputStream read:buffer maxLength:sizeof(buffer)];
+                    len = [_inputStream read:buffer maxLength:1024];
                     
                     if (len > 0)
                         
@@ -165,26 +165,32 @@ NSString *thisSocketMsg=nil;
     
     CFWriteStreamRef writeStream;
     
-    CFStreamCreatePairWithSocketToHost(NULL,
+    CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault,
                                        (CFStringRef)CFBridgingRetain(ServerIP), PORT, &readStream, &writeStream);
     
-    _inputStream = (__bridge_transfer NSInputStream *)readStream;
+    //_inputStream = (__bridge_transfer NSInputStream *)readStream;
+    _inputStream = (__bridge NSInputStream *)readStream;
     
-    _outputStream = (__bridge_transfer NSOutputStream*)writeStream;
     
     [_inputStream setDelegate:self];
     
-    [_outputStream setDelegate:self];
-                  
+    
     [_inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
      
                             forMode:NSDefaultRunLoopMode];
     
+    [_inputStream open];
+    
+    
+    
+    //_outputStream = (__bridge_transfer NSOutputStream*)writeStream;
+    _outputStream = (__bridge NSOutputStream*)writeStream;
+    
+    [_outputStream setDelegate:self];
+
     [_outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
      
                              forMode:NSDefaultRunLoopMode];
-    
-    [_inputStream open];
     
     [_outputStream open];
     

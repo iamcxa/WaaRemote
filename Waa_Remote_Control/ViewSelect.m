@@ -57,7 +57,12 @@
         //
         //    [_clientsocket initNetworkCommunication:ServerIP];
      
-            [self dismissViewControllerAnimated:YES completion:nil];
+           // [self dismissViewControllerAnimated:YES completion:nil];
+        
+        UIStoryboard *board=[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        UIViewController *vc=[board instantiateViewControllerWithIdentifier:@"ViewScanIP"];
+        //[self presentViewController:vc animated:YES completion:nil];
+        [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:vc animated:YES completion:nil];
 
     }
     @catch (NSException *exception) {
