@@ -17,4 +17,6 @@
 - (IBAction)btnMovie:(id)sender;
 - (IBAction)btnMusic:(id)sender;
 
+@property (retain, nonatomic)ClientSocket *clientsocket;
+
 @end
