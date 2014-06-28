@@ -8,6 +8,8 @@
 
 #import "ViewSelect.h"
 
+#import "ClientSocket.h"
+
 @interface ViewSelect ()
 
 @end
@@ -46,8 +48,38 @@
  }
  */
 
+- (IBAction)btnDisconnect:(id)sender {
+    
+    @try {
+        //    _clientsocket = [[ClientSocket alloc]init];
+        //
+        //    [_clientsocket setMessage:@"Connect"];
+        //
+        //    [_clientsocket initNetworkCommunication:ServerIP];
+     
+            [self dismissViewControllerAnimated:YES completion:nil];
+
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+    }
+
+   }
+
 - (IBAction)btnPowerPoint:(id)sender {
     
     
+}
+
+- (IBAction)btnHelp:(id)sender {
+}
+
+- (IBAction)btnPower:(id)sender {
+}
+
+- (IBAction)btnMovie:(id)sender {
+}
+
+- (IBAction)btnMusic:(id)sender {
 }
 @end
