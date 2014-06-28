@@ -12,7 +12,7 @@
 @implementation ClientSocket
 
 NSString *resultstring=nil;
-NSString *Msg=nil;
+NSString *thisSocketMsg=nil;
 //---------------------------------------------------------//
 
 -(void)ShowAlerts:(NSString *)Message{
@@ -104,7 +104,7 @@ NSString *Msg=nil;
             //if (flag ==0 && theStream == _outputStream) {
             if (theStream == _outputStream) {
                 
-                NSData *bytes2 = [Msg dataUsingEncoding:NSUTF8StringEncoding];
+                NSData *bytes2 = [thisSocketMsg dataUsingEncoding:NSUTF8StringEncoding];
                 Byte *Buff = (Byte *)[bytes2 bytes];
                 //输出
                 [_outputStream write:Buff maxLength:strlen((const char*)Buff)+1];
@@ -152,8 +152,8 @@ NSString *Msg=nil;
     
 }
 
--(void) setMessage:(NSString *)Message2{
-    Msg=[Message2 stringByAppendingString:@"\n"];
+-(void) setSocketMessage:(NSString *)SocketMsg{
+    thisSocketMsg=[SocketMsg stringByAppendingString:@"\n"];
 }
 
 
@@ -175,7 +175,7 @@ NSString *Msg=nil;
     [_inputStream setDelegate:self];
     
     [_outputStream setDelegate:self];
-    
+                  
     [_inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]
      
                             forMode:NSDefaultRunLoopMode];
@@ -188,9 +188,9 @@ NSString *Msg=nil;
     
     [_outputStream open];
     
-    NSLog(@"連接成功");
     
-    
+    NSLog(@"open");
+
 }
 
 
