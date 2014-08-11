@@ -4,6 +4,43 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="YWL-Rg-2EF">
+            <objects>
+                <tableViewController id="EsO-s3-hei" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FPZ-1b-bMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1102" y="544"/>
+        </scene>
+        <!--File Selector-->
+        <scene sceneID="1xo-aO-svX">
+            <objects>
+                <viewController storyboardIdentifier="ViewFileSelector" id="yBN-jh-4pd" customClass="FileSelector" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BTe-BN-uUL"/>
+                        <viewControllerLayoutGuide type="bottom" id="b6a-PM-3FV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dww-iV-XWZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="ViewFileSelector" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TuO-Lz-a0H">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Xx8-7f-LYa"/>
+                    <connections>
+                        <outlet property="tableview" destination="TuO-Lz-a0H" id="4aN-jx-LgA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSo-dP-OGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464" y="-246"/>
+        </scene>
         <!--View ScanIP-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -46,7 +83,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="連線" backgroundImage="v1.png">
-                                    <color key="titleColor" patternImage="4B5762C2-B4B3-46FC-B6EA-ED63CF0BBCE1" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="EF761731-9B72-48DB-938E-9DDAFC498599" colorSpace="pattern"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -251,7 +288,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32D-EE-elM">
-                                <rect key="frame" x="260" y="462" width="50" height="50"/>
+                                <rect key="frame" x="263" y="455" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="icon3.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -303,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmU-x2-wfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="-241"/>
+            <point key="canvasLocation" x="141" y="-319"/>
         </scene>
         <!--View Video-->
         <scene sceneID="rfi-v2-37d">
@@ -648,7 +685,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RTv-8L-KAj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="87"/>
+            <point key="canvasLocation" x="548" y="215"/>
         </scene>
         <!--View Power-->
         <scene sceneID="0V2-dv-da8">
@@ -793,7 +830,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4B5762C2-B4B3-46FC-B6EA-ED63CF0BBCE1" width="256" height="256">
+        <image name="EF761731-9B72-48DB-938E-9DDAFC498599" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5280,6 +5317,6 @@ AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QeI-6b-nbC"/>
+        <segue reference="FpR-v1-7xI"/>
     </inferredMetricsTieBreakers>
 </document>

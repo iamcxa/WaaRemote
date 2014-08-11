@@ -81,6 +81,8 @@
 		481A57B619439264006E9A0F /* arc.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577B19439264006E9A0F /* arc.png */; };
 		481A57B719439264006E9A0F /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577C19439264006E9A0F /* ic_launcher.png */; };
 		481A57BA194395BA006E9A0F /* ViewSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A57B9194395BA006E9A0F /* ViewSelect.m */; };
+		483001EB1998C217001390B4 /* FileSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 483001E91998C217001390B4 /* FileSelector.h */; };
+		483001EC1998C217001390B4 /* FileSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 483001EA1998C217001390B4 /* FileSelector.m */; };
 		487BE2E1195AD5F80033A6B6 /* ViewPowerpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */; };
 		487BE2ED195C96D90033A6B6 /* ViewVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2EC195C96D90033A6B6 /* ViewVideo.m */; };
 		487BE2F0195C97010033A6B6 /* ViewPower.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2EF195C97010033A6B6 /* ViewPower.m */; };
@@ -221,6 +223,8 @@
 		481A577C19439264006E9A0F /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		481A57B8194395BA006E9A0F /* ViewSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSelect.h; sourceTree = "<group>"; };
 		481A57B9194395BA006E9A0F /* ViewSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSelect.m; sourceTree = "<group>"; };
+		483001E91998C217001390B4 /* FileSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSelector.h; sourceTree = "<group>"; };
+		483001EA1998C217001390B4 /* FileSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSelector.m; sourceTree = "<group>"; };
 		487BE2DF195AD5F80033A6B6 /* ViewPowerpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPowerpoint.h; sourceTree = "<group>"; };
 		487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPowerpoint.m; sourceTree = "<group>"; };
 		487BE2EB195C96D90033A6B6 /* ViewVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewVideo.h; sourceTree = "<group>"; };
@@ -334,6 +338,7 @@
 		481A570D194391D0006E9A0F /* Waa_Remote_Control */ = {
 			isa = PBXGroup;
 			children = (
+				483001E819878441001390B4 /* iPad */,
 				481A570E194391D0006E9A0F /* Supporting Files */,
 				481A5716194391D0006E9A0F /* AppDelegate.h */,
 				481A5717194391D0006E9A0F /* AppDelegate.m */,
@@ -357,6 +362,8 @@
 				8B542EBC195D3E9500732543 /* ClientSocket.m */,
 				8BAB5B3A195E9245006F3EF4 /* Common.h */,
 				8BAB5B3B195E9245006F3EF4 /* Common.m */,
+				483001E91998C217001390B4 /* FileSelector.h */,
+				483001EA1998C217001390B4 /* FileSelector.m */,
 			);
 			path = Waa_Remote_Control;
 			sourceTree = "<group>";
@@ -491,6 +498,13 @@
 			path = "drawable-xhdpi";
 			sourceTree = "<group>";
 		};
+		483001E819878441001390B4 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		48BC025F195EAA1A00D03A56 /* help.files */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +558,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				483001EB1998C217001390B4 /* FileSelector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +610,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
+					481A5703194391D0006E9A0F = {
+						DevelopmentTeam = JYTU5CPE29;
+					};
 					481A5727194391D0006E9A0F = {
 						TestTargetID = 481A5703194391D0006E9A0F;
 					};
@@ -754,6 +772,7 @@
 				481A5718194391D0006E9A0F /* AppDelegate.m in Sources */,
 				8B542EBD195D3E9500732543 /* ClientSocket.m in Sources */,
 				481A5714194391D0006E9A0F /* main.m in Sources */,
+				483001EC1998C217001390B4 /* FileSelector.m in Sources */,
 				487BE2E1195AD5F80033A6B6 /* ViewPowerpoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -889,10 +908,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Waa_Remote_Control/Waa_Remote_Control-Prefix.pch";
 				INFOPLIST_FILE = "Waa_Remote_Control/Waa_Remote_Control-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -902,10 +926,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Waa_Remote_Control/Waa_Remote_Control-Prefix.pch";
 				INFOPLIST_FILE = "Waa_Remote_Control/Waa_Remote_Control-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

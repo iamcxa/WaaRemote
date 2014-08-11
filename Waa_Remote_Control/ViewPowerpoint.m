@@ -84,6 +84,7 @@
 }
 
 - (IBAction)btnFilelist:(id)sender {
+    [self go];
 }
 
 - (IBAction)btnTimeAdd:(id)sender {
@@ -95,4 +96,12 @@
 - (IBAction)btnMenu:(id)sender {
       [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+-(void)go{
+    UIStoryboard *board=[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    UIViewController *vc=[board instantiateViewControllerWithIdentifier:@"ViewFileSelector"];
+    //[self presentViewController:vc animated:YES completion:nil];
+    [[[[[UIApplication sharedApplication] delegate] window] rootViewController] presentViewController:vc animated:YES completion:nil];
+}
+
 @end
