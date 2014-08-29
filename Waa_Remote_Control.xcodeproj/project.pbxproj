@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48000EE319A88793003CF8C3 /* ViewSwitchController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48000EE119A88793003CF8C3 /* ViewSwitchController.h */; };
+		48000EE419A88793003CF8C3 /* ViewSwitchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48000EE219A88793003CF8C3 /* ViewSwitchController.m */; };
 		481A5708194391D0006E9A0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5707194391D0006E9A0F /* Foundation.framework */; };
 		481A570A194391D0006E9A0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5709194391D0006E9A0F /* CoreGraphics.framework */; };
 		481A570C194391D0006E9A0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A570B194391D0006E9A0F /* UIKit.framework */; };
@@ -80,10 +82,10 @@
 		481A57B519439264006E9A0F /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577919439264006E9A0F /* ic_launcher.png */; };
 		481A57B619439264006E9A0F /* arc.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577B19439264006E9A0F /* arc.png */; };
 		481A57B719439264006E9A0F /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577C19439264006E9A0F /* ic_launcher.png */; };
-		481A57BA194395BA006E9A0F /* ViewSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A57B9194395BA006E9A0F /* ViewSelect.m */; };
-		483001EB1998C217001390B4 /* FileSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 483001E91998C217001390B4 /* FileSelector.h */; };
-		483001EC1998C217001390B4 /* FileSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 483001EA1998C217001390B4 /* FileSelector.m */; };
-		487BE2E1195AD5F80033A6B6 /* ViewPowerpoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */; };
+		481A57BA194395BA006E9A0F /* ViewMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A57B9194395BA006E9A0F /* ViewMenu.m */; };
+		483001EB1998C217001390B4 /* ViewFileList.h in Headers */ = {isa = PBXBuildFile; fileRef = 483001E91998C217001390B4 /* ViewFileList.h */; };
+		483001EC1998C217001390B4 /* ViewFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = 483001EA1998C217001390B4 /* ViewFileList.m */; };
+		487BE2E1195AD5F80033A6B6 /* ViewPPT.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2E0195AD5F80033A6B6 /* ViewPPT.m */; };
 		487BE2ED195C96D90033A6B6 /* ViewVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2EC195C96D90033A6B6 /* ViewVideo.m */; };
 		487BE2F0195C97010033A6B6 /* ViewPower.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2EF195C97010033A6B6 /* ViewPower.m */; };
 		487BE2F3195C97750033A6B6 /* ViewHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2F2195C97750033A6B6 /* ViewHelp.m */; };
@@ -128,8 +130,7 @@
 		48BC02AD195EAA1B00D03A56 /* image072.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48BC0285195EAA1A00D03A56 /* image072.jpg */; };
 		48BC02AE195EAA1B00D03A56 /* image074.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48BC0286195EAA1A00D03A56 /* image074.jpg */; };
 		48BC02AF195EAA1B00D03A56 /* help.htm in Resources */ = {isa = PBXBuildFile; fileRef = 48BC0287195EAA1A00D03A56 /* help.htm */; };
-		8B542EBD195D3E9500732543 /* ClientSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B542EBC195D3E9500732543 /* ClientSocket.m */; };
-		8BAB5B3C195E9245006F3EF4 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB5B3B195E9245006F3EF4 /* Common.m */; };
+		8B542EBD195D3E9500732543 /* AppSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B542EBC195D3E9500732543 /* AppSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48000EE119A88793003CF8C3 /* ViewSwitchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSwitchController.h; sourceTree = "<group>"; };
+		48000EE219A88793003CF8C3 /* ViewSwitchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSwitchController.m; sourceTree = "<group>"; };
 		481A5704194391D0006E9A0F /* Waa_Remote_Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waa_Remote_Control.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		481A5707194391D0006E9A0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		481A5709194391D0006E9A0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -221,12 +224,12 @@
 		481A577919439264006E9A0F /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		481A577B19439264006E9A0F /* arc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arc.png; sourceTree = "<group>"; };
 		481A577C19439264006E9A0F /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
-		481A57B8194395BA006E9A0F /* ViewSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSelect.h; sourceTree = "<group>"; };
-		481A57B9194395BA006E9A0F /* ViewSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSelect.m; sourceTree = "<group>"; };
-		483001E91998C217001390B4 /* FileSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSelector.h; sourceTree = "<group>"; };
-		483001EA1998C217001390B4 /* FileSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSelector.m; sourceTree = "<group>"; };
-		487BE2DF195AD5F80033A6B6 /* ViewPowerpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPowerpoint.h; sourceTree = "<group>"; };
-		487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPowerpoint.m; sourceTree = "<group>"; };
+		481A57B8194395BA006E9A0F /* ViewMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewMenu.h; sourceTree = "<group>"; };
+		481A57B9194395BA006E9A0F /* ViewMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewMenu.m; sourceTree = "<group>"; };
+		483001E91998C217001390B4 /* ViewFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFileList.h; sourceTree = "<group>"; };
+		483001EA1998C217001390B4 /* ViewFileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFileList.m; sourceTree = "<group>"; };
+		487BE2DF195AD5F80033A6B6 /* ViewPPT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPPT.h; sourceTree = "<group>"; };
+		487BE2E0195AD5F80033A6B6 /* ViewPPT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPPT.m; sourceTree = "<group>"; };
 		487BE2EB195C96D90033A6B6 /* ViewVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewVideo.h; sourceTree = "<group>"; };
 		487BE2EC195C96D90033A6B6 /* ViewVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewVideo.m; sourceTree = "<group>"; };
 		487BE2EE195C97010033A6B6 /* ViewPower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPower.h; sourceTree = "<group>"; };
@@ -275,10 +278,8 @@
 		48BC0285195EAA1A00D03A56 /* image072.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image072.jpg; sourceTree = "<group>"; };
 		48BC0286195EAA1A00D03A56 /* image074.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image074.jpg; sourceTree = "<group>"; };
 		48BC0287195EAA1A00D03A56 /* help.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help.htm; sourceTree = "<group>"; };
-		8B542EBB195D3E9500732543 /* ClientSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientSocket.h; path = ../ClientSocket.h; sourceTree = "<group>"; };
-		8B542EBC195D3E9500732543 /* ClientSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientSocket.m; path = ../ClientSocket.m; sourceTree = "<group>"; };
-		8BAB5B3A195E9245006F3EF4 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		8BAB5B3B195E9245006F3EF4 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		8B542EBB195D3E9500732543 /* AppSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppSocket.h; path = ../AppSocket.h; sourceTree = "<group>"; };
+		8B542EBC195D3E9500732543 /* AppSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppSocket.m; path = ../AppSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,18 +339,22 @@
 		481A570D194391D0006E9A0F /* Waa_Remote_Control */ = {
 			isa = PBXGroup;
 			children = (
-				483001E819878441001390B4 /* iPad */,
 				481A570E194391D0006E9A0F /* Supporting Files */,
+				483001E819878441001390B4 /* iPad */,
 				481A5716194391D0006E9A0F /* AppDelegate.h */,
 				481A5717194391D0006E9A0F /* AppDelegate.m */,
+				8B542EBB195D3E9500732543 /* AppSocket.h */,
+				8B542EBC195D3E9500732543 /* AppSocket.m */,
 				481A5719194391D0006E9A0F /* Main_iPhone.storyboard */,
 				481A571C194391D0006E9A0F /* Main_iPad.storyboard */,
+				487BE2DF195AD5F80033A6B6 /* ViewPPT.h */,
+				48000EE119A88793003CF8C3 /* ViewSwitchController.h */,
+				48000EE219A88793003CF8C3 /* ViewSwitchController.m */,
 				481A571F194391D0006E9A0F /* ViewScanIP.h */,
 				481A5720194391D0006E9A0F /* ViewScanIP.m */,
-				481A57B8194395BA006E9A0F /* ViewSelect.h */,
-				481A57B9194395BA006E9A0F /* ViewSelect.m */,
-				487BE2DF195AD5F80033A6B6 /* ViewPowerpoint.h */,
-				487BE2E0195AD5F80033A6B6 /* ViewPowerpoint.m */,
+				481A57B8194395BA006E9A0F /* ViewMenu.h */,
+				481A57B9194395BA006E9A0F /* ViewMenu.m */,
+				487BE2E0195AD5F80033A6B6 /* ViewPPT.m */,
 				487BE2EB195C96D90033A6B6 /* ViewVideo.h */,
 				487BE2EC195C96D90033A6B6 /* ViewVideo.m */,
 				487BE2EE195C97010033A6B6 /* ViewPower.h */,
@@ -358,12 +363,8 @@
 				487BE2F2195C97750033A6B6 /* ViewHelp.m */,
 				487BE2F4195C9BED0033A6B6 /* ViewMusic.h */,
 				487BE2F5195C9BED0033A6B6 /* ViewMusic.m */,
-				8B542EBB195D3E9500732543 /* ClientSocket.h */,
-				8B542EBC195D3E9500732543 /* ClientSocket.m */,
-				8BAB5B3A195E9245006F3EF4 /* Common.h */,
-				8BAB5B3B195E9245006F3EF4 /* Common.m */,
-				483001E91998C217001390B4 /* FileSelector.h */,
-				483001EA1998C217001390B4 /* FileSelector.m */,
+				483001E91998C217001390B4 /* ViewFileList.h */,
+				483001EA1998C217001390B4 /* ViewFileList.m */,
 			);
 			path = Waa_Remote_Control;
 			sourceTree = "<group>";
@@ -558,7 +559,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				483001EB1998C217001390B4 /* FileSelector.h in Headers */,
+				483001EB1998C217001390B4 /* ViewFileList.h in Headers */,
+				48000EE319A88793003CF8C3 /* ViewSwitchController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,14 +768,14 @@
 				487BE2F0195C97010033A6B6 /* ViewPower.m in Sources */,
 				487BE2F3195C97750033A6B6 /* ViewHelp.m in Sources */,
 				487BE2ED195C96D90033A6B6 /* ViewVideo.m in Sources */,
-				8BAB5B3C195E9245006F3EF4 /* Common.m in Sources */,
-				481A57BA194395BA006E9A0F /* ViewSelect.m in Sources */,
+				481A57BA194395BA006E9A0F /* ViewMenu.m in Sources */,
 				481A5721194391D0006E9A0F /* ViewScanIP.m in Sources */,
+				48000EE419A88793003CF8C3 /* ViewSwitchController.m in Sources */,
 				481A5718194391D0006E9A0F /* AppDelegate.m in Sources */,
-				8B542EBD195D3E9500732543 /* ClientSocket.m in Sources */,
+				8B542EBD195D3E9500732543 /* AppSocket.m in Sources */,
 				481A5714194391D0006E9A0F /* main.m in Sources */,
-				483001EC1998C217001390B4 /* FileSelector.m in Sources */,
-				487BE2E1195AD5F80033A6B6 /* ViewPowerpoint.m in Sources */,
+				483001EC1998C217001390B4 /* ViewFileList.m in Sources */,
+				487BE2E1195AD5F80033A6B6 /* ViewPPT.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

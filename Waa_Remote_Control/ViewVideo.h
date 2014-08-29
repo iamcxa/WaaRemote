@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ClientSocket.h"
-#import "Common.h"
 
 @interface ViewVideo : UIViewController
-- (IBAction)btnPowerOff:(id)sender;
 - (IBAction)btnHelp:(id)sender;
 - (IBAction)btnMenu:(id)sender;
 - (IBAction)btnItemNext:(id)sender;
@@ -27,5 +24,7 @@
 - (IBAction)btnFullScreen:(id)sender;
 - (IBAction)btnPlayRepeat:(id)sender;
 - (IBAction)btnPlayRandom:(id)sender;
+- (IBAction)btnStartOrEnd:(id)sender;
+- (IBAction)btnTurnOffPlayer:(id)sender;
 
 @end

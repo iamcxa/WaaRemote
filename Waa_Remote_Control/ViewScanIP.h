@@ -8,19 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ClientSocket.h"
-//#include <sys/socket.h>
-//#include <netinet/in.h>
-//
-//#define PORT 3579
+@class ViewScanIP;
 
+@interface ViewScanIP : UIViewController<NSStreamDelegate>
 
-@interface ViewScanIP : UIViewController
-{
-    int flag;
-}
-
--(void)go;
-@property (retain, nonatomic)ClientSocket *clientsocket;
+@property (weak, nonatomic) IBOutlet UILabel *LabelServerIP;
+@property (weak, nonatomic) IBOutlet UITextField *textboxServerIp;
+@property (weak, nonatomic) IBOutlet UILabel *message;
+- (IBAction)btnConnect:(id)sender;
 
 @end

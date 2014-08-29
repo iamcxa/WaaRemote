@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FileSelector : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface ViewFileList : UITableViewController//<UITableViewDelegate,UITableViewDataSource>
+
 
 @property (strong,nonatomic) NSArray * listData;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+
+@property (nonatomic,retain) NSMutableArray *seleteData;
+
+@property NSString* FileList;
+
 
 
 @end

@@ -9,5 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewMusic : UIViewController
+- (IBAction)btnStartOrEndPlayer:(id)sender;
+- (IBAction)btnHelp:(id)sender;
+- (IBAction)btnMenu:(id)sender;
+- (IBAction)btnNext:(id)sender;
+- (IBAction)btnBack:(id)sender;
+- (IBAction)btnStop:(id)sender;
+- (IBAction)btnPlayOrPause:(id)sender;
+- (IBAction)btnMute:(id)sender;
+- (IBAction)bntVolumeLower:(id)sender;
+- (IBAction)btnVolumeBigger:(id)sender;
+- (IBAction)btnFileList:(id)sender;
+
+
 
 @end

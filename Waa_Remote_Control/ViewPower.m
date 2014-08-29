@@ -7,31 +7,40 @@
 //
 
 #import "ViewPower.h"
-#import "ClientSocket.h"
-#import "Common.h"
 
 @implementation ViewPower
 
--(void)LetDoIt:(NSString *)Command{
-    Common *Variable=[[Common alloc]init];
-    _clientsocket = [[ClientSocket alloc]init];
-    [_clientsocket setSocketMessage:Command];
-    [_clientsocket initNetworkCommunication:ServerIP];
+-(void)viewDidLoad{
+    [sysDege setSocketTypeFilter:TYPE_CODE_POWER];
 }
 
+// 休眠
 - (IBAction)btnPCSleep:(id)sender {
-     [self LetDoIt:@"MRCode_CC_00"];
+    [sysDege socketStartWithMessage:@"MRCode_CC_00"];
+    usleep(500000);
 }
 
+// 重開機
 - (IBAction)btnPCRest:(id)sender {
-     [self LetDoIt:@"MRCode_CC_01"];
+    [sysDege socketStartWithMessage:@"MRCode_CC_01"];
+    usleep(500000);
 }
 
+// 關機
 - (IBAction)btnPCSOff:(id)sender {
-     [self LetDoIt:@"MRCode_CC_02"];
+    [sysDege socketStartWithMessage:@"MRCode_CC_02"];
+    usleep(500000);
 }
 
+// 回選單
 - (IBAction)btnMenu:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+// 說明選單
+- (IBAction)btnHelp:(id)sender {
+    [self performSegueWithIdentifier:@"GotoViewHelp" sender:self];
+}
+
+
 @end

@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ClientSocket.h"
-#import "Common.h"
 
-@interface ViewSelect : UIViewController<NSStreamDelegate>
+@class ViewMenu;
 
-- (IBAction)btnPowerPoint:(id)sender;
-- (IBAction)btnHelp:(id)sender;
-- (IBAction)btnMovie:(id)sender;
+@interface ViewMenu : UIViewController<NSStreamDelegate>
+
 - (IBAction)btnMusic:(id)sender;
+- (IBAction)btnVideo:(id)sender;
+- (IBAction)btnPowerPoint:(id)sender;
+- (IBAction)btnPower:(id)sender;
+- (IBAction)btnHelp:(id)sender;
 - (IBAction)btnDisconnect:(id)sender;
 
-@property (retain, nonatomic)ClientSocket *clientsocket;
 
 @end

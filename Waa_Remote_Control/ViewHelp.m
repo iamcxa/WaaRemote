@@ -7,6 +7,8 @@
 //
 
 #import "ViewHelp.h"
+#import "ViewSwitchController.h"
+
 
 @implementation ViewHelp
 
@@ -72,9 +74,19 @@
 //}
 
 - (IBAction)btnDisconnect:(id)sender {
-     [self dismissViewControllerAnimated:YES completion:nil];
-    
+    @try
+    {
+        [sysDege socketClose];
+        ViewSwitchController *viewSwitchController=[[ViewSwitchController alloc]init];
+        [[sysDege window]setRootViewController: viewSwitchController];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+    @catch (NSException *exception) {
+        NSLog(@"\n\n%@\n\n",exception);
+    }
 }
+
 
 - (IBAction)btnMenu:(id)sender {
       [self dismissViewControllerAnimated:YES completion:nil];
