@@ -78,10 +78,6 @@
 		481A57B119439264006E9A0F /* video.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577419439264006E9A0F /* video.png */; };
 		481A57B219439264006E9A0F /* video_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577519439264006E9A0F /* video_icon.png */; };
 		481A57B319439264006E9A0F /* video_icon_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577619439264006E9A0F /* video_icon_no.png */; };
-		481A57B419439264006E9A0F /* arc.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577819439264006E9A0F /* arc.png */; };
-		481A57B519439264006E9A0F /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577919439264006E9A0F /* ic_launcher.png */; };
-		481A57B619439264006E9A0F /* arc.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577B19439264006E9A0F /* arc.png */; };
-		481A57B719439264006E9A0F /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A577C19439264006E9A0F /* ic_launcher.png */; };
 		481A57BA194395BA006E9A0F /* ViewMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A57B9194395BA006E9A0F /* ViewMenu.m */; };
 		483001EB1998C217001390B4 /* ViewFileList.h in Headers */ = {isa = PBXBuildFile; fileRef = 483001E91998C217001390B4 /* ViewFileList.h */; };
 		483001EC1998C217001390B4 /* ViewFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = 483001EA1998C217001390B4 /* ViewFileList.m */; };
@@ -220,10 +216,6 @@
 		481A577419439264006E9A0F /* video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video.png; sourceTree = "<group>"; };
 		481A577519439264006E9A0F /* video_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon.png; sourceTree = "<group>"; };
 		481A577619439264006E9A0F /* video_icon_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon_no.png; sourceTree = "<group>"; };
-		481A577819439264006E9A0F /* arc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arc.png; sourceTree = "<group>"; };
-		481A577919439264006E9A0F /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
-		481A577B19439264006E9A0F /* arc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arc.png; sourceTree = "<group>"; };
-		481A577C19439264006E9A0F /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		481A57B8194395BA006E9A0F /* ViewMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewMenu.h; sourceTree = "<group>"; };
 		481A57B9194395BA006E9A0F /* ViewMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewMenu.m; sourceTree = "<group>"; };
 		483001E91998C217001390B4 /* ViewFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFileList.h; sourceTree = "<group>"; };
@@ -406,9 +398,6 @@
 			isa = PBXGroup;
 			children = (
 				481A574019439264006E9A0F /* drawable-hdpi */,
-				481A577719439264006E9A0F /* drawable-ldpi */,
-				481A577A19439264006E9A0F /* drawable-mdpi */,
-				481A577D19439264006E9A0F /* drawable-xhdpi */,
 			);
 			path = pictures;
 			sourceTree = "<group>";
@@ -472,31 +461,6 @@
 				481A577619439264006E9A0F /* video_icon_no.png */,
 			);
 			path = "drawable-hdpi";
-			sourceTree = "<group>";
-		};
-		481A577719439264006E9A0F /* drawable-ldpi */ = {
-			isa = PBXGroup;
-			children = (
-				481A577819439264006E9A0F /* arc.png */,
-				481A577919439264006E9A0F /* ic_launcher.png */,
-			);
-			path = "drawable-ldpi";
-			sourceTree = "<group>";
-		};
-		481A577A19439264006E9A0F /* drawable-mdpi */ = {
-			isa = PBXGroup;
-			children = (
-				481A577B19439264006E9A0F /* arc.png */,
-				481A577C19439264006E9A0F /* ic_launcher.png */,
-			);
-			path = "drawable-mdpi";
-			sourceTree = "<group>";
-		};
-		481A577D19439264006E9A0F /* drawable-xhdpi */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "drawable-xhdpi";
 			sourceTree = "<group>";
 		};
 		483001E819878441001390B4 /* iPad */ = {
@@ -647,8 +611,6 @@
 				481A577F19439264006E9A0F /* arc.png in Resources */,
 				48BC0290195EAA1B00D03A56 /* image016.jpg in Resources */,
 				481A57A019439264006E9A0F /* power_sleep_icon.png in Resources */,
-				481A57B419439264006E9A0F /* arc.png in Resources */,
-				481A57B719439264006E9A0F /* ic_launcher.png in Resources */,
 				48BC02A0195EAA1B00D03A56 /* image048.jpg in Resources */,
 				481A578B19439264006E9A0F /* ic_launcher.png in Resources */,
 				48BC0295195EAA1B00D03A56 /* image026.jpg in Resources */,
@@ -674,7 +636,6 @@
 				481A579B19439264006E9A0F /* power_icon.png in Resources */,
 				48BC0293195EAA1B00D03A56 /* image022.jpg in Resources */,
 				481A578319439264006E9A0F /* before_play.png in Resources */,
-				481A57B519439264006E9A0F /* ic_launcher.png in Resources */,
 				481A578219439264006E9A0F /* bark.png in Resources */,
 				481A57A319439264006E9A0F /* powerpoint_audio_cut.png in Resources */,
 				481A57B119439264006E9A0F /* video.png in Resources */,
@@ -706,7 +667,6 @@
 				481A578119439264006E9A0F /* audio_cut.png in Resources */,
 				48BC02A6195EAA1B00D03A56 /* image060.jpg in Resources */,
 				48BC029E195EAA1B00D03A56 /* image044.jpg in Resources */,
-				481A57B619439264006E9A0F /* arc.png in Resources */,
 				481A57AE19439264006E9A0F /* t2.jpg in Resources */,
 				481A57B319439264006E9A0F /* video_icon_no.png in Resources */,
 				481A57A919439264006E9A0F /* powerpoint_time_cut.png in Resources */,
@@ -909,7 +869,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -927,7 +887,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

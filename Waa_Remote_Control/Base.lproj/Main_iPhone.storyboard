@@ -870,7 +870,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="連線" backgroundImage="v1.png">
-                                    <color key="titleColor" patternImage="623BFF55-0A85-4002-8F13-D2BA1416D508" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="CBB4896A-EB48-42D1-B391-6B4DB33E43C8" colorSpace="pattern"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -900,7 +900,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="623BFF55-0A85-4002-8F13-D2BA1416D508" width="256" height="256">
+        <image name="CBB4896A-EB48-42D1-B391-6B4DB33E43C8" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5387,7 +5387,7 @@ AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="4Iv-g1-VBV"/>
-        <segue reference="YNI-iy-gbx"/>
+        <segue reference="ZAT-tN-Qve"/>
+        <segue reference="Us5-ZK-e4F"/>
     </inferredMetricsTieBreakers>
 </document>
