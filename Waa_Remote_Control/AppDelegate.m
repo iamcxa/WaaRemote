@@ -130,7 +130,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             result = @"NSStreamEventHasBytesAvailable";
             
             if (theStream == _inputStream) {
-                
                 NSMutableData *input = [[NSMutableData alloc] init];
                 
                 Byte buffer[1024]; NSInteger len;
@@ -146,8 +145,18 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                     
                 }
                 
-                //收到的訊息
-                socketLastTimeResult =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
+                // 收到的訊息
+                // 舊有方法 - 解碼傳送過來的 writeByte 訊息
+                //socketLastTimeResult =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
+                
+                // 新方法 - writeByte using unicode 可能未來有更好的方式
+                // 將裝載送過來之Unicode訊息的NSMutableData物件轉為NSString.
+                NSString *rawData=[[NSString alloc]initWithData:input encoding:NSNonLossyASCIIStringEncoding];
+                // 再將NSString轉為NSDATA
+                NSData *dataenc=[rawData dataUsingEncoding:NSNonLossyASCIIStringEncoding];
+                // 最後再轉換成NSString
+                socketLastTimeResult =[[NSString alloc]initWithData:dataenc encoding:NSNonLossyASCIIStringEncoding];
+                // event 輸出 received, 表示有收到字串.
                 event=@"received"; result=[NSString stringWithString:socketLastTimeResult];
                 [_inputStream close];
             }
@@ -161,8 +170,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             if (theStream == _outputStream) {
                 
                 NSLog(@"@output=>%@",socketOutputMsg);
-                NSData *bytes2 = [socketOutputMsg dataUsingEncoding:NSUTF8StringEncoding];
+                
+                NSData *bytes2 = [socketOutputMsg dataUsingEncoding:NSNonLossyASCIIStringEncoding];
+                
+                // NSData *bytes2 = [NSData dataWithBytes:(__bridge const void *)(socketOutputMsg) length:(socketOutputMsg.length)+1];
+                
                 Byte *Buff = (Byte *)[bytes2 bytes];
+            
                 //輸出後關閉串流
                 [_outputStream write:Buff maxLength:strlen((const char*)Buff)+1];
                 [_outputStream close];
@@ -209,7 +223,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             }else [sysDege showAlert:@"該資料夾沒有相關檔案！"];
         }else {
             NSLog(@"@received a null here! check server.");
-           [sysDege showAlert:@"發生錯誤！"];
+            [sysDege showAlert:@"發生錯誤！"];
         }
     }
     if([event isEqual:@"error"]) [self.viewSwitchController disconnect];;
