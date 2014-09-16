@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		48000EE319A88793003CF8C3 /* ViewSwitchController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48000EE119A88793003CF8C3 /* ViewSwitchController.h */; };
 		48000EE419A88793003CF8C3 /* ViewSwitchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48000EE219A88793003CF8C3 /* ViewSwitchController.m */; };
-		4805806519B61DB20099D3AB /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4805806419B61DB20099D3AB /* Images-2.xcassets */; };
+		4805806719B620110099D3AB /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4805806619B620110099D3AB /* Images-3.xcassets */; };
 		481A5708194391D0006E9A0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5707194391D0006E9A0F /* Foundation.framework */; };
 		481A570A194391D0006E9A0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5709194391D0006E9A0F /* CoreGraphics.framework */; };
 		481A570C194391D0006E9A0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A570B194391D0006E9A0F /* UIKit.framework */; };
@@ -19,7 +19,6 @@
 		481A571B194391D0006E9A0F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481A5719194391D0006E9A0F /* Main_iPhone.storyboard */; };
 		481A571E194391D0006E9A0F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481A571C194391D0006E9A0F /* Main_iPad.storyboard */; };
 		481A5721194391D0006E9A0F /* ViewScanIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 481A5720194391D0006E9A0F /* ViewScanIP.m */; };
-		481A5723194391D0006E9A0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481A5722194391D0006E9A0F /* Images.xcassets */; };
 		481A572A194391D0006E9A0F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5729194391D0006E9A0F /* XCTest.framework */; };
 		481A572B194391D0006E9A0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5707194391D0006E9A0F /* Foundation.framework */; };
 		481A572C194391D0006E9A0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A570B194391D0006E9A0F /* UIKit.framework */; };
@@ -143,7 +142,7 @@
 /* Begin PBXFileReference section */
 		48000EE119A88793003CF8C3 /* ViewSwitchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSwitchController.h; sourceTree = "<group>"; };
 		48000EE219A88793003CF8C3 /* ViewSwitchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSwitchController.m; sourceTree = "<group>"; };
-		4805806419B61DB20099D3AB /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
+		4805806619B620110099D3AB /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
 		481A5704194391D0006E9A0F /* Waa_Remote_Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waa_Remote_Control.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		481A5707194391D0006E9A0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		481A5709194391D0006E9A0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,7 +157,6 @@
 		481A571D194391D0006E9A0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		481A571F194391D0006E9A0F /* ViewScanIP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewScanIP.h; sourceTree = "<group>"; };
 		481A5720194391D0006E9A0F /* ViewScanIP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewScanIP.m; sourceTree = "<group>"; };
-		481A5722194391D0006E9A0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		481A5728194391D0006E9A0F /* Waa_Remote_ControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Waa_Remote_ControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		481A5729194391D0006E9A0F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		481A5731194391D0006E9A0F /* Waa_Remote_ControlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Waa_Remote_ControlTests-Info.plist"; sourceTree = "<group>"; };
@@ -344,11 +342,11 @@
 				487BE2DF195AD5F80033A6B6 /* ViewPPT.h */,
 				48000EE119A88793003CF8C3 /* ViewSwitchController.h */,
 				48000EE219A88793003CF8C3 /* ViewSwitchController.m */,
+				487BE2E0195AD5F80033A6B6 /* ViewPPT.m */,
 				481A571F194391D0006E9A0F /* ViewScanIP.h */,
 				481A5720194391D0006E9A0F /* ViewScanIP.m */,
 				481A57B8194395BA006E9A0F /* ViewMenu.h */,
 				481A57B9194395BA006E9A0F /* ViewMenu.m */,
-				487BE2E0195AD5F80033A6B6 /* ViewPPT.m */,
 				487BE2EB195C96D90033A6B6 /* ViewVideo.h */,
 				487BE2EC195C96D90033A6B6 /* ViewVideo.m */,
 				487BE2EE195C97010033A6B6 /* ViewPower.h */,
@@ -359,7 +357,7 @@
 				487BE2F5195C9BED0033A6B6 /* ViewMusic.m */,
 				483001E91998C217001390B4 /* ViewFileList.h */,
 				483001EA1998C217001390B4 /* ViewFileList.m */,
-				4805806419B61DB20099D3AB /* Images-2.xcassets */,
+				4805806619B620110099D3AB /* Images-3.xcassets */,
 			);
 			path = Waa_Remote_Control;
 			sourceTree = "<group>";
@@ -369,7 +367,6 @@
 			children = (
 				48BC025F195EAA1A00D03A56 /* help.files */,
 				48BC0287195EAA1A00D03A56 /* help.htm */,
-				481A5722194391D0006E9A0F /* Images.xcassets */,
 				481A573F19439264006E9A0F /* pictures */,
 				481A570F194391D0006E9A0F /* Waa_Remote_Control-Info.plist */,
 				481A5710194391D0006E9A0F /* InfoPlist.strings */,
@@ -626,6 +623,7 @@
 				481A57B219439264006E9A0F /* video_icon.png in Resources */,
 				481A578919439264006E9A0F /* help_icon.png in Resources */,
 				481A57AB19439264006E9A0F /* set.png in Resources */,
+				4805806719B620110099D3AB /* Images-3.xcassets in Resources */,
 				481A571E194391D0006E9A0F /* Main_iPad.storyboard in Resources */,
 				48BC02A3195EAA1B00D03A56 /* image054.jpg in Resources */,
 				481A57AC19439264006E9A0F /* stop_play.png in Resources */,
@@ -650,7 +648,6 @@
 				48BC0292195EAA1B00D03A56 /* image020.jpg in Resources */,
 				481A57AA19439264006E9A0F /* powerpoint_time_up.png in Resources */,
 				481A57A619439264006E9A0F /* powerpoint_paga_down.png in Resources */,
-				481A5723194391D0006E9A0F /* Images.xcassets in Resources */,
 				48BC0299195EAA1B00D03A56 /* image034.jpg in Resources */,
 				481A578619439264006E9A0F /* brak2.jpg in Resources */,
 				48BC02AC195EAA1B00D03A56 /* image071.jpg in Resources */,
@@ -683,7 +680,6 @@
 				48BC029B195EAA1B00D03A56 /* image038.jpg in Resources */,
 				481A579019439264006E9A0F /* led_r.png in Resources */,
 				48BC02A1195EAA1B00D03A56 /* image050.jpg in Resources */,
-				4805806519B61DB20099D3AB /* Images-2.xcassets in Resources */,
 				481A579819439264006E9A0F /* music_icon_no.png in Resources */,
 				481A579319439264006E9A0F /* led_y_no.png in Resources */,
 				48BC028B195EAA1B00D03A56 /* image008.jpg in Resources */,
@@ -872,6 +868,8 @@
 		481A573A194391D0006E9A0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -888,6 +886,8 @@
 		481A573B194391D0006E9A0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

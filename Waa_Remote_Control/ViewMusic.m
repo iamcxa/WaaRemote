@@ -13,35 +13,57 @@
       [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+// 送出訊息時強制設定檔案篩選類型, 確保一定會是對應類型檔案
+-(void)socketStartWithFilterType:(NSString *)Msg{
+    
+    if ([[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]!=nil) {
+        [sysDege setSocketTypeFilter:TYPE_CODE_VIDEO];
+        [sysDege socketStartWithMessage:Msg];
+        
+    } else{
+        
+        [sysDege showAlert:@"請先選擇檔案！"];
+        
+    }
+}
+
 - (IBAction)btnNext:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 
 - (IBAction)btnBack:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 
 - (IBAction)btnStop:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 
 - (IBAction)btnPlayOrPause:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 
 - (IBAction)btnStartOrEndPlayer:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 
 - (IBAction)btnMute:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 
 - (IBAction)bntVolumeLower:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 
 - (IBAction)btnVolumeBigger:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 

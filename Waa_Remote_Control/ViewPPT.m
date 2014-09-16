@@ -112,11 +112,11 @@
 
 // 播放/暫停
 - (IBAction)btnAction:(id)sender {
-    if([sysDege lastTimeUsedCmd]!=nil){
-        NSLog(@"@lastTimeUsedCmd found=>%@",[sysDege lastTimeUsedCmd]);
-        [sysDege socketStartWithMessage:[sysDege lastTimeUsedCmd]];
-        usleep(100000);
-    }
+//    if([sysDege lastTimeUsedCmd]!=nil){
+//        NSLog(@"@lastTimeUsedCmd found=>%@",[sysDege lastTimeUsedCmd]);
+//        [sysDege socketStartWithMessage:[sysDege lastTimeUsedCmd]];
+//        usleep(100000);
+//    }
     [self socketStartWithFilterType:@"MRCode_PPT_10"];
     usleep(200000);
 }
