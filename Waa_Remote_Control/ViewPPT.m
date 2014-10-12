@@ -123,6 +123,10 @@
 
 // 檔案清單
 - (IBAction)btnFilelist:(id)sender {
+    
+    
+    NSLog(@"ViewFileList socketLastTimeResult=%@",[sysDege socketLastTimeResult]);
+    
     [sysDege setSocketTypeFilter:TYPE_CODE_POWERPOINT_TO_FILE_LIST];
     [sysDege socketStartWithMessage:[sysDege MRCode_Show_Documents]];
 }
@@ -142,4 +146,9 @@
     [sysDege setFileSelectedList:nil];
     [sysDege setFileSelectedRow:0];
 }
+
+-(void)setSocketMsg:(NSString *)Message{
+    _labelSocketMsg.text=Message;
+}
+
 @end

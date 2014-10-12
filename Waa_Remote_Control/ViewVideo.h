@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewVideo : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
 - (IBAction)btnHelp:(id)sender;
 - (IBAction)btnMenu:(id)sender;
 - (IBAction)btnItemNext:(id)sender;
@@ -26,5 +27,7 @@
 - (IBAction)btnPlayRandom:(id)sender;
 - (IBAction)btnStartOrEnd:(id)sender;
 - (IBAction)btnTurnOffPlayer:(id)sender;
+
+-(void)setSocketMsg:(NSString *)Message;
 
 @end

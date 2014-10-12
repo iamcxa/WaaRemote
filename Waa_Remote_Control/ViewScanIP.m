@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
 //
 #import "ViewScanIP.h"
+#import "toast.h"
 
 @interface ViewScanIP ()
 
@@ -13,6 +14,7 @@
 @end
 
 @implementation ViewScanIP
+
 
 
 - (void)viewDidLoad
@@ -48,6 +50,11 @@
 
 - (IBAction)textboxServerIp:(id)sender {
     
+}
+
+
+-(void)setSocketMsg:(NSString *)Message{
+    _labelSocketMsg.text=Message;
 }
 
 

@@ -15,6 +15,7 @@
 @class ViewFileList;
 @class ViewScanIP;
 @class ViewPPT;
+@class toast;
 
 #define PORT 3579
 #define TYPE_CODE_FIND_IP 0
@@ -31,7 +32,16 @@
 #define TYPE_CODE_POWER 900
 #define TYPE_CODE_ERROR 999
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,NSStreamDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,NSStreamDelegate>{
+    UIActivityIndicatorView *activityView;
+    UIView *loadingView;
+    UILabel *loadingLabel;
+}
+
+@property (nonatomic, retain) UIActivityIndicatorView * activityView;
+@property (nonatomic, retain) UIView *loadingView;
+@property (nonatomic, retain) UILabel *loadingLabel;
+
 /*
     預先定義送往server端之命令變數
 */
@@ -49,8 +59,16 @@
     VIEW定義
 */
 @property (nonatomic,strong) IBOutlet UIWindow *window;
+@property (nonatomic,retain) UINavigationController *navigator;
 @property (nonatomic,retain) UIStoryboard *board;
 @property (nonatomic,retain) ViewSwitchController *viewSwitchController;
+@property (nonatomic,retain) ViewScanIP *viewScanIP;
+@property (nonatomic,retain) ViewMenu *viewMenu;
+@property (nonatomic,retain) ViewPPT *viewPPT;
+@property (nonatomic,retain) ViewFileList *viewFileList;
+@property (nonatomic,retain) ViewVideo *viewVideo;
+@property (nonatomic,retain) ViewMusic *viewMusic;
+@property (nonatomic,retain) toast *toast;
 
 /*
     socket串流物件
@@ -78,6 +96,11 @@
 -(void)socketStartWithMessage:(NSString *)Message;
 -(void)socketClose;
 -(BOOL)checkServerIpFormat:(NSString *)ServerIP;
+-(UIView *)loadingView;
+-(void)loadingStop;
+
+
+@property (nonatomic,retain) NSString *socketMsg;
 
 
 @end

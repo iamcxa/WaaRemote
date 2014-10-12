@@ -12,6 +12,7 @@
 
 @interface ViewMenu : UIViewController<NSStreamDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
 - (IBAction)btnMusic:(id)sender;
 - (IBAction)btnVideo:(id)sender;
 - (IBAction)btnPowerPoint:(id)sender;
@@ -20,4 +21,5 @@
 - (IBAction)btnDisconnect:(id)sender;
 
 
+-(void)setSocketMsg:(NSString *)Message;
 @end

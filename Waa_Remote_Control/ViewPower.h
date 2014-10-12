@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewPower : UIViewController<NSStreamDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
 - (IBAction)btnPCSleep:(id)sender;
 - (IBAction)btnPCRest:(id)sender;
 - (IBAction)btnPCSOff:(id)sender;

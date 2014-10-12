@@ -5,30 +5,43 @@
 //  Created by iamcxa on 2014/6/8.
 //  Copyright (c) 2014年 ___FULLUSERNAME___. All rights reserved.
 //
-
+#import "QuartzCore/QuartzCore.h"
 #import "AppDelegate.h"
 #import "ViewSwitchController.h"
-
+#import "ViewScanIP.h"
+#import "toast.h"
 
 @implementation AppDelegate
-
 
 @synthesize board;
 //@synthesize navigationController;
 //@synthesize viewFileList;
-//@synthesize viewScanIP;
+@synthesize viewScanIP;
 //@synthesize viewMusic;
 //@synthesize viewMenu;
+@synthesize toast;
 @synthesize viewSwitchController;
 @synthesize socketTypeFilter;
 @synthesize socketOutputMsg;
 @synthesize fileSelectedRow;
 @synthesize socketLastTimeResult;
 
+@synthesize socketMsg;
+
+@synthesize loadingLabel;
+@synthesize loadingView;
+@synthesize activityView;
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //加背景圖
+    //[self.navigator.navigationBar setBackgroundImage:[UIImage imageNamed:@"bg_image"] forBarMetrics:UIBarMetricsDefault];
+    //改變按鈕顏色
+    //[self.navigator.navigationBar setTintColor:[UIColor orangeColor]];
+    
+    
     // 預先設定送到server的命令變數
     _MRCode_Show_Documents=@"MRCode_Show_Documents";
     _MRCode_Show_Videos=@"MRCode_Show_Videos";
@@ -39,10 +52,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     _MRCode_Run_Videos=@"MRCode_Run_Videos";
     _MRCode_Run_Music=@"MRCode_Run_Music";
     
-    // 設定根控制器
-    viewSwitchController=[[ViewSwitchController alloc] init] ;
-    [self.window setRootViewController:viewSwitchController];
-    [self.window makeKeyAndVisible];
+    [self setViewControllers];
     
     return YES;
 }
@@ -74,13 +84,42 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+/*
+ 
+ Custom Functions
+ 
+ */
+
 +(AppDelegate*)App{
     return (AppDelegate*)[UIApplication sharedApplication].delegate;
 }
 
--(void)setRootViewController{
-    [self.window setRootViewController:viewSwitchController];
-    [self.viewSwitchController initView];
+-(void)setViewControllers{
+        for(UIView *subview in [[[[sysDege window]rootViewController]view] subviews]){
+            // remove the subview with tag equal to "9099"
+           // if(subview.tag == 90999){
+                [subview removeFromSuperview];
+            //    NSLog(@"subview =%@",subview);
+            //}
+        }
+    
+    // 設定根控制器
+    viewSwitchController=[[ViewSwitchController alloc] init] ;
+    viewSwitchController.title=@"Waa遙控器";
+    
+    //建立一個navigator
+    self.navigator = [[UINavigationController alloc] init];
+    self.navigator.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    
+    //將mainView放入navigator中
+    [self.navigator pushViewController:viewSwitchController animated:NO];
+    
+    //將navigator放入window中
+    [self.window addSubview:self.navigator.view];
+    
+    
+    [self.window setRootViewController:self.navigator];
+    //[self.window makeKeyAndVisible];
 }
 
 /*
@@ -143,6 +182,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                     
                     if (len > 0) [input appendBytes:buffer length:len];
                     
+                    
                 }
                 
                 // 收到的訊息
@@ -158,7 +198,20 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 socketLastTimeResult =[[NSString alloc]initWithData:dataenc encoding:NSNonLossyASCIIStringEncoding];
                 // event 輸出 received, 表示有收到字串.
                 event=@"received"; result=[NSString stringWithString:socketLastTimeResult];
+                
                 [_inputStream close];
+                
+                [sysDege setSocketLastTimeResult:socketLastTimeResult];
+                
+                //[self loadingStop];
+                
+                //                [toast showInfo:socketLastTimeResult
+                //                        bgColor:[UIColor whiteColor].CGColor
+                //                         inView:self.navigator.view
+                //                       vertical:0.7];
+                
+                
+                
             }
             
             break;
@@ -176,12 +229,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 // NSData *bytes2 = [NSData dataWithBytes:(__bridge const void *)(socketOutputMsg) length:(socketOutputMsg.length)+1];
                 
                 Byte *Buff = (Byte *)[bytes2 bytes];
-            
+                
                 //輸出後關閉串流
                 [_outputStream write:Buff maxLength:strlen((const char*)Buff)+1];
                 [_outputStream close];
+                
+                
             }
-            
             break;
             
         case NSStreamEventErrorOccurred:
@@ -214,7 +268,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             
             break;
     }
+    
     NSLog(@"@%@—%@.",event,result);
+    
     if([event isEqual:@"received"]) {
         if(result.length>1){
             if(![result hasPrefix:@"NoFile"]){
@@ -223,10 +279,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             }else [sysDege showAlert:@"該資料夾沒有相關檔案！"];
         }else {
             NSLog(@"@received a null here! check server.");
-            [sysDege showAlert:@"發生錯誤！"];
+            [sysDege showAlert:@"發生錯誤！請重新連線！"];
+            [self setViewControllers];
+            
         }
     }
-    if([event isEqual:@"error"]) [self.viewSwitchController disconnect];;
+    
+    [self loadingStop];
+    
+    if([event isEqual:@"error"]) [self.viewSwitchController disconnect];
+    
 }
 
 -(void)setEncodingSockeOutputMsg:(NSString *)Message{
@@ -234,6 +296,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 }
 
 -(void)socketStart:(NSString *)ServerIP{
+    
+    [[[[sysDege window]rootViewController]view] addSubview: [self loadingView]];
+    
     [self setLastTimeUsedServerIP:ServerIP];
     CFWriteStreamRef writeStream;
     CFReadStreamRef readStream;
@@ -260,6 +325,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 
 -(void)socketClose
 {
+    
     [_outputStream close];
     [_outputStream removeFromRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
     [_outputStream setDelegate:nil];
@@ -267,6 +333,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [_inputStream removeFromRunLoop:[NSRunLoop currentRunLoop]
                             forMode:NSDefaultRunLoopMode];
     [_inputStream setDelegate:nil];
+    
+    
 }
 
 -(BOOL)validateServerIP:(NSString *)ServerIP{
@@ -352,5 +420,45 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [self socketStart:[self serverIP]];
 }
 
+-(void)loadingStop{
+    [activityView stopAnimating];
+    [loadingView removeFromSuperview];
+    
+//    for(UIView *subview in [[[[sysDege window]rootViewController]view] subviews]){
+//        // remove the subview with tag equal to "9099"
+//        if(subview.tag == 90999){
+//            [subview removeFromSuperview];
+//            NSLog(@"subview =%@",subview);
+//        }
+//    }
+    
+    
+}
+
+-(UIView *)loadingView{
+    loadingView.tag=90999;
+   loadingView = [[UIView alloc] initWithFrame:CGRectMake(75, 220, 170, 110)];
+    loadingView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.85];
+    loadingView.clipsToBounds = YES;
+    loadingView.layer.cornerRadius = 10.0;
+    
+    activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityView.frame = CGRectMake(65, 30, activityView.bounds.size.width, activityView.bounds.size.height);
+    [loadingView addSubview:activityView];
+    
+    loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 75, 130, 22)];
+    loadingLabel.backgroundColor = [UIColor clearColor];
+    loadingLabel.textColor = [UIColor whiteColor];
+    loadingLabel.adjustsFontSizeToFitWidth = YES;
+    loadingLabel.textAlignment = UITextAlignmentCenter;
+    loadingLabel.text = @"連線中";
+    [loadingView addSubview:loadingLabel];
+    
+    [[[[sysDege window]rootViewController]view] addSubview:loadingView];
+    
+    [activityView startAnimating];
+    
+    return loadingView;
+}
 
 @end

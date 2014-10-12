@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewPPT : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
 
 //@property (nonatomic,strong) UINavigationController *navigationController;
 @property (nonatomic,retain) UIStoryboard *board;
@@ -28,5 +29,7 @@
 - (IBAction)btnMenu:(id)sender;
 
 -(void)showFileInfo;
+
+-(void)setSocketMsg:(NSString *)Message;
 
 @end

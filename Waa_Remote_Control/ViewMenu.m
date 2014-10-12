@@ -85,6 +85,9 @@
     [[sysDege viewSwitchController]showViewMusic];
 }
 
+-(void)setSocketMsg:(NSString *)Message{
+    _labelSocketMsg.text=Message;
+}
 
 
 @end

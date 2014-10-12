@@ -30,7 +30,7 @@
 }
 
 @property (nonatomic,retain) UIStoryboard *board;
-@property (nonatomic,strong) UINavigationController *navigationController;
+//@property (nonatomic,strong) UINavigationController *navigationController;
 @property (nonatomic,strong) ViewScanIP *viewScanIP;
 @property (nonatomic,strong) ViewPPT *viewPPT;
 @property (nonatomic,strong) ViewMenu *viewMenu;
