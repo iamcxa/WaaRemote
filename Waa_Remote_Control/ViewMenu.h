@@ -12,6 +12,7 @@
 
 @interface ViewMenu : UIViewController<NSStreamDelegate>
 
+@property (nonatomic,retain) UINavigationController *navigator;
 @property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
 - (IBAction)btnMusic:(id)sender;
 - (IBAction)btnVideo:(id)sender;

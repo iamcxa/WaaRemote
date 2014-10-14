@@ -74,9 +74,9 @@
     //     performSegueWithIdentifier:@"GotoViewMenu"
     //     sender:self.viewScanIP];
     
-   // [self presentViewController:self.viewMenu animated:YES completion:nil];
+   //[self presentViewController:self.viewMenu animated:YES completion:nil];
     
-   [self.view addSubview:self.viewMenu.view];
+   //[self.view addSubview:self.viewMenu.view];
     
     [self.navigationController pushViewController:self.viewMenu animated:YES];
 }

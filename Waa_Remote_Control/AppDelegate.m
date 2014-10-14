@@ -115,7 +115,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     self.navigator.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     
     // 將viewswitch放入navigator中
-    [self.navigator pushViewController:viewSwitchController animated:NO];
+    [self.navigator pushViewController:viewSwitchController animated:YES];
     
     // 將navigator放入window中
     [self.window addSubview:self.navigator.view];
@@ -353,8 +353,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 // 逾時判斷
 -(void)getSocketStatus:(NSTimer *)theTimer{
     
-    NSLog(@"@—%@.",result);
-    NSLog(@"@socket connection status check...");
+    NSLog(@"@socket connection status check...flag result=%@.",result);
     
     if((![result isEqual:@"NSStreamEventHasBytesAvailable"])
        &&(![result isEqual:@"NSStreamEventOpenCompleted"])
