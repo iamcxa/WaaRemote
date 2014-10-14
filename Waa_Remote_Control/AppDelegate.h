@@ -38,7 +38,8 @@
 #define TYPE_CODE_POWER 900
 #define TYPE_CODE_ERROR 999
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,NSStreamDelegate>{
+@interface AppDelegate : UIResponder <UIApplicationDelegate,NSStreamDelegate>
+{
     UIActivityIndicatorView *activityView;
     UIView *loadingView;
     UILabel *loadingLabel;
