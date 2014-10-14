@@ -117,7 +117,7 @@
 
 -(void)showViewFileList:(NSString*)viewName{
     NSLog(@"@switch=showViewFileList=>%@",viewName);
-    NSLog(@"@switch socketLastTimeResult=%@",[sysDege socketLastTimeResult]);
+    NSLog(@"@switch socketLastTimeResult=%@",[sysDege socketLastTimeInputMsg]);
     //[self presentViewController:self.viewFileList animated:YES completion:nil];
     //[self.navigationController pushViewController:self.viewFileList animated:YES];
     

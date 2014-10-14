@@ -30,8 +30,8 @@ ViewMenu *viewMenu;
 {
     [super viewDidLoad];
     FileList=@"回上頁//s";
-    NSLog(@"@ViewFileList socketLastTimeResult=%@",[sysDege socketLastTimeResult]);
-    FileList=[FileList stringByAppendingString:[sysDege socketLastTimeResult]];
+    NSLog(@"@ViewFileList socketLastTimeResult=%@",[sysDege socketLastTimeInputMsg]);
+    FileList=[FileList stringByAppendingString:[sysDege socketLastTimeInputMsg]];
     NSArray *fileListArray =[FileList componentsSeparatedByString:@"//s"];
     FileListMutableArray = [NSMutableArray arrayWithArray:fileListArray];
     NSLog(@"FileListMutableArray=%@",FileListMutableArray);

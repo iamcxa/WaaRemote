@@ -125,7 +125,7 @@
 - (IBAction)btnFilelist:(id)sender {
     
     
-    NSLog(@"ViewFileList socketLastTimeResult=%@",[sysDege socketLastTimeResult]);
+    NSLog(@"ViewFileList socketLastTimeInputMsg=%@",[sysDege socketLastTimeInputMsg]);
     
     [sysDege setSocketTypeFilter:TYPE_CODE_POWERPOINT_TO_FILE_LIST];
     [sysDege socketStartWithMessage:[sysDege MRCode_Show_Documents]];

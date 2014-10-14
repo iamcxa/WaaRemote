@@ -83,8 +83,6 @@
 		483001EC1998C217001390B4 /* ViewFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = 483001EA1998C217001390B4 /* ViewFileList.m */; };
 		485AE00819E3A6A600CBCBBB /* toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 485AE00619E3A6A500CBCBBB /* toast.h */; };
 		485AE00919E3A6A600CBCBBB /* toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 485AE00719E3A6A600CBCBBB /* toast.m */; };
-		485AE00C19EA95EC00CBCBBB /* loadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 485AE00A19EA95EC00CBCBBB /* loadingView.h */; };
-		485AE00D19EA95EC00CBCBBB /* loadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 485AE00B19EA95EC00CBCBBB /* loadingView.m */; };
 		487BE2E1195AD5F80033A6B6 /* ViewPPT.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2E0195AD5F80033A6B6 /* ViewPPT.m */; };
 		487BE2ED195C96D90033A6B6 /* ViewVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2EC195C96D90033A6B6 /* ViewVideo.m */; };
 		487BE2F0195C97010033A6B6 /* ViewPower.m in Sources */ = {isa = PBXBuildFile; fileRef = 487BE2EF195C97010033A6B6 /* ViewPower.m */; };
@@ -226,8 +224,6 @@
 		483001EA1998C217001390B4 /* ViewFileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFileList.m; sourceTree = "<group>"; };
 		485AE00619E3A6A500CBCBBB /* toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = toast.h; sourceTree = "<group>"; };
 		485AE00719E3A6A600CBCBBB /* toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = toast.m; sourceTree = "<group>"; };
-		485AE00A19EA95EC00CBCBBB /* loadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loadingView.h; sourceTree = "<group>"; };
-		485AE00B19EA95EC00CBCBBB /* loadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loadingView.m; sourceTree = "<group>"; };
 		487BE2DF195AD5F80033A6B6 /* ViewPPT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPPT.h; sourceTree = "<group>"; };
 		487BE2E0195AD5F80033A6B6 /* ViewPPT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPPT.m; sourceTree = "<group>"; };
 		487BE2EB195C96D90033A6B6 /* ViewVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewVideo.h; sourceTree = "<group>"; };
@@ -368,8 +364,6 @@
 				4805806619B620110099D3AB /* Images-3.xcassets */,
 				485AE00619E3A6A500CBCBBB /* toast.h */,
 				485AE00719E3A6A600CBCBBB /* toast.m */,
-				485AE00A19EA95EC00CBCBBB /* loadingView.h */,
-				485AE00B19EA95EC00CBCBBB /* loadingView.m */,
 			);
 			path = Waa_Remote_Control;
 			sourceTree = "<group>";
@@ -535,7 +529,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				485AE00C19EA95EC00CBCBBB /* loadingView.h in Headers */,
 				485AE00819E3A6A600CBCBBB /* toast.h in Headers */,
 				483001EB1998C217001390B4 /* ViewFileList.h in Headers */,
 				48000EE319A88793003CF8C3 /* ViewSwitchController.h in Headers */,
@@ -739,7 +732,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				487BE2F6195C9BED0033A6B6 /* ViewMusic.m in Sources */,
-				485AE00D19EA95EC00CBCBBB /* loadingView.m in Sources */,
 				485AE00919E3A6A600CBCBBB /* toast.m in Sources */,
 				487BE2F0195C97010033A6B6 /* ViewPower.m in Sources */,
 				487BE2F3195C97750033A6B6 /* ViewHelp.m in Sources */,

@@ -19,13 +19,11 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    NSLog(@"@IPScnaer didLoad");
+    [super viewDidLoad]; NSLog(@"@IPScaner didLoad");
+    
     if ([sysDege lastTimeUsedServerIP]!=nil){
-        NSLog(@"@lastTimeUsedServerIP found=>%@",[sysDege lastTimeUsedServerIP]);
         self.textboxServerIp.text=[sysDege lastTimeUsedServerIP];
     }
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,10 +39,11 @@
     
     if([sysDege checkServerIpFormat:serverIP]){
         
+        NSLog(@"@IPScaner's going to sned this:'%@'",[sysDege MRCode_Connect]);
+        
         [sysDege setServerIP:serverIP];
         [sysDege setSocketTypeFilter:TYPE_CODE_FIND_IP];
         [sysDege socketStartWithMessage:[sysDege MRCode_Connect]];
-        
     }
 }
 
@@ -56,22 +55,6 @@
 -(void)setSocketMsg:(NSString *)Message{
     _labelSocketMsg.text=Message;
 }
-
-
-
-//-(void)checkSocketStatue{
-//    NSLog(@"[Common socketLastTimeResult]=%@",[sysDege socketLastTimeResult]);
-//    if ([[sysDege socketLastTimeResult] isEqualToString:@"Connected"]) {
-//        [self performSegueWithIdentifier:@"GotoViewMenu" sender:self];
-//
-//    }
-//}
-//
-//-(void)MoveToNextView{
-//    UIStoryboard *board=[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-//    UIViewController *vc=[board instantiateViewControllerWithIdentifier:@"ViewSelect"];
-//    [[[sysDege window] rootViewController] presentViewController:vc animated:YES completion:nil];
-//}
 
 
 
