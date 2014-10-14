@@ -9,14 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewPPT : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
 
 //@property (nonatomic,strong) UINavigationController *navigationController;
 @property (nonatomic,retain) UIStoryboard *board;
-@property (weak, nonatomic) IBOutlet UILabel *txtFileSelectedNowTitle;
 @property (weak, nonatomic) IBOutlet UILabel *txtFileSelectedNowName;
-@property (weak, nonatomic) IBOutlet UILabel *txtFileSelectedNextTtle;
-@property (weak, nonatomic) IBOutlet UILabel *txtFileSelectedNextName;
 - (IBAction)btnHelp:(id)sender;
 - (IBAction)btnVolumeUp:(id)sender;
 - (IBAction)btnVolumeDown:(id)sender;

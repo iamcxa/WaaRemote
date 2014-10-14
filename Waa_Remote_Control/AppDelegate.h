@@ -24,19 +24,21 @@
  ************************************************************/
 
 #define PORT 3579
+// 控制命令代碼
 #define TYPE_CODE_FIND_IP 0
-
 #define TYPE_CODE_POWERPOINT 100
 #define TYPE_CODE_POWERPOINT_TO_FILE_LIST 155
-
 #define TYPE_CODE_VIDEO 200
 #define TYPE_CODE_VIDEO_TO_FILE_LIST 255
-
 #define TYPE_CODE_MUSIC 300
 #define TYPE_CODE_MUSIC_TO_FILE_LIST 355
-
 #define TYPE_CODE_POWER 900
 #define TYPE_CODE_ERROR 999
+// SOCKET狀態
+#define SOCKET_STATUS_CLOSED 0
+#define SOCKET_STATUS_CONNECTED 1
+// SOCKET逾時預設
+#define SOCKET_TIMEOUT 3
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,NSStreamDelegate>
 {
@@ -105,14 +107,15 @@
 // 存放使用者已選取的檔案清單行數位置
 @property NSInteger fileSelectedRow;
 // socket回傳結果
-@property (nonatomic,retain) NSString *socketLastTimeInputMsg;
+@property (nonatomic,retain) NSString *lastTimeSocketInputMsg;
 // 伺服器IP/上次使用IP/上次使用命令
 @property (nonatomic,retain) NSString *serverIP;
 @property (nonatomic,retain) NSString *lastTimeUsedServerIP;
 @property (nonatomic,retain) NSString *lastTimeUsedCmd;
 // 命令類型
 @property NSInteger socketTypeFilter;
-
+// SOCKET連線結果
+@property (nonatomic,retain) NSString *result;;
 
 /************************************************************
  *

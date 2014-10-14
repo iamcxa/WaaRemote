@@ -21,6 +21,7 @@ NSString *FileList;
 NSString *data;
 NSMutableArray *FileListMutableArray;
 ViewMenu *viewMenu;
+ViewPPT *viewPPT;
 
 @implementation ViewFileList
 
@@ -29,9 +30,11 @@ ViewMenu *viewMenu;
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"@ViewFileList didLoad");
+    
     FileList=@"回上頁//s";
-    NSLog(@"@ViewFileList socketLastTimeResult=%@",[sysDege socketLastTimeInputMsg]);
-    FileList=[FileList stringByAppendingString:[sysDege socketLastTimeInputMsg]];
+    NSLog(@"@ViewFileList lastTimeSocketInputMsg=%@",[sysDege lastTimeSocketInputMsg]);
+    FileList=[FileList stringByAppendingString:[sysDege lastTimeSocketInputMsg]];
     NSArray *fileListArray =[FileList componentsSeparatedByString:@"//s"];
     FileListMutableArray = [NSMutableArray arrayWithArray:fileListArray];
     NSLog(@"FileListMutableArray=%@",FileListMutableArray);
@@ -122,11 +125,21 @@ ViewMenu *viewMenu;
         NSString *cmd=[sysDege exec_command_tmp];
         cmd=[cmd stringByAppendingString:@"//s"];
         
-        cmd=[cmd stringByAppendingString:[[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]];
+        cmd=[cmd stringByAppendingString:
+             [[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]];
+        
+        // 顯示所選擇檔案名稱
+        if([sysDege socketTypeFilter]==TYPE_CODE_POWERPOINT){
+            viewPPT=[[ViewPPT alloc]init];
+            [[viewPPT txtFileSelectedNowName]setText:
+             [[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]];
+        }
         
         [sysDege setLastTimeUsedCmd:cmd];
         
         [sysDege socketStartWithMessage:cmd];
+        
+        [sysDege setLastTimeSocketInputMsg:nil];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
     

@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 #define kSGInfoAlert_fontSize       14
-#define kSGInfoAlert_width          200
-#define kMax_ConstrainedSize        CGSizeMake(250, 150)
+#define kSGInfoAlert_width          400
+#define kMax_ConstrainedSize        CGSizeMake(400, 150)
 #define kViewTag                    990
 
 @interface toast : UIView{

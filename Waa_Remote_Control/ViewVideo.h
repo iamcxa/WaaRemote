@@ -25,9 +25,8 @@
 - (IBAction)btnFullScreen:(id)sender;
 - (IBAction)btnPlayRepeat:(id)sender;
 - (IBAction)btnPlayRandom:(id)sender;
-- (IBAction)btnStartOrEnd:(id)sender;
+//- (IBAction)btnStartOrEnd:(id)sender;
 - (IBAction)btnTurnOffPlayer:(id)sender;
 
--(void)setSocketMsg:(NSString *)Message;
 
 @end

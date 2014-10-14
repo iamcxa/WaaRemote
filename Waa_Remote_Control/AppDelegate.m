@@ -11,7 +11,8 @@
 #import "ViewScanIP.h"
 #import "toast.h"
 
-@implementation AppDelegate
+@implementation AppDelegate{
+}
 
 /************************************************************
  *
@@ -23,22 +24,18 @@
 //@synthesize viewFileList;
 //@synthesize viewMusic;
 //@synthesize viewMenu;
-@synthesize toast;
 @synthesize viewSwitchController;
-@synthesize socketTypeFilter;
-@synthesize socketOutputMsg;
-@synthesize fileSelectedRow;
-@synthesize socketLastTimeInputMsg;
-@synthesize lastTimeUsedServerIP;
-
-// socket串流物件
-@synthesize outputStream;
-@synthesize inputStream;
 
 // 連線中畫面
 @synthesize loadingLabel;
 @synthesize loadingView;
 @synthesize activityView;
+
+// Toast物件
+@synthesize toast;
+
+// 連線結果
+@synthesize result;
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -97,10 +94,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 // 初始化views
 -(void)setViewControllers{
     
-    lastTimeUsedServerIP=[self getLastTimeServerIPfromFile];
+    // 讀取上次使用過ＩＰ
+    _lastTimeUsedServerIP=[self getLastTimeServerIPfromFile];
     
     // remove現有所有views
-   for(UIView *subview in [[[[sysDege window]rootViewController]view] subviews]){
+    for(UIView *subview in [[[[sysDege window]rootViewController]view] subviews]){
         // remove the subview with tag equal to "9099"
         // if(subview.tag == 90999){
         [subview removeFromSuperview];
@@ -135,37 +133,33 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  ************************************************************/
 -(void)stream:(NSStream *)theStream handleEvent:(NSStreamEvent)streamEvent {
     
-    NSString *event=@"event"; NSString *result=nil;
+    NSString *event=@"event"; result=nil;
     
     switch (streamEvent) {
             
         case NSStreamEventNone:
             
-            result = @"NSStreamEventNone";
-            
-            break;
+            result = @"NSStreamEventNone"; break;
             
         case NSStreamEventOpenCompleted:
             
-            result = @"NSStreamEventOpenCompleted";
-            
-            break;
+            result = @"NSStreamEventOpenCompleted"; break;
             
         case NSStreamEventHasBytesAvailable: // socket收到訊息
             
             result = @"NSStreamEventHasBytesAvailable";
             
-            if (theStream == inputStream) {
+            if (theStream == _inputStream) {
                 NSMutableData *input = [[NSMutableData alloc] init];
                 
                 Byte buffer[1024]; NSInteger len;
                 
-                while([inputStream hasBytesAvailable])
+                while([_inputStream hasBytesAvailable])
                 {
                     // 等待
-                    NSLog(@"@socket steam waiting 1s..."); usleep(100000);
+                    NSLog(@"@socket steam waiting for 0.5s..."); usleep(500000);
                     
-                    len = [inputStream read:buffer maxLength:1024];
+                    len = [_inputStream read:buffer maxLength:1024];
                     
                     if (len > 0) [input appendBytes:buffer length:len];
                     
@@ -173,27 +167,30 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 
                 // 收到的訊息
                 /*
-                * 舊有方法 - 解碼傳送過來的 writeByte 訊息
-                * socketLastTimeResult =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
-                * 新方法 - writeByte using unicode 可能未來有更好的方式
-                * 將裝載送過來之Unicode訊息的NSMutableData物件轉為NSString.
-                */
+                 * 舊有方法 - 解碼傳送過來的 writeByte 訊息
+                 * socketLastTimeResult =[[NSString alloc]initWithData:input encoding:NSUTF8StringEncoding];
+                 * 新方法 - writeByte using unicode 可能未來有更好的方式
+                 * 將裝載送過來之Unicode訊息的NSMutableData物件轉為NSString.
+                 */
                 NSString *rawData=[[NSString alloc]initWithData:input encoding:NSNonLossyASCIIStringEncoding];
                 // 再將NSString轉為NSDATA
                 NSData *dataenc=[rawData dataUsingEncoding:NSNonLossyASCIIStringEncoding];
                 // 最後再轉換成NSString
-                socketLastTimeInputMsg =[[NSString alloc]initWithData:dataenc encoding:NSNonLossyASCIIStringEncoding];
+                _lastTimeSocketInputMsg =[[NSString alloc]initWithData:dataenc encoding:NSNonLossyASCIIStringEncoding];
                 // event 輸出 received, 表示有收到字串.
-                event=@"received"; result=[NSString stringWithString:socketLastTimeInputMsg];
+                event=@"received"; result=[NSString stringWithString:_lastTimeSocketInputMsg];
                 
                 // 輸出已經接收到的訊息
-                NSLog(@"@received=>%@",socketLastTimeInputMsg);
+                //NSLog(@"@received=>'%@'",_lastTimeSocketInputMsg);
                 
-                [inputStream close];
+                [_inputStream close]; [self setLastTimeSocketInputMsg:_lastTimeSocketInputMsg];
                 
-                [toast showInfo:socketLastTimeInputMsg
+                NSString *toastTag=@"server=>";
+                NSString *toastMsg=[toastTag stringByAppendingString:_lastTimeSocketInputMsg];
+                
+                [toast showInfo:toastMsg
                         bgColor:[UIColor whiteColor].CGColor
-                         inView:self.navigator.view vertical:0.7];
+                         inView:self.navigator.view vertical:0.85];
             }
             
             break;
@@ -202,24 +199,24 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             
             result = @"NSStreamEventHasSpaceAvailable";
             
-            if (theStream == outputStream) {
+            if (theStream == _outputStream) {
                 
-                NSData *bytes2 = [socketOutputMsg dataUsingEncoding:NSNonLossyASCIIStringEncoding];
+                NSData *bytes2 = [_socketOutputMsg dataUsingEncoding:NSNonLossyASCIIStringEncoding];
                 
                 /*
-                *  舊方法
-                *  NSData *bytes2 = [NSData dataWithBytes:(__bridge const void *)(socketOutputMsg) length:
-                *   (socketOutputMsg.length)+1];
-                */
+                 *  舊方法
+                 *  NSData *bytes2 = [NSData dataWithBytes:(__bridge const void *)(socketOutputMsg) length:
+                 *   (socketOutputMsg.length)+1];
+                 */
                 Byte *Buff = (Byte *)[bytes2 bytes];
                 
                 // 輸出後關閉串流
-                [outputStream write:Buff maxLength:strlen((const char*)Buff)+1];
+                [_outputStream write:Buff maxLength:strlen((const char*)Buff)+1];
                 
                 // 輸出已經輸出的訊息
-                NSLog(@"@outputed=>%@",socketOutputMsg);
+                NSLog(@"@outputed=>%@",_socketOutputMsg);
                 
-                [outputStream close];
+                [_outputStream close];
             }
             
             break;
@@ -254,9 +251,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             
         default:
             
-            result = @"Unknown"; //[self socketClose];
-            
-            break;
+            result = @"Unknown"; [self socketClose];  break;
     }
     
     NSLog(@"@%@—%@.",event,result);
@@ -268,6 +263,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 [self socketClientRespond];
             }else [sysDege showAlert:@"該資料夾沒有相關檔案！"];
         }else {
+            // 收到空字串
             NSLog(@"@received a null here! check server.");
             [sysDege showAlert:@"發生錯誤！請重新連線！"];
             [self setViewControllers];
@@ -276,7 +272,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     // 移除連線中畫面
     [self loadingStop];
-
+    
 }
 
 
@@ -293,7 +289,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     // 記錄上次使用之SERVER IP
     NSLog(@"@socket start with this server:%@",ServerIP);
     [self setLastTimeUsedServerIP:ServerIP];
-    [self saveLastTimeServerIPtoFile:lastTimeUsedServerIP];
+    [self saveLastTimeServerIPtoFile:_lastTimeUsedServerIP];
+    
+    // 清除上次連線結果
+    result=nil;
     
     CFWriteStreamRef writeStream; CFReadStreamRef readStream;
     
@@ -303,37 +302,75 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                                        &readStream,
                                        &writeStream);
     
-    outputStream= (__bridge NSOutputStream *)writeStream;
-    [outputStream setDelegate:self];
-    [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
-    [outputStream open];
+    _outputStream= (__bridge NSOutputStream *)writeStream;
+    [_outputStream setDelegate:self];
+    [_outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
+    [_outputStream open];
     
     // 等待
-    NSLog(@"@socket steam waiting 2s..."); usleep(200000);
+    NSLog(@"@socket steam waiting for 0.1s..."); usleep(100000);
     
-    inputStream = (__bridge NSInputStream *)readStream;
-    [inputStream setDelegate:self];
-    [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
-    [inputStream open];
+    _inputStream = (__bridge NSInputStream *)readStream;
+    [_inputStream setDelegate:self];
+    [_inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
+    [_inputStream open];
+    
+    
+    // 逾時判斷
+    [NSTimer
+     scheduledTimerWithTimeInterval:SOCKET_TIMEOUT
+     target:self
+     selector:@selector(getSocketStatus:)
+     userInfo:nil
+     repeats:NO];
 }
 
 // socket關閉
 -(void)socketClose{
-    [outputStream close];
-    [outputStream removeFromRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
-    [outputStream setDelegate:nil];
-    [inputStream close];
-    [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [inputStream setDelegate:nil];
+    [_outputStream close];
+    [_outputStream removeFromRunLoop:[NSRunLoop currentRunLoop]forMode:NSDefaultRunLoopMode];
+    [_outputStream setDelegate:nil];
+    [_inputStream close];
+    [_inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [_inputStream setDelegate:nil];
+    
+    // 移除連線中畫面
+    [self loadingStop];
+    
+    NSLog(@"@socket closed.");
 }
 
-//
+// 開啟socket連線
 -(void)socketStartWithMessage:(NSString *)Message{
-    NSLog(@"@socket prepaere to send:'%@'",Message);
-    socketOutputMsg=[Message stringByAppendingString:@"\n"];
+    
+    // 編碼
+    _socketOutputMsg=[Message stringByAppendingString:@"\n"];
+    
+    // 開始socket通訊
     [self socketStart:self.serverIP];
 }
 
+// 逾時判斷
+-(void)getSocketStatus:(NSTimer *)theTimer{
+    
+    NSLog(@"@—%@.",result);
+    NSLog(@"@socket connection status check...");
+    
+    if((![result isEqual:@"NSStreamEventHasBytesAvailable"])
+       &&(![result isEqual:@"NSStreamEventOpenCompleted"])
+       &&(![result isEqual:@"connect"])
+       &&(![result isEqual:@"NSStreamEventHasSpaceAvailable"])){
+        
+        NSLog(@"@socket connection timeout!"); [self socketClose];
+        
+        [self showAlert:@"連線逾時！"];
+        
+    }else{
+        
+        NSLog(@"@socket connection is alive.");
+        
+    }
+}
 
 /************************************************************
  *
@@ -341,16 +378,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *
  ************************************************************/
 -(void)socketClientRespond{
-    NSLog(@"@socket doing a response with type=>%ld",(long)socketTypeFilter);
-    switch (socketTypeFilter) {
+    NSLog(@"@socket doing a response with type=>%ld",(long)_socketTypeFilter);
+    switch (_socketTypeFilter) {
             
         case TYPE_CODE_FIND_IP:
             // 驗證server端訊息
-            if ([socketLastTimeInputMsg isEqualToString:[self MRCode_Connect]]) {
+            if ([_lastTimeSocketInputMsg isEqualToString:[self MRCode_Connect]]) {
                 [self.viewSwitchController showViewMenu];
-            // 20141014 沒明確用途暫時關閉
-            //}else{
-            //   [self showAlert:socketLastTimeInputMsg];
+                // 20141014 沒明確用途暫時關閉
+                //}else{
+                //   [self showAlert:socketLastTimeInputMsg];
             }
             
             break;
@@ -381,8 +418,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     }
     
     // 清空輸出入暫存
-    NSLog(@"@clean input/output.");
-    socketLastTimeInputMsg=nil; socketOutputMsg=nil;
+    //NSLog(@"@clean input/output.");
+    //_lastTimeSocketInputMsg=nil; _socketOutputMsg=nil;
 }
 
 
@@ -468,7 +505,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     loadingLabel.backgroundColor = [UIColor clearColor];
     loadingLabel.textColor = [UIColor whiteColor];
     loadingLabel.adjustsFontSizeToFitWidth = YES;
-    loadingLabel.textAlignment = UITextAlignmentCenter;
+    loadingLabel.textAlignment = NSTextAlignmentCenter;
     loadingLabel.text = @"連線中";
     [loadingView addSubview:loadingLabel];
     
@@ -519,7 +556,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     }
     
     //寫入檔案
-    NSString *data = lastTimeUsedServerIP;
+    NSString *data = _lastTimeUsedServerIP;
     [data writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:nil];
 }
 

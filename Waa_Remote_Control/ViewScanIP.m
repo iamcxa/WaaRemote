@@ -15,8 +15,6 @@
 
 @implementation ViewScanIP
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad]; NSLog(@"@IPScaner didLoad");

@@ -25,7 +25,7 @@
     
     NSLog(@"@ViewPPT didLoad");
     
-    [self showFileInfo];
+    _txtFileSelectedNowName.text=@"尚未選擇簡報檔案";
     
 }
 
@@ -35,36 +35,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)showFileInfo{
-    
-    if([[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]!=nil){
-        ViewPPT *viewppt=[[ViewPPT alloc]init];
-        // 讀取行號/正在播放檔案名稱/下一個檔案名稱
-        NSInteger selectedRow=[sysDege fileSelectedRow];
-        NSString *thisFileName=[[sysDege fileSelectedList]objectAtIndex:selectedRow];
-        NSString *nextFileName=[[sysDege fileSelectedList]objectAtIndex:selectedRow+1];
-        
-        // 顯示“正在播放”檔案名稱與標題
-        viewppt.txtFileSelectedNowTitle.alpha=1;
-        viewppt.txtFileSelectedNowName.alpha=1;
-        viewppt.txtFileSelectedNowName.text=thisFileName;
-        
-        // 顯示“下一個”檔案名稱與小標題
-        viewppt.txtFileSelectedNextTtle.alpha=1;
-        viewppt.txtFileSelectedNextName.alpha=1;
-        viewppt.txtFileSelectedNextName.text=nextFileName;
-        
-    }else{
-        ViewPPT *viewppt=[[ViewPPT alloc]init];
-        // 隱藏“正在播放”檔案名稱與標題
-        viewppt.txtFileSelectedNowTitle.alpha=0;
-        viewppt.txtFileSelectedNowName.alpha=0;
-        
-        // 隱藏“下一個”檔案名稱與小標題
-        viewppt.txtFileSelectedNextTtle.alpha=0;
-        viewppt.txtFileSelectedNextName.alpha=0;
-    }
-}
 
 // 送出訊息時強制設定檔案篩選類型, 確保一定會是ＰＰＴ類型檔案
 -(void)socketStartWithFilterType:(NSString *)Msg{
@@ -123,10 +93,6 @@
 
 // 檔案清單
 - (IBAction)btnFilelist:(id)sender {
-    
-    
-    NSLog(@"ViewFileList socketLastTimeInputMsg=%@",[sysDege socketLastTimeInputMsg]);
-    
     [sysDege setSocketTypeFilter:TYPE_CODE_POWERPOINT_TO_FILE_LIST];
     [sysDege socketStartWithMessage:[sysDege MRCode_Show_Documents]];
 }
@@ -145,10 +111,6 @@
     [sysDege setLastTimeUsedCmd:nil];
     [sysDege setFileSelectedList:nil];
     [sysDege setFileSelectedRow:0];
-}
-
--(void)setSocketMsg:(NSString *)Message{
-    _labelSocketMsg.text=Message;
 }
 
 @end
