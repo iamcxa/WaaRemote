@@ -355,10 +355,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     NSLog(@"@socket connection status check...flag result=%@.",result);
     
-    if((![result isEqual:@"NSStreamEventHasBytesAvailable"])
-       &&(![result isEqual:@"NSStreamEventOpenCompleted"])
-       &&(![result isEqual:@"connect"])
-       &&(![result isEqual:@"NSStreamEventHasSpaceAvailable"])){
+    if(result==nil){
         
         NSLog(@"@socket connection timeout!"); [self socketClose];
         
