@@ -40,6 +40,15 @@
 // SOCKET逾時預設
 #define SOCKET_TIMEOUT 3
 
+/************************************************************
+ *
+ *                      預先定義變數
+ *
+ ************************************************************/
+#define MRCode_WMP_00 'MRCode_WMP_00'
+
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,NSStreamDelegate>
 {
     UIActivityIndicatorView *activityView;

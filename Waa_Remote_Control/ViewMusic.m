@@ -27,43 +27,52 @@
     }
 }
 
+// 下一首
 - (IBAction)btnNext:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_12"];
+    [self socketStartWithFilterType:@"MRCode_WMP_13 "];
     usleep(200000);
 }
 
+// 上一首
 - (IBAction)btnBack:(id)sender {
     [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 
+// 停止
 - (IBAction)btnStop:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_12"];
+    [self socketStartWithFilterType:@"MRCode_WMP_13"];
     usleep(200000);
 }
 
+
+// 繼續或暫停
 - (IBAction)btnPlayOrPause:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_12"];
+    [self socketStartWithFilterType:@"MRCode_WMP_10"];
     usleep(200000);
 }
 
+//
 - (IBAction)btnStartOrEndPlayer:(id)sender {
     [self socketStartWithFilterType:@"MRCode_WMP_12"];
     usleep(200000);
 }
 
+// 靜音
 - (IBAction)btnMute:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_12"];
+    [self socketStartWithFilterType:@"MRCode_WMP_14"];
     usleep(200000);
 }
 
+// 小聲
 - (IBAction)bntVolumeLower:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_12"];
+    [self socketStartWithFilterType:@"MRCode_WMP_16"];
     usleep(200000);
 }
 
+// 大聲
 - (IBAction)btnVolumeBigger:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_12"];
+    [self socketStartWithFilterType:@"MRCode_WMP_15"];
     usleep(200000);
 }
 
