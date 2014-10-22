@@ -49,7 +49,7 @@
 // 繼續或暫停
 - (IBAction)btnPlayOrPause:(id)sender {
     [self socketStartWithFilterType:@"MRCode_WMP_10"];
-    usleep(200000);
+    usleep(200000); 
 }
 
 //
