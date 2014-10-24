@@ -17,6 +17,8 @@
 
 @implementation ViewPPT
 
+@synthesize txtFileSelectedNowName;
+
 
 - (void)viewDidLoad
 {
@@ -25,9 +27,35 @@
     
     NSLog(@"@ViewPPT didLoad");
     
-    _txtFileSelectedNowName.text=@"尚未選擇簡報檔案";
+     txtFileSelectedNowName.text=@"尚未選擇簡報檔案";
     
 }
+
+// view切換時顯示上一個選擇的檔案
+-(void)viewWillAppear:(BOOL)animated{
+   // [[NSNotificationCenter defaultCenter]
+   //  addObserver:self selector:@selector(appWillEnterForegroundNotification)
+   //  name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    NSString *selectedFileName=[sysDege selectedFileName];
+    
+    if (![selectedFileName isEqual:@""]) {
+        
+        txtFileSelectedNowName.text=selectedFileName;
+    }else{
+        
+        txtFileSelectedNowName.text=@"尚未選擇簡報檔案";
+
+    }
+    
+}
+
+
+//
+-(void)appWillEnterForegroundNotification{
+    NSLog(@"＠＠trigger event when will enter foreground.");
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -38,8 +66,7 @@
 
 // 送出訊息時強制設定檔案篩選類型, 確保一定會是ＰＰＴ類型檔案
 -(void)socketStartWithFilterType:(NSString *)Msg{
-    
-    if ([[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]!=nil) {
+    if ([[sysDege selectedFileList]objectAtIndex:[sysDege selectedFileRow]]!=nil) {
         [sysDege setSocketTypeFilter:TYPE_CODE_POWERPOINT];
         [sysDege socketStartWithMessage:Msg];
         
@@ -82,11 +109,11 @@
 
 // 播放/暫停
 - (IBAction)btnAction:(id)sender {
-//    if([sysDege lastTimeUsedCmd]!=nil){
-//        NSLog(@"@lastTimeUsedCmd found=>%@",[sysDege lastTimeUsedCmd]);
-//        [sysDege socketStartWithMessage:[sysDege lastTimeUsedCmd]];
-//        usleep(100000);
-//    }
+    //    if([sysDege lastTimeUsedCmd]!=nil){
+    //        NSLog(@"@lastTimeUsedCmd found=>%@",[sysDege lastTimeUsedCmd]);
+    //        [sysDege socketStartWithMessage:[sysDege lastTimeUsedCmd]];
+    //        usleep(100000);
+    //    }
     [self socketStartWithFilterType:@"MRCode_PPT_10"];
     usleep(200000);
 }
@@ -107,10 +134,17 @@
     
 }
 
+//
 -(void)viewDidDisappear:(BOOL)animated{
     [sysDege setLastTimeUsedCmd:nil];
-    [sysDege setFileSelectedList:nil];
-    [sysDege setFileSelectedRow:0];
+    [sysDege setSelectedFileList:nil];
+    [sysDege setSelectedFileRow:0];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (IBAction)btnMoreTime:(id)sender {
+}
+
+- (IBAction)btnLessTime:(id)sender {
+}
 @end

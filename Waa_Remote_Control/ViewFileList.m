@@ -33,14 +33,37 @@ ViewPPT *viewPPT;
     NSLog(@"@ViewFileList didLoad");
     
     FileList=@"回上頁//s";
+    
     NSLog(@"@ViewFileList lastTimeSocketInputMsg=%@",[sysDege lastTimeSocketInputMsg]);
+    
     FileList=[FileList stringByAppendingString:[sysDege lastTimeSocketInputMsg]];
     NSArray *fileListArray =[FileList componentsSeparatedByString:@"//s"];
+    
     FileListMutableArray = [NSMutableArray arrayWithArray:fileListArray];
     NSLog(@"FileListMutableArray=%@",FileListMutableArray);
+    
+}
+
+-(void)setCompont{
+    //为了多选
+    self.tableview.allowsSelection=YES;
+    self.tableview.allowsSelectionDuringEditing=YES;
+    //直接让tableView处于编辑状态
+    [self.tableview setEditing:YES animated:YES];
+    //设置tableView无分割线
+    self.tableview.separatorStyle=UITableViewCellSeparatorStyleNone;
+    self.tableview.backgroundColor=[UIColor clearColor];
+    //tableView显示大小
+    //self.tableview.frame=CGRectMake(50, 50, 220, 300);
+    //垂直方向滑块取消
+    //self.tableview.showsVerticalScrollIndicator=NO;
+    //tableView总大小
+    //self.tableview.contentSize=CGSizeMake(220, 300);
+    //边界无回弹
+    self.tableview.bounces=NO;
+    
     tableview.dataSource=self;
     tableview.delegate=self;
-    
 }
 
 -(void)setFileType:(NSString *)fileType{
@@ -73,16 +96,23 @@ ViewPPT *viewPPT;
     }
 }
 
+//區段數量
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    //區段數量
     return 1;
 }
 
+// 每個區段中最多有幾個列
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // 每個區段中最多有幾個列
     NSLog(@"@FileListArray.count=%lu",(unsigned long)FileListMutableArray.count-1);
     return FileListMutableArray.count-1;
+}
+
+// 編輯畫面設定
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //不要显示任何编辑的图标
+    return UITableViewCellEditingStyleNone;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,31 +139,30 @@ ViewPPT *viewPPT;
     return cell;
 }
 
+// 列點選後
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     NSInteger row=[indexPath row];
+  //  [self.navigationController popViewControllerAnimated:YES];
+    
     if (row!=0) {
         //[sysDege setFileSelectedList:[FileListArray objectAtIndex:row ]];
         
-        [sysDege setFileSelectedList:FileListMutableArray];
+        [sysDege setSelectedFileList:FileListMutableArray];
         
-        [sysDege setFileSelectedRow:row];
+        [sysDege setSelectedFileRow:row];
         
-        NSLog(@"selectedFileName=%@",[[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]);
+        [sysDege setSelectedFileName:[[sysDege selectedFileList]objectAtIndex:[sysDege selectedFileRow]]];
+        
+        NSLog(@"selectedFileName=%@",[sysDege selectedFileName]);
         
         NSString *cmd=[sysDege exec_command_tmp];
+        
         cmd=[cmd stringByAppendingString:@"//s"];
         
         cmd=[cmd stringByAppendingString:
-             [[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]];
-        
-        // 顯示所選擇檔案名稱
-        if([sysDege socketTypeFilter]==TYPE_CODE_POWERPOINT){
-            viewPPT=[[ViewPPT alloc]init];
-            [[viewPPT txtFileSelectedNowName]setText:
-             [[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]];
-        }
+             [[sysDege selectedFileList]objectAtIndex:[sysDege selectedFileRow]]];
         
         [sysDege setLastTimeUsedCmd:cmd];
         

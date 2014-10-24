@@ -38,8 +38,8 @@
     viewMenu=[board instantiateViewControllerWithIdentifier:@"ViewMenu"];
     viewMusic=[board instantiateViewControllerWithIdentifier:@"ViewMusic"];
     viewVideo=[board instantiateViewControllerWithIdentifier:@"ViewVideo"];
-   // viewFileList=[board instantiateViewControllerWithIdentifier:@"ViewFileList"];
-    viewFileList=[[ViewFileList alloc]init];
+    viewFileList=[board instantiateViewControllerWithIdentifier:@"ViewFileList"];
+    //viewFileList=[[ViewFileList alloc]init];
     viewPower=[board instantiateViewControllerWithIdentifier:@"ViewPower"];
     viewHelp=[board instantiateViewControllerWithIdentifier:@"ViewHelp"];
     
@@ -125,7 +125,10 @@
         
         [sysDege setExec_command_tmp:[sysDege MRCode_Run_Documents]];
         //[[sysDege window] setRootViewController:self.viewPPT];
-        [self.viewPPT performSegueWithIdentifier:@"GotoViewFileList" sender:viewPPT];
+     [self.viewPPT performSegueWithIdentifier:@"GotoViewFileList" sender:viewPPT];
+        
+        //[self.navigationController pushViewController:self.viewFileList animated:YES];
+        
         
     }else if ([viewName isEqualToString:[sysDege MRCode_Show_Music]]) {
         

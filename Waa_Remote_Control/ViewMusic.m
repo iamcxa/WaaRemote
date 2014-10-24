@@ -9,14 +9,11 @@
 #import "ViewMusic.h"
 
 @implementation ViewMusic
-- (IBAction)btnMenu:(id)sender {
-      [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 // 送出訊息時強制設定檔案篩選類型, 確保一定會是對應類型檔案
 -(void)socketStartWithFilterType:(NSString *)Msg{
     
-    if ([[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]!=nil) {
+    if ([[sysDege selectedFileList]objectAtIndex:[sysDege selectedFileRow]]!=nil) {
         [sysDege setSocketTypeFilter:TYPE_CODE_VIDEO];
         [sysDege socketStartWithMessage:Msg];
         
@@ -27,24 +24,18 @@
     }
 }
 
-// 下一首
-- (IBAction)btnNext:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_13 "];
-    usleep(200000);
-}
-
-// 上一首
-- (IBAction)btnBack:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_12"];
-    usleep(200000);
-}
 
 // 停止
 - (IBAction)btnStop:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_13"];
+    [self socketStartWithFilterType:@"MRCode_WMP_19"];
     usleep(200000);
 }
 
+// close wmp
+- (IBAction)btnEndWMPlayer:(id)sender{
+    [self socketStartWithFilterType:@"MRCode_WMP_00"];
+    usleep(200000);
+}
 
 // 繼續或暫停
 - (IBAction)btnPlayOrPause:(id)sender {
@@ -52,9 +43,16 @@
     usleep(200000); 
 }
 
-//
-- (IBAction)btnStartOrEndPlayer:(id)sender {
+
+// 上一首
+- (IBAction)btnLastOne:(id)sender {
     [self socketStartWithFilterType:@"MRCode_WMP_12"];
+    usleep(200000);
+}
+
+// 下一首
+- (IBAction)btnNextOne:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_13"];
     usleep(200000);
 }
 
@@ -64,22 +62,41 @@
     usleep(200000);
 }
 
-// 小聲
-- (IBAction)bntVolumeLower:(id)sender {
-    [self socketStartWithFilterType:@"MRCode_WMP_16"];
-    usleep(200000);
-}
-
 // 大聲
 - (IBAction)btnVolumeBigger:(id)sender {
     [self socketStartWithFilterType:@"MRCode_WMP_15"];
     usleep(200000);
 }
 
+// 小聲
+- (IBAction)bntVolumeLower:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_16"];
+    usleep(200000);
+}
+
+// 快轉
+- (IBAction)btnForward:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_17"];
+    usleep(200000);
+}
+
+// 減速
+- (IBAction)btnBack:(id)sender {
+    [self socketStartWithFilterType:@"MRCode_WMP_18"];
+    usleep(200000);
+}
+
+- (IBAction)btnRepeat:(id)sender {
+}
+
+- (IBAction)btnRandom:(id)sender {
+}
+
 // 說明選單
 - (IBAction)btnHelp:(id)sender {
     [self performSegueWithIdentifier:@"GotoViewHelp" sender:self];
 }
+
 
 // 檔案清單
 - (IBAction)btnFileList:(id)sender {
@@ -89,7 +106,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [sysDege setLastTimeUsedCmd:nil];
-    [sysDege setFileSelectedList:nil];
-    [sysDege setFileSelectedRow:0];
+    [sysDege setSelectedFileList:nil];
+    [sysDege setSelectedFileRow:0];
 }
 @end

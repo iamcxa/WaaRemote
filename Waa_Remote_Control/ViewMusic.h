@@ -10,18 +10,19 @@
 
 @interface ViewMusic : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
-- (IBAction)btnStartOrEndPlayer:(id)sender;
+- (IBAction)btnEndWMPlayer:(id)sender;
 - (IBAction)btnHelp:(id)sender;
-- (IBAction)btnMenu:(id)sender;
-- (IBAction)btnNext:(id)sender;
-- (IBAction)btnBack:(id)sender;
+- (IBAction)btnNextOne:(id)sender;
+- (IBAction)btnLastOne:(id)sender;
 - (IBAction)btnStop:(id)sender;
-- (IBAction)btnPlayOrPause:(id)sender;
+- (IBAction)btnPlay:(id)sender;
 - (IBAction)btnMute:(id)sender;
 - (IBAction)bntVolumeLower:(id)sender;
 - (IBAction)btnVolumeBigger:(id)sender;
 - (IBAction)btnFileList:(id)sender;
-
-
+- (IBAction)btnForward:(id)sender;
+- (IBAction)btnBack:(id)sender;
+- (IBAction)btnRepeat:(id)sender;
+- (IBAction)btnRandom:(id)sender;
 
 @end

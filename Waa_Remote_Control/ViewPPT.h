@@ -10,9 +10,8 @@
 
 @interface ViewPPT : UIViewController
 
-//@property (nonatomic,strong) UINavigationController *navigationController;
 @property (nonatomic,retain) UIStoryboard *board;
-@property (weak, nonatomic) IBOutlet UILabel *txtFileSelectedNowName;
+@property (retain, nonatomic) IBOutlet UILabel *txtFileSelectedNowName;
 - (IBAction)btnHelp:(id)sender;
 - (IBAction)btnVolumeUp:(id)sender;
 - (IBAction)btnVolumeDown:(id)sender;
@@ -23,9 +22,14 @@
 - (IBAction)btnTimeAdd:(id)sender;
 - (IBAction)btnTimeReduce:(id)sender;
 - (IBAction)btnMenu:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *signRed;
+@property (weak, nonatomic) IBOutlet UIImageView *signYellow;
+- (IBAction)btnMoreTime:(id)sender;
+- (IBAction)btnLessTime:(id)sender;
 
--(void)showFileInfo;
+-(void)setSelectedFileName:(NSString *)fileName;
 
--(void)setSocketMsg:(NSString *)Message;
+
+
 
 @end

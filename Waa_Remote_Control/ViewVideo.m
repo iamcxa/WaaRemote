@@ -24,7 +24,7 @@
 // 送出訊息時強制設定檔案篩選類型, 確保一定會是對應類型檔案
 -(void)socketStartWithFilterType:(NSString *)Msg{
     
-    if ([[sysDege fileSelectedList]objectAtIndex:[sysDege fileSelectedRow]]!=nil) {
+    if ([[sysDege selectedFileList]objectAtIndex:[sysDege selectedFileRow]]!=nil) {
         [sysDege setSocketTypeFilter:TYPE_CODE_VIDEO];
         [sysDege socketStartWithMessage:Msg];
         
@@ -120,7 +120,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [sysDege setLastTimeUsedCmd:nil];
-    [sysDege setFileSelectedList:nil];
-    [sysDege setFileSelectedRow:0];
+    [sysDege setSelectedFileList:nil];
+    [sysDege setSelectedFileRow:0];
 }
 @end

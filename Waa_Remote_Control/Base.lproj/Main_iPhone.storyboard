@@ -176,16 +176,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="btnLessTime:" destination="eXu-27-SPi" eventType="touchUpInside" id="MSg-gK-m0W"/>
                                     <action selector="btnTimeReduce:" destination="eXu-27-SPi" eventType="touchUpInside" id="Sgt-HL-PSs"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0U-nd-2PT">
-                                <rect key="frame" x="9" y="417" width="54" height="64"/>
-                                <state key="normal" image="powerpoint_time_up.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnTimeAdd:" destination="eXu-27-SPi" eventType="touchUpInside" id="fjJ-Xd-kGI"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="led_r.png" translatesAutoresizingMaskIntoConstraints="NO" id="ECP-v0-UAZ">
@@ -194,12 +186,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="led_y.png" translatesAutoresizingMaskIntoConstraints="NO" id="4ex-vC-Kih">
                                 <rect key="frame" x="239" y="489" width="16" height="16"/>
                             </imageView>
-                            <pickerView contentMode="center" fixedFrame="YES" placeholderIntrinsicWidth="71" placeholderIntrinsicHeight="162" translatesAutoresizingMaskIntoConstraints="NO" id="wHg-cL-mQn">
-                                <rect key="frame" x="76" y="406" width="71" height="162"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bFz-ZW-iC9">
-                                <rect key="frame" x="155" y="406" width="71" height="162"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="859-y1-F1L">
                                 <rect key="frame" x="230" y="96" width="48" height="48"/>
                                 <state key="normal" image="help.png">
@@ -224,12 +210,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0U-nd-2PT">
+                                <rect key="frame" x="9" y="417" width="54" height="64"/>
+                                <state key="normal" image="powerpoint_time_up.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnMoreTime:" destination="eXu-27-SPi" eventType="touchUpInside" id="bKr-ta-ZeN"/>
+                                    <action selector="btnTimeAdd:" destination="eXu-27-SPi" eventType="touchUpInside" id="fjJ-Xd-kGI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="pZh-17-iwj"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="signRed" destination="ECP-v0-UAZ" id="5VC-Ln-3re"/>
+                        <outlet property="signYellow" destination="4ex-vC-Kih" id="KP6-zo-nGs"/>
                         <outlet property="txtFileSelectedNowName" destination="szf-dy-sBl" id="3mR-d0-i42"/>
                         <segue destination="tbO-NB-aHv" kind="modal" identifier="GotoViewFileList" modalTransitionStyle="flipHorizontal" id="gpa-dt-N6h"/>
                         <segue destination="YhL-vs-eTc" kind="modal" identifier="GotoViewHelp" id="e1A-ys-H1P"/>
@@ -308,7 +306,7 @@
                                     <action selector="btnMute:" destination="rhG-1A-ciS" eventType="touchUpInside" id="zue-CK-aQN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUp-0C-3op">
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUp-0C-3op">
                                 <rect key="frame" x="252" y="508" width="52" height="52"/>
                                 <state key="normal" image="icon1.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -333,15 +331,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btnPlay:" destination="rhG-1A-ciS" eventType="touchUpInside" id="25L-h5-VWy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRv-tH-Azw">
-                                <rect key="frame" x="226" y="164" width="52" height="52"/>
-                                <state key="normal" image="down_item.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnItemNext:" destination="rhG-1A-ciS" eventType="touchUpInside" id="ZUP-ls-AXM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbY-jU-hbE">
@@ -371,7 +360,7 @@
                                     <action selector="btnPlaySlower:" destination="rhG-1A-ciS" eventType="touchUpInside" id="Yxc-3Z-DNR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.14999999999999999" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZB-Tw-N73">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZB-Tw-N73">
                                 <rect key="frame" x="192" y="508" width="52" height="52"/>
                                 <state key="normal" image="icon2.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -388,6 +377,15 @@
                                 <connections>
                                     <action selector="btnHelp:" destination="eXu-27-SPi" eventType="touchUpInside" id="Zym-hK-cw5"/>
                                     <action selector="btnHelp:" destination="rhG-1A-ciS" eventType="touchUpInside" id="zgi-RL-lzR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRv-tH-Azw">
+                                <rect key="frame" x="226" y="164" width="52" height="52"/>
+                                <state key="normal" image="down_item.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnItemNext:" destination="rhG-1A-ciS" eventType="touchUpInside" id="ZUP-ls-AXM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -426,7 +424,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnStartOrEndPlayer:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="zvt-4i-h75"/>
+                                            <action selector="btnEndWMPlayer:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="wL0-C7-Kxy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnh-nC-Byg">
@@ -465,26 +463,13 @@
                                             <action selector="btnMute:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="NcI-BX-gur"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.14999999999999999" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQI-EU-Ixw">
-                                        <rect key="frame" x="252" y="508" width="52" height="52"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQI-EU-Ixw">
+                                        <rect key="frame" x="86" y="508" width="52" height="52"/>
                                         <state key="normal" image="icon2.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcL-bj-yw2">
-                                        <rect key="frame" x="20" y="509" width="52" height="52"/>
-                                        <state key="normal" image="icon4.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-7h-A5V">
-                                        <rect key="frame" x="84" y="508" width="52" height="52"/>
-                                        <state key="normal" image="icon3.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
                                         <connections>
-                                            <action selector="btnFileList:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="apm-Uq-hwF"/>
-                                            <action selector="btnFilelist:" destination="rhG-1A-ciS" eventType="touchUpInside" id="p4K-Aj-6yJ"/>
+                                            <action selector="btnRepeat:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="dYg-W1-NuC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0o1-cQ-jtQ">
@@ -493,16 +478,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnPlayOrPause:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="rNF-5B-ksM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMx-dK-0rb">
-                                        <rect key="frame" x="226" y="164" width="52" height="52"/>
-                                        <state key="normal" image="down_item.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnNext:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="WPK-MH-Zk1"/>
+                                            <action selector="btnPlay:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="g7k-FQ-xOG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFM-zk-Xha">
@@ -510,6 +486,9 @@
                                         <state key="normal" image="after_play.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnForward:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="Twd-kb-SNX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgY-Cn-g8I">
                                         <rect key="frame" x="44" y="164" width="52" height="52"/>
@@ -517,7 +496,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="btnBack:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="ehw-LA-UaB"/>
+                                            <action selector="btnLastOne:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="jOn-i2-0WG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bo-rX-X5U">
@@ -525,12 +504,18 @@
                                         <state key="normal" image="before_play.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnBack:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="iE1-mA-eQy"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moc-wr-Ba8">
-                                        <rect key="frame" x="192" y="508" width="52" height="52"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Moc-wr-Ba8">
+                                        <rect key="frame" x="26" y="508" width="52" height="52"/>
                                         <state key="normal" image="icon1.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnRandom:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="Rb9-AA-oHN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Eg-1M-sIq">
                                         <rect key="frame" x="230" y="79" width="48" height="48"/>
@@ -541,6 +526,25 @@
                                             <action selector="btnHelp:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="rrW-pi-Syv"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMx-dK-0rb">
+                                        <rect key="frame" x="226" y="164" width="52" height="52"/>
+                                        <state key="normal" image="down_item.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnNextOne:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="qTR-oY-Cpf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-7h-A5V">
+                                        <rect key="frame" x="230" y="508" width="52" height="52"/>
+                                        <state key="normal" image="icon3.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnFileList:" destination="M4l-Gn-YhS" eventType="touchUpInside" id="apm-Uq-hwF"/>
+                                            <action selector="btnFilelist:" destination="rhG-1A-ciS" eventType="touchUpInside" id="p4K-Aj-6yJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -549,6 +553,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="btnForward" destination="IFM-zk-Xha" id="TKx-9F-ILS"/>
                         <segue destination="tbO-NB-aHv" kind="modal" identifier="GotoViewFileList" modalTransitionStyle="flipHorizontal" id="Us5-ZK-e4F"/>
                         <segue destination="YhL-vs-eTc" kind="modal" identifier="GotoViewHelp" id="wXL-Cz-QtJ"/>
                     </connections>
@@ -706,7 +711,7 @@
                                 <rect key="frame" x="189" y="318" width="106" height="106"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="連線" backgroundImage="v1.png">
-                                    <color key="titleColor" patternImage="D0F25EFF-1A82-4B9A-B2C1-48EA8C8C2181" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="2119596D-204A-4E94-8870-B7C59AF4DEC4" colorSpace="pattern"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -736,7 +741,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D0F25EFF-1A82-4B9A-B2C1-48EA8C8C2181" width="256" height="256">
+        <image name="2119596D-204A-4E94-8870-B7C59AF4DEC4" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5222,7 +5227,7 @@ AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ZAT-tN-Qve"/>
-        <segue reference="Us5-ZK-e4F"/>
+        <segue reference="gpa-dt-N6h"/>
+        <segue reference="e1A-ys-H1P"/>
     </inferredMetricsTieBreakers>
 </document>

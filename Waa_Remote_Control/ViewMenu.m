@@ -34,33 +34,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-- (IBAction)btnDisconnect:(id)sender {
-    
-    @try
-    {
-        [sysDege socketClose];
-         ViewSwitchController *viewSwitchController=[[ViewSwitchController alloc]init];
-        [[sysDege window]setRootViewController: viewSwitchController];
-        [self dismissViewControllerAnimated:YES completion:nil];
-
-    }
-    @catch (NSException *exception) {
-        NSLog(@"\n\n%@\n\n",exception);
-    }
-
-   }
-
 - (IBAction)btnPowerPoint:(id)sender
 {
     [[sysDege viewSwitchController]showViewPPT];
@@ -68,6 +41,7 @@
 
 - (IBAction)btnPower:(id)sender
 {
+    
     [[sysDege viewSwitchController]showViewPower];
 }
 

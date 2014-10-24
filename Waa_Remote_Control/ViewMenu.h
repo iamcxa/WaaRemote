@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @class ViewMenu;
 
@@ -19,8 +20,6 @@
 - (IBAction)btnPowerPoint:(id)sender;
 - (IBAction)btnPower:(id)sender;
 - (IBAction)btnHelp:(id)sender;
-- (IBAction)btnDisconnect:(id)sender;
-
 
 -(void)setSocketMsg:(NSString *)Message;
 @end

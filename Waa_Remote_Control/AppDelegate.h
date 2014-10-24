@@ -38,7 +38,7 @@
 #define SOCKET_STATUS_CLOSED 0
 #define SOCKET_STATUS_CONNECTED 1
 // SOCKET逾時預設
-#define SOCKET_TIMEOUT 3
+#define SOCKET_TIMEOUT 5
 
 /************************************************************
  *
@@ -112,9 +112,11 @@
 // socket output字串物件
 @property (nonatomic,retain) NSString *socketOutputMsg;
 // socket回傳檔案清單/socket回傳檔案清單之選取index
-@property (nonatomic,retain) NSMutableArray *fileSelectedList;
+@property (nonatomic,retain) NSMutableArray *selectedFileList;
 // 存放使用者已選取的檔案清單行數位置
-@property NSInteger fileSelectedRow;
+@property NSInteger selectedFileRow;
+// 已經選取的檔案名稱
+@property NSString *selectedFileName;
 // socket回傳結果
 @property (nonatomic,retain) NSString *lastTimeSocketInputMsg;
 // 伺服器IP/上次使用IP/上次使用命令
