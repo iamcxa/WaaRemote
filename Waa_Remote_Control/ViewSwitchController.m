@@ -102,7 +102,7 @@
     [self.navigationController pushViewController:self.viewVideo animated:YES];
 }
 
-
+// 說明
 -(void)showViewHelp{
     NSLog(@"@switch=showViewHelp");
     //[self presentViewController:self.viewHelp animated:YES completion:nil];

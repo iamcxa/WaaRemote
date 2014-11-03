@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *LabelServerIP;
 @property (weak, nonatomic) IBOutlet UITextField *textboxServerIp;
-@property (weak, nonatomic) IBOutlet UILabel *message;
+@property (weak, nonatomic) IBOutlet UILabel *labelMessage;
 
 -(IBAction)btnConnect:(id)sender;
 

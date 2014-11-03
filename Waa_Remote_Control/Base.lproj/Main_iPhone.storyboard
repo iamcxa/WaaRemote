@@ -200,12 +200,6 @@
                                     <action selector="btnFilelist:" destination="eXu-27-SPi" eventType="touchUpInside" id="uaj-JQ-1O9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="file_name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szf-dy-sBl">
-                                <rect key="frame" x="68" y="109" width="184" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0U-nd-2PT">
                                 <rect key="frame" x="39" y="440" width="54" height="42"/>
                                 <state key="normal" image="powerpoint_time_up.png">
@@ -239,6 +233,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="led_y.png" translatesAutoresizingMaskIntoConstraints="NO" id="4ex-vC-Kih">
                                 <rect key="frame" x="208" y="478" width="16" height="17"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="file_name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szf-dy-sBl">
+                                <rect key="frame" x="16" y="64" width="304" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -639,15 +639,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVW-Lv-AMT">
-                                <rect key="frame" x="20" y="20" width="48" height="48"/>
-                                <state key="normal" image="arc.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnMenu:" destination="0jl-Hj-TbF" eventType="touchUpInside" id="3bx-bG-uJl"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -715,15 +706,15 @@
                                 <rect key="frame" x="189" y="318" width="106" height="106"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="連線" backgroundImage="v1.png">
-                                    <color key="titleColor" patternImage="A7B1DEF8-866C-441E-A1CE-C1E7C78A0253" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="FFBCA5E0-31E7-4A7E-A634-6FACF52B70C3" colorSpace="pattern"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="btnConnect:" destination="cfz-y5-UiH" eventType="touchUpInside" id="HfS-86-i3T"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="msg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aq-pc-s48">
-                                <rect key="frame" x="121" y="301" width="83" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="msg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aq-pc-s48">
+                                <rect key="frame" x="96" y="301" width="129" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -734,7 +725,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="LabelServerIP" destination="lRI-mA-gQm" id="LDO-fX-pFF"/>
-                        <outlet property="message" destination="0aq-pc-s48" id="yem-mr-VoY"/>
+                        <outlet property="labelMessage" destination="0aq-pc-s48" id="r1s-8e-kD2"/>
                         <outlet property="textboxServerIp" destination="WVJ-f9-isW" id="DZo-kF-h7z"/>
                         <segue destination="up3-p3-nGp" kind="modal" identifier="GotoViewMenu" modalTransitionStyle="crossDissolve" id="89G-7o-Eff"/>
                     </connections>
@@ -745,7 +736,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="A7B1DEF8-866C-441E-A1CE-C1E7C78A0253" width="256" height="256">
+        <image name="FFBCA5E0-31E7-4A7E-A634-6FACF52B70C3" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5188,7 +5179,6 @@ AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
 </mutableData>
         </image>
         <image name="after_play.png" width="48" height="48"/>
-        <image name="arc.png" width="100" height="100"/>
         <image name="audio_add.png" width="71" height="71"/>
         <image name="audio_cut.png" width="71" height="71"/>
         <image name="bark.png" width="480" height="691"/>
@@ -5231,7 +5221,7 @@ AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="e1A-ys-H1P"/>
-        <segue reference="gpa-dt-N6h"/>
+        <segue reference="wXL-Cz-QtJ"/>
+        <segue reference="Us5-ZK-e4F"/>
     </inferredMetricsTieBreakers>
 </document>

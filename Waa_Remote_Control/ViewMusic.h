@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewMusic : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
 - (IBAction)btnEndWMPlayer:(id)sender;
 - (IBAction)btnHelp:(id)sender;
 - (IBAction)btnNextOne:(id)sender;

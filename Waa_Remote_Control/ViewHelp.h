@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewHelp :UIViewController{
-     UIWebView *webView;
-}
-- (IBAction)btnMenu:(id)sender;
-//@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@interface ViewHelp :UIViewController{}
 
 
 @end

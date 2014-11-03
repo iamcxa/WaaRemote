@@ -186,12 +186,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 
                 [_inputStream close]; [self setLastTimeSocketInputMsg:lastTimeSocketInputMsg];
                 
-                NSString *toastTag=@"server=>";
-                NSString *toastMsg=[toastTag stringByAppendingString:lastTimeSocketInputMsg];
-                
-                [toast showInfo:toastMsg
-                        bgColor:[UIColor whiteColor].CGColor
-                         inView:self.navigator.view vertical:0.85];
+                // NSString *toastTag=@"server=>";
+                // NSString *toastMsg=[toastTag stringByAppendingString:lastTimeSocketInputMsg];
+                //[toast showInfo:toastMsg
+                //        bgColor:[UIColor whiteColor].CGColor
+                //         inView:self.navigator.view vertical:0.85];
             }
             
             break;
@@ -364,7 +363,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         
         NSLog(@"@socket connection timeout!"); [self socketClose];
         
-        [self showAlert:@"連線逾時！"];
+        [self showAlert:@"連線逾時！"]; [self socketClose];
         
     }else{
         

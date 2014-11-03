@@ -10,14 +10,18 @@
 
 @interface ViewScanIP ()
 
-
 @end
+
 
 @implementation ViewScanIP
 
+@synthesize labelMessage;
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad]; NSLog(@"@IPScaner didLoad");
+    [super viewDidLoad];  NSLog(@"@IPScaner didLoad");
+    
+    labelMessage.alpha=1; labelMessage.text=@"請輸入ＩＰ";
     
     if ([sysDege lastTimeUsedServerIP]!=nil){
         self.textboxServerIp.text=[sysDege lastTimeUsedServerIP];
