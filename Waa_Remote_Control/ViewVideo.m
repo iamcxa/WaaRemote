@@ -37,7 +37,7 @@
 
 // 說明選單
 - (IBAction)btnHelp:(id)sender {
-    [self performSegueWithIdentifier:@"GotoViewHelp" sender:self];
+    [[sysDege viewSwitchController]showViewHelp];
 }
 
 // 檔案清單

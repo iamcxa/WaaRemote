@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "481A5703194391D0006E9A0F"
-               BuildableName = "Waa_Remote_Control.app"
+               BuildableName = "Waa&#x9059;&#x63a7;&#x5668;.app"
                BlueprintName = "Waa_Remote_Control"
                ReferencedContainer = "container:Waa_Remote_Control.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "481A5703194391D0006E9A0F"
-            BuildableName = "Waa_Remote_Control.app"
+            BuildableName = "Waa&#x9059;&#x63a7;&#x5668;.app"
             BlueprintName = "Waa_Remote_Control"
             ReferencedContainer = "container:Waa_Remote_Control.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "481A5703194391D0006E9A0F"
-            BuildableName = "Waa_Remote_Control.app"
+            BuildableName = "Waa&#x9059;&#x63a7;&#x5668;.app"
             BlueprintName = "Waa_Remote_Control"
             ReferencedContainer = "container:Waa_Remote_Control.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "481A5703194391D0006E9A0F"
-            BuildableName = "Waa_Remote_Control.app"
+            BuildableName = "Waa&#x9059;&#x63a7;&#x5668;.app"
             BlueprintName = "Waa_Remote_Control"
             ReferencedContainer = "container:Waa_Remote_Control.xcodeproj">
          </BuildableReference>

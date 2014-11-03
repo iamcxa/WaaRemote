@@ -29,7 +29,8 @@ ViewPPT *viewPPT;
 
 -(void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad]; 
+
     NSLog(@"@ViewFileList didLoad");
     
     FileList=@"回上頁//s";
@@ -43,6 +44,12 @@ ViewPPT *viewPPT;
     NSLog(@"FileListMutableArray=%@",FileListMutableArray);
     
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+}
+
+
 
 -(void)setCompont{
     //为了多选

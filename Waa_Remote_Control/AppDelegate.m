@@ -35,6 +35,7 @@
 @synthesize toast;
 
 // 連線結果
+@synthesize lastTimeSocketInputMsg;
 @synthesize result;
 
 - (BOOL)application:(UIApplication *)application
@@ -176,17 +177,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 // 再將NSString轉為NSDATA
                 NSData *dataenc=[rawData dataUsingEncoding:NSNonLossyASCIIStringEncoding];
                 // 最後再轉換成NSString
-                _lastTimeSocketInputMsg =[[NSString alloc]initWithData:dataenc encoding:NSNonLossyASCIIStringEncoding];
+                lastTimeSocketInputMsg =[[NSString alloc]initWithData:dataenc encoding:NSNonLossyASCIIStringEncoding];
                 // event 輸出 received, 表示有收到字串.
-                event=@"received"; result=[NSString stringWithString:_lastTimeSocketInputMsg];
+                event=@"received"; result=[NSString stringWithString:lastTimeSocketInputMsg];
                 
                 // 輸出已經接收到的訊息
-                //NSLog(@"@received=>'%@'",_lastTimeSocketInputMsg);
+                //NSLog(@"@received=>'%@'",lastTimeSocketInputMsg);
                 
-                [_inputStream close]; [self setLastTimeSocketInputMsg:_lastTimeSocketInputMsg];
+                [_inputStream close]; [self setLastTimeSocketInputMsg:lastTimeSocketInputMsg];
                 
                 NSString *toastTag=@"server=>";
-                NSString *toastMsg=[toastTag stringByAppendingString:_lastTimeSocketInputMsg];
+                NSString *toastMsg=[toastTag stringByAppendingString:lastTimeSocketInputMsg];
                 
                 [toast showInfo:toastMsg
                         bgColor:[UIColor whiteColor].CGColor
@@ -231,7 +232,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                   
                   [[theStream streamError] localizedDescription]);
             
-            [sysDege showAlert:@"連線失敗！"];
+            [sysDege showAlert:@"連線失敗！"]; [self socketClose];
             
             break;
             
@@ -257,21 +258,24 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     NSLog(@"@%@—%@.",event,result);
     
     if([event isEqual:@"received"]) {
+        
         if(result.length>1){
+         
             if(![result hasPrefix:@"NoFile"]){
                 // 如果回傳結果長度大於1而且不包含NoFile關鍵字才繼續
                 [self socketClientRespond];
             }else [sysDege showAlert:@"該資料夾沒有相關檔案！"];
+            
+            [self loadingStop];
+            
         }else {
             // 收到空字串
             NSLog(@"@received a null here! check server.");
+            [self socketClose];
             [sysDege showAlert:@"發生錯誤！請重新連線！"];
             [self setViewControllers];
         }
     }
-    
-    // 移除連線中畫面
-    [self loadingStop];
     
 }
 
@@ -284,7 +288,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 // socket開啟
 -(void)socketStart:(NSString *)ServerIP{
     // 顯示loading畫面
-    [[[[sysDege window]rootViewController]view] addSubview: [self loadingView]];
+    //[[[[sysDege window]rootViewController]view] addSubview: [self loadingView]];
+    [self loadingView];
     
     // 記錄上次使用之SERVER IP
     NSLog(@"@socket start with this server:%@",ServerIP);
@@ -374,12 +379,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
  *
  ************************************************************/
 -(void)socketClientRespond{
+    
     NSLog(@"@socket doing a response with type=>%ld",(long)_socketTypeFilter);
+    
     switch (_socketTypeFilter) {
             
         case TYPE_CODE_FIND_IP:
             // 驗證server端訊息
-            if ([_lastTimeSocketInputMsg isEqualToString:[self MRCode_Connect]]) {
+            if ([lastTimeSocketInputMsg isEqualToString:[self MRCode_Connect]]) {
                 [self.viewSwitchController showViewMenu];
                 // 20141014 沒明確用途暫時關閉
                 //}else{
@@ -390,18 +397,21 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             
         case TYPE_CODE_POWERPOINT_TO_FILE_LIST:
             
+            if(![lastTimeSocketInputMsg containsString:@"MRCode"])
             [self.viewSwitchController showViewFileList:[sysDege MRCode_Show_Documents]];
             
             break;
             
         case TYPE_CODE_VIDEO_TO_FILE_LIST:
             
+            if(![lastTimeSocketInputMsg containsString:@"MRCode"])
             [self.viewSwitchController showViewFileList:[sysDege MRCode_Show_Videos]];
             
             break;
             
         case TYPE_CODE_MUSIC_TO_FILE_LIST:
             
+            if(![lastTimeSocketInputMsg containsString:@"MRCode"])
             [self.viewSwitchController showViewFileList:[sysDege MRCode_Show_Music]];
             
             break;
@@ -413,9 +423,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             break;
     }
     
+    
     // 清空輸出入暫存
     //NSLog(@"@clean input/output.");
-    //_lastTimeSocketInputMsg=nil; _socketOutputMsg=nil;
+    //lastTimeSocketInputMsg=nil; _socketOutputMsg=nil;
 }
 
 
@@ -505,7 +516,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     loadingLabel.text = @"連線中";
     [loadingView addSubview:loadingLabel];
     
-    [[[[sysDege window]rootViewController]view] addSubview:loadingView];
+    //[[[[sysDege window]rootViewController]view] addSubview:loadingView];
+    
+    
+    // 將navigator放入window中
+    [self.window addSubview:loadingView];
     
     [activityView startAnimating];
     

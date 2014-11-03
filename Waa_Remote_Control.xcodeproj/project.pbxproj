@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		48000EE319A88793003CF8C3 /* ViewSwitchController.h in Headers */ = {isa = PBXBuildFile; fileRef = 48000EE119A88793003CF8C3 /* ViewSwitchController.h */; };
 		48000EE419A88793003CF8C3 /* ViewSwitchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48000EE219A88793003CF8C3 /* ViewSwitchController.m */; };
-		4805806719B620110099D3AB /* Images-3.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4805806619B620110099D3AB /* Images-3.xcassets */; };
+		480065991A037336006A1390 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 480065981A037336006A1390 /* Images.xcassets */; };
 		481A5708194391D0006E9A0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5707194391D0006E9A0F /* Foundation.framework */; };
 		481A570A194391D0006E9A0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A5709194391D0006E9A0F /* CoreGraphics.framework */; };
 		481A570C194391D0006E9A0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481A570B194391D0006E9A0F /* UIKit.framework */; };
@@ -144,8 +144,8 @@
 /* Begin PBXFileReference section */
 		48000EE119A88793003CF8C3 /* ViewSwitchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSwitchController.h; sourceTree = "<group>"; };
 		48000EE219A88793003CF8C3 /* ViewSwitchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSwitchController.m; sourceTree = "<group>"; };
-		4805806619B620110099D3AB /* Images-3.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-3.xcassets"; sourceTree = "<group>"; };
-		481A5704194391D0006E9A0F /* Waa_Remote_Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waa_Remote_Control.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		480065981A037336006A1390 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		481A5704194391D0006E9A0F /* Waa遙控器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Waa遙控器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		481A5707194391D0006E9A0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		481A5709194391D0006E9A0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		481A570B194391D0006E9A0F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -315,7 +315,7 @@
 		481A5705194391D0006E9A0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				481A5704194391D0006E9A0F /* Waa_Remote_Control.app */,
+				481A5704194391D0006E9A0F /* Waa遙控器.app */,
 				481A5728194391D0006E9A0F /* Waa_Remote_ControlTests.xctest */,
 			);
 			name = Products;
@@ -361,9 +361,9 @@
 				487BE2F5195C9BED0033A6B6 /* ViewMusic.m */,
 				483001E91998C217001390B4 /* ViewFileList.h */,
 				483001EA1998C217001390B4 /* ViewFileList.m */,
-				4805806619B620110099D3AB /* Images-3.xcassets */,
 				485AE00619E3A6A500CBCBBB /* toast.h */,
 				485AE00719E3A6A600CBCBBB /* toast.m */,
+				480065981A037336006A1390 /* Images.xcassets */,
 			);
 			path = Waa_Remote_Control;
 			sourceTree = "<group>";
@@ -372,11 +372,11 @@
 			isa = PBXGroup;
 			children = (
 				48BC025F195EAA1A00D03A56 /* help.files */,
-				48BC0287195EAA1A00D03A56 /* help.htm */,
 				481A573F19439264006E9A0F /* pictures */,
 				481A570F194391D0006E9A0F /* Waa_Remote_Control-Info.plist */,
 				481A5710194391D0006E9A0F /* InfoPlist.strings */,
 				481A5713194391D0006E9A0F /* main.m */,
+				48BC0287195EAA1A00D03A56 /* help.htm */,
 				481A5715194391D0006E9A0F /* Waa_Remote_Control-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -553,7 +553,7 @@
 			);
 			name = Waa_Remote_Control;
 			productName = Waa_Remote_Control;
-			productReference = 481A5704194391D0006E9A0F /* Waa_Remote_Control.app */;
+			productReference = 481A5704194391D0006E9A0F /* Waa遙控器.app */;
 			productType = "com.apple.product-type.application";
 		};
 		481A5727194391D0006E9A0F /* Waa_Remote_ControlTests */ = {
@@ -630,7 +630,6 @@
 				481A57B219439264006E9A0F /* video_icon.png in Resources */,
 				481A578919439264006E9A0F /* help_icon.png in Resources */,
 				481A57AB19439264006E9A0F /* set.png in Resources */,
-				4805806719B620110099D3AB /* Images-3.xcassets in Resources */,
 				481A571E194391D0006E9A0F /* Main_iPad.storyboard in Resources */,
 				48BC02A3195EAA1B00D03A56 /* image054.jpg in Resources */,
 				481A57AC19439264006E9A0F /* stop_play.png in Resources */,
@@ -697,6 +696,7 @@
 				481A578C19439264006E9A0F /* icon1.png in Resources */,
 				481A579F19439264006E9A0F /* power_reset_icom.png in Resources */,
 				481A579719439264006E9A0F /* music_icon.png in Resources */,
+				480065991A037336006A1390 /* Images.xcassets in Resources */,
 				48BC02A8195EAA1B00D03A56 /* image064.jpg in Resources */,
 				48BC02AA195EAA1B00D03A56 /* image067.jpg in Resources */,
 				481A57A419439264006E9A0F /* powerpoint_icon.png in Resources */,
@@ -883,8 +883,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Waa_Remote_Control/Waa_Remote_Control-Prefix.pch";
 				INFOPLIST_FILE = "Waa_Remote_Control/Waa_Remote_Control-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "Waa遙控器";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -901,8 +901,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Waa_Remote_Control/Waa_Remote_Control-Prefix.pch";
 				INFOPLIST_FILE = "Waa_Remote_Control/Waa_Remote_Control-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "Waa遙控器";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

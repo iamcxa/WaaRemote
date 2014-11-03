@@ -113,12 +113,35 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect,
     alert.alpha = 0;
     [view addSubview:alert];
     alert.tag = kViewTag;
-    //    [alert release];
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:.3f];
+    [UIView beginAnimations:nil context:nil]; [UIView setAnimationDuration:.3f];
+    
+    NSLog(@"@@info.length=%lu",(unsigned long)info.length);
+    
+
     alert.alpha = 1.0;
     [UIView commitAnimations];
-    [alert performSelector:@selector(fadeAway) withObject:nil afterDelay:1.5];
+    
+    if ((int)info.length>15) {
+        
+        NSLog(@"info.length>15");
+        size = [info sizeWithAttributes:
+                @{NSFontAttributeName:
+                      [UIFont systemFontOfSize:9]}];
+        
+        [alert performSelector:@selector(fadeAway) withObject:nil afterDelay:2.5];
+        
+    }else if ((int)info.length>20){
+        
+        NSLog(@"info.length>20");
+        size = [info sizeWithAttributes:
+                @{NSFontAttributeName:
+                      [UIFont systemFontOfSize:7]}];
+        [alert performSelector:@selector(fadeAway) withObject:nil afterDelay:4.5];
+        
+    }else{
+        [alert performSelector:@selector(fadeAway) withObject:nil afterDelay:1.5];
+    }
+    
     return alert;
 }
 @end

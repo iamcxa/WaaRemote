@@ -11,13 +11,19 @@
 #import "ViewScanIP.h"
 
 
-@interface ViewPPT ()
+@interface ViewPPT (){
+    
+    int timeCounterMins;
+    int timeCounterSecs;
+}
 
 @end
 
 @implementation ViewPPT
 
 @synthesize txtFileSelectedNowName;
+@synthesize signRed,signYellow;
+@synthesize labelTimeCounterMins,labelTimeCounterSecs;
 
 
 - (void)viewDidLoad
@@ -27,29 +33,33 @@
     
     NSLog(@"@ViewPPT didLoad");
     
-     txtFileSelectedNowName.text=@"尚未選擇簡報檔案";
+    txtFileSelectedNowName.text=@"尚未選擇簡報檔案"; [sysDege setSelectedFileName:@""];
+    
+    // 初始化倒數計時
+    timeCounterMins=5;
+    timeCounterSecs=60;
+    signRed.alpha=0;
+    signYellow.alpha=0;
+    labelTimeCounterMins.text=@"05";
+    labelTimeCounterSecs.text=@"00";
     
 }
 
 // view切換時顯示上一個選擇的檔案
 -(void)viewWillAppear:(BOOL)animated{
-   // [[NSNotificationCenter defaultCenter]
-   //  addObserver:self selector:@selector(appWillEnterForegroundNotification)
-   //  name:UIApplicationWillEnterForegroundNotification object:nil];
     
     NSString *selectedFileName=[sysDege selectedFileName];
     
     if (![selectedFileName isEqual:@""]) {
         
         txtFileSelectedNowName.text=selectedFileName;
+        
     }else{
         
         txtFileSelectedNowName.text=@"尚未選擇簡報檔案";
-
+        
     }
-    
 }
-
 
 //
 -(void)appWillEnterForegroundNotification{
@@ -66,6 +76,7 @@
 
 // 送出訊息時強制設定檔案篩選類型, 確保一定會是ＰＰＴ類型檔案
 -(void)socketStartWithFilterType:(NSString *)Msg{
+    
     if ([[sysDege selectedFileList]objectAtIndex:[sysDege selectedFileRow]]!=nil) {
         [sysDege setSocketTypeFilter:TYPE_CODE_POWERPOINT];
         [sysDege socketStartWithMessage:Msg];
@@ -75,76 +86,137 @@
         [sysDege showAlert:@"請先選擇檔案！"];
         
     }
+    
 }
 
 // 說明選單
 - (IBAction)btnHelp:(id)sender{
-    [self performSegueWithIdentifier:@"GotoViewHelp" sender:self];
-}
-
-// 回功能選單
-- (IBAction)btnMenu:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [[sysDege viewSwitchController]showViewHelp];
+    
 }
 
 // 降低音量
 - (IBAction)btnVolumeUp:(id)sender {
+    
     [self socketStartWithFilterType:@"MRCode_PPT_14"]; usleep(200000);
+    
 }
 
 // 提高音量
 - (IBAction)btnVolumeDown:(id)sender {
+    
     [self socketStartWithFilterType:@"MRCode_PPT_15"]; usleep(200000);
+    
 }
 
 // 上一頁
 - (IBAction)btnPageBack:(id)sender {
+    
     [self socketStartWithFilterType:@"MRCode_PPT_12"]; usleep(200000);
+    
 }
 
 // 下一頁
 - (IBAction)btnPageNext:(id)sender {
+    
     [self socketStartWithFilterType:@"MRCode_PPT_13"]; usleep(200000);
+    
 }
 
 // 播放/暫停
 - (IBAction)btnAction:(id)sender {
-    //    if([sysDege lastTimeUsedCmd]!=nil){
-    //        NSLog(@"@lastTimeUsedCmd found=>%@",[sysDege lastTimeUsedCmd]);
-    //        [sysDege socketStartWithMessage:[sysDege lastTimeUsedCmd]];
-    //        usleep(100000);
-    //    }
+    
+    // 開始倒數
+    [NSTimer
+     scheduledTimerWithTimeInterval:1
+     target:self
+     selector:@selector(countingTime:)
+     userInfo:nil
+     repeats:NO];
+    
+    // 啟動socket
     [self socketStartWithFilterType:@"MRCode_PPT_10"];
+    
+    //暫停btn
     usleep(200000);
+    
 }
 
 // 檔案清單
 - (IBAction)btnFilelist:(id)sender {
+    
     [sysDege setSocketTypeFilter:TYPE_CODE_POWERPOINT_TO_FILE_LIST];
     [sysDege socketStartWithMessage:[sysDege MRCode_Show_Documents]];
-}
-
-// 計時器功能－增加 10 秒
-- (IBAction)btnTimeAdd:(id)sender {
     
 }
 
-// 計時器功能－減少 10 秒
-- (IBAction)btnTimeReduce:(id)sender {
+// 計時器功能－增加 1 分
+- (IBAction)btnTimeCounterAdd:(id)sender {
+    
+    timeCounterMins+=1;
+    timeCounterSecs=60;
+    
+    if (timeCounterMins<10) {
+        labelTimeCounterMins.text=[NSString stringWithFormat:@"0%d",timeCounterMins];
+    }else{
+        labelTimeCounterMins.text=[NSString stringWithFormat:@"%d",timeCounterMins];
+    }
+    labelTimeCounterSecs.text=@"00";
     
 }
 
-//
+// 計時器功能－減少 1 分
+- (IBAction)btnTimeCounterReduce:(id)sender {
+    
+    if (timeCounterMins>1) {
+        
+        timeCounterMins-=1;
+        timeCounterSecs=60;
+        
+        if (timeCounterMins<10) {
+            labelTimeCounterMins.text=[NSString stringWithFormat:@"0%d",timeCounterMins];
+        }else{
+            labelTimeCounterMins.text=[NSString stringWithFormat:@"%d",timeCounterMins];
+        }
+        labelTimeCounterSecs.text=@"00";
+        
+    }else{
+        [sysDege showAlert:@"時間太短啦！"];
+    }
+    
+}
+
+// view消失時
 -(void)viewDidDisappear:(BOOL)animated{
+    
     [sysDege setLastTimeUsedCmd:nil];
     [sysDege setSelectedFileList:nil];
     [sysDege setSelectedFileRow:0];
     //[[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
-- (IBAction)btnMoreTime:(id)sender {
+-(void)countingTime:(NSTimer *)theTimer{
+    
+    if (timeCounterSecs>1) {
+        
+        timeCounterSecs-=1;
+        
+        labelTimeCounterSecs.text=[NSString stringWithFormat:@"%d",timeCounterSecs];
+        
+    }else{
+        
+        if(timeCounterMins>1){
+            
+            timeCounterMins-=1;
+            
+            labelTimeCounterMins.text=[NSString stringWithFormat:@"%d",timeCounterMins];
+            
+            timeCounterSecs=60;
+        }
+    }
+
 }
 
-- (IBAction)btnLessTime:(id)sender {
-}
 @end
