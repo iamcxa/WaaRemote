@@ -127,13 +127,13 @@
 // 播放/暫停
 - (IBAction)btnAction:(id)sender {
     
-    // 開始倒數
+    // 開始倒數 - 每1秒執行一次
     [NSTimer
      scheduledTimerWithTimeInterval:1
      target:self
      selector:@selector(countingTime:)
      userInfo:nil
-     repeats:NO];
+     repeats:YES];
     
     // 啟動socket
     [self socketStartWithFilterType:@"MRCode_PPT_10"];
@@ -197,13 +197,19 @@
     
 }
 
+// 倒數計時 - 當扣秒少於1就扣分
 -(void)countingTime:(NSTimer *)theTimer{
     
+    // 如果秒數大於1
     if (timeCounterSecs>1) {
         
         timeCounterSecs-=1;
         
-        labelTimeCounterSecs.text=[NSString stringWithFormat:@"%d",timeCounterSecs];
+        if (timeCounterSecs<10) {
+            labelTimeCounterSecs.text=[NSString stringWithFormat:@"0%d",timeCounterSecs];
+        }else{
+            labelTimeCounterSecs.text=[NSString stringWithFormat:@"%d",timeCounterSecs];
+        }
         
     }else{
         
@@ -211,7 +217,11 @@
             
             timeCounterMins-=1;
             
-            labelTimeCounterMins.text=[NSString stringWithFormat:@"%d",timeCounterMins];
+            if (timeCounterMins<10) {
+                labelTimeCounterMins.text=[NSString stringWithFormat:@"0%d",timeCounterMins];
+            }else{
+                labelTimeCounterMins.text=[NSString stringWithFormat:@"%d",timeCounterMins];
+            }
             
             timeCounterSecs=60;
         }
