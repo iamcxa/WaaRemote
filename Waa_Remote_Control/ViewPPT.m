@@ -7,16 +7,15 @@
 //
 
 #import "ViewPPT.h"
-#import "ViewMenu.h"
 #import "ViewScanIP.h"
-
-
+#import "toast.h"
 
 @interface ViewPPT (){
     NSTimer *autoTimer;
     int timeCounterMins,lastTimeCounterMins;
     int timeCounterSecs,lastTimeCounterSecs;
     int playStatus;
+    NSString *selectedFileName;
 }
 
 @end
@@ -35,87 +34,93 @@
     
     NSLog(@"@ViewPPT didLoad");
     
-    // 初始化震動
-    //將音效檔轉換成SystemSoundID型態
-    SystemSoundID soundID;
-    
-    txtFileSelectedNowName.text=@"尚未選擇簡報檔案"; [sysDege setSelectedFileName:@""];
-    
-    // 播放/暫停狀態
-    playStatus=0; // 0=暫停
-    
-    // 初始化倒數計時
-    timeCounterMins=5;
-    timeCounterSecs=60;
-    signRed.alpha=0;
-    signYellow.alpha=0;
-    labelTimeCounterMins.text=@"05"; // 預設五分鐘
-    labelTimeCounterSecs.text=@"00"; // 顯示05:“00”
-    
+    [self initFlags];
 }
+
 
 // view切換時顯示上一個選擇的檔案
 -(void)viewWillAppear:(BOOL)animated{
     
-    NSString *selectedFileName=[sysDege selectedFileName];
+    [self initFlags];
+}
+
+// 初始化各種旗標
+-(void)initFlags{
     
-    if (![selectedFileName isEqual:@""]) {
-        
-        txtFileSelectedNowName.text=[@"目前檔案：" stringByAppendingString:selectedFileName];
-        
-    }else{
+    // 播放/暫停狀態
+    playStatus=0; // 0=暫停
+    
+    // 初始化燈號
+    signRed.alpha=0;
+    signYellow.alpha=0;
+    
+    // 初始化倒數計時
+    timeCounterMins=5;
+    timeCounterSecs=60;
+    labelTimeCounterMins.text=@"05"; // 預設五分鐘
+    labelTimeCounterSecs.text=@"00"; // 顯示05:“00”
+    
+    // 顯示已選取檔案
+    selectedFileName=[sysDege selectedFileName];
+    
+    if (selectedFileName.length==0) {
         
         txtFileSelectedNowName.text=@"尚未選擇簡報檔案";
         
+    }else{
+        
+        txtFileSelectedNowName.text=[@"目前檔案：" stringByAppendingString:selectedFileName];
     }
 }
 
 //
 -(void)appWillEnterForegroundNotification{
+    
     NSLog(@"＠＠trigger event when will enter foreground.");
 }
 
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    NSLog(@"@ViewPPT viewWillDisappear");
+    
+    // 清空已選取檔案
+    [sysDege setLastTimeUsedCmd:nil];
+    [sysDege setSelectedFileList:nil];
+    [sysDege setSelectedFileRow:0];
+    [sysDege setSelectedFileName:nil];
+    
+    // 重新設定旗標
+    [self initFlags];
 }
-
 
 // 送出訊息時強制設定檔案篩選類型, 確保一定會是ＰＰＴ類型檔案
 -(void)socketStartWithFilterType:(NSString *)Msg{
-    
-    // 如果正在播放則計時器回復原先設定之時間
-    if(playStatus==1){
-        
-        //timeCounterMins=lastTimeCounterMins;
-        //timeCounterSecs=lastTimeCounterSecs;
-        
-        // 如果已經停止則備份目前設定之時間
-    }else if (playStatus==0){
-        
-        //lastTimeCounterMins=timeCounterMins;
-        //lastTimeCounterSecs=timeCounterSecs;
-    }
     
     if ([[sysDege selectedFileList]objectAtIndex:[sysDege selectedFileRow]]!=nil) {
         
         [sysDege setSocketTypeFilter:TYPE_CODE_POWERPOINT]; [sysDege socketStartWithMessage:Msg];
         
-        // 開始倒數 - 每1秒執行一次
-        autoTimer=[NSTimer
-                   scheduledTimerWithTimeInterval:1
-                   target:self
-                   selector:@selector(countingTime:)
-                   userInfo:nil
-                   repeats:YES];
-        
+        if([Msg isEqual:@"MRCode_PPT_10"] || [Msg isEqual:@"MRCode_PPT_00"]){
+            // 開始倒數 - 每1秒執行一次
+            autoTimer=[NSTimer
+                       scheduledTimerWithTimeInterval:1.0
+                       target:self
+                       selector:@selector(countingTime:)
+                       userInfo:nil
+                       repeats:YES];
+        }
     } else{
         
-        [sysDege showAlert:@"請先選擇檔案！"];
+        [self toast:@"請先選擇檔案！"]; [self btnFilelist:self];
     }
+}
+
+// 關閉ＰＰＴ
+- (IBAction)btnPowerOff:(id)sender {
     
+    [sysDege setSocketTypeFilter:TYPE_CODE_POWERPOINT];
+    [sysDege socketStartWithMessage:@"MRCode_PPT_00"];
 }
 
 // 說明選單
@@ -127,25 +132,25 @@
 // 降低音量
 - (IBAction)btnVolumeUp:(id)sender {
     
-    [self socketStartWithFilterType:@"MRCode_PPT_14"]; usleep(200000);
+    [self socketStartWithFilterType:@"MRCode_PPT_14"];
 }
 
 // 提高音量
 - (IBAction)btnVolumeDown:(id)sender {
     
-    [self socketStartWithFilterType:@"MRCode_PPT_15"]; usleep(200000);
+    [self socketStartWithFilterType:@"MRCode_PPT_15"];
 }
 
 // 上一頁
 - (IBAction)btnPageBack:(id)sender {
     
-    [self socketStartWithFilterType:@"MRCode_PPT_12"]; usleep(200000);
+    [self socketStartWithFilterType:@"MRCode_PPT_12"];
 }
 
 // 下一頁
 - (IBAction)btnPageNext:(id)sender {
     
-    [self socketStartWithFilterType:@"MRCode_PPT_13"]; usleep(200000);
+    [self socketStartWithFilterType:@"MRCode_PPT_13"];
 }
 
 // 播放/暫停
@@ -154,27 +159,48 @@
     // 目前是暫停
     if (playStatus==0) {
         
-        // 啟動socket送出播放
-        [self socketStartWithFilterType:@"MRCode_PPT_10"];  playStatus=1;
+        [self playPPT];
         
+        // 分鐘-1
         timeCounterMins-=1; [self setCountMins];
         
         // 目前是播放
     }else if (playStatus==1){
         
-        // 啟動socket送出暫停
-        [self socketStartWithFilterType:@"MRCode_PPT_00"];  playStatus=0;
-        
-        // 關閉計時器
-        [autoTimer invalidate];  autoTimer = nil;
+        [self stopPPT];
     }
+}
+
+// 播放ＰＰＴ
+-(void)playPPT{
     
-    //暫停btn
-    usleep(200000);
+    // 啟動socket送出播放
+    [self socketStartWithFilterType:@"MRCode_PPT_10"];  playStatus=1;
+}
+
+// 停止ＰＰＴ
+-(void)stopPPT{
+    
+    // 啟動socket送出暫停
+    [self socketStartWithFilterType:@"MRCode_PPT_00"];  playStatus=0;
+    [self stopTimer];
+}
+
+// 停止計時器
+-(void)stopTimer{
+    
+    // 關閉計時器
+    autoTimer = nil; [autoTimer invalidate];
 }
 
 // 檔案清單
-- (IBAction)btnFilelist:(id)sender {
+- (IBAction)btnFilelist:(id)sender{
+    
+    // 停止ＰＰＴ
+    [self stopTimer];
+    
+    // 重設旗標
+    [self initFlags];
     
     [sysDege setSocketTypeFilter:TYPE_CODE_POWERPOINT_TO_FILE_LIST];
     [sysDege socketStartWithMessage:[sysDege MRCode_Show_Documents]];
@@ -202,7 +228,7 @@
         labelTimeCounterSecs.text=@"00";
         
     }else{
-        [sysDege showAlert:@"時間太短啦！"];
+        [self toast:@"時間太短啦！"];
     }
 }
 
@@ -229,20 +255,29 @@
         }
         if (timeCounterMins>1 && timeCounterMins<3) {
             
-            // 亮黃燈
-            signYellow.alpha=1; signRed.alpha=0;
-            
-            // 震動一下
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-            
+            if(timeCounterSecs==59){
+                
+                // 震動一下
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+                
+                // 亮黃燈
+                signYellow.alpha=1; signRed.alpha=0;
+            }
             
         }else if (timeCounterMins<2){
             
-            // 亮紅燈
-            signYellow.alpha=0; signRed.alpha=1;
+            if(timeCounterSecs==59){
+                
+                // 震動一下
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+                
+                // 亮紅燈
+                signYellow.alpha=0; signRed.alpha=1;
+            }
+        }else{
             
-            // 震動一下
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            // 熄滅黃紅燈
+            signYellow.alpha=0; signRed.alpha=0;
         }
         
         // 如果停止了
@@ -250,7 +285,7 @@
         
         signYellow.alpha=0; signRed.alpha=0;
         
-        [autoTimer invalidate]; autoTimer=nil;
+        [self stopTimer];
     }
 }
 
@@ -279,6 +314,14 @@
     [sysDege setSelectedFileList:nil];
     [sysDege setSelectedFileRow:0];
     //[[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+// 跳出toast
+-(void)toast:(NSString*)toastMsg{
+    
+    [toast showInfo:toastMsg
+            bgColor:[UIColor whiteColor].CGColor
+             inView:self.navigationController.view vertical:0.85];
 }
 
 @end

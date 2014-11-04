@@ -28,6 +28,14 @@
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    // 清空變數
+    [sysDege setLastTimeSocketInputMsg:@""];
+    
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

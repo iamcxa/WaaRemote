@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTimeCounterMins;
 @property (weak, nonatomic) IBOutlet UILabel *labelTimeCounterSecs;
 
+- (IBAction)btnPowerOff:(id)sender;
 - (IBAction)btnHelp:(id)sender;
 - (IBAction)btnVolumeUp:(id)sender;
 - (IBAction)btnVolumeDown:(id)sender;

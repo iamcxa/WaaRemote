@@ -186,6 +186,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 
                 [_inputStream close]; [self setLastTimeSocketInputMsg:lastTimeSocketInputMsg];
                 
+                // debug
                 // NSString *toastTag=@"server=>";
                 // NSString *toastMsg=[toastTag stringByAppendingString:lastTimeSocketInputMsg];
                 //[toast showInfo:toastMsg
@@ -275,7 +276,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             [self setViewControllers];
         }
     }
-    
 }
 
 
@@ -361,14 +361,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     if(result==nil){
         
-        NSLog(@"@socket connection timeout!"); [self socketClose];
+        NSLog(@"@socket connection timeout!");
         
         [self showAlert:@"連線逾時！"]; [self socketClose];
         
     }else{
         
         NSLog(@"@socket connection is alive.");
-        
     }
 }
 

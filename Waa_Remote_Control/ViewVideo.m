@@ -18,6 +18,11 @@
     int statusFulScr;
 }
 
+@synthesize btnPlayFaster;
+@synthesize btnPlaySlower;
+@synthesize btnItemLast;
+@synthesize btnItemNext;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];  NSLog(@"@ViewVideo didLoad");
@@ -26,6 +31,10 @@
     statusPlay=0; statusMute=0;
     statusRandPly=0; statusReptPly=0;
     statusFulScr=0;
+    
+    // 隱藏按鈕
+    btnItemLast.alpha=0;
+    btnItemNext.alpha=0;
 }
 
 // 送出訊息時強制設定檔案篩選類型, 確保一定會是對應類型檔案
@@ -39,8 +48,7 @@
         
     } else{
         
-        [self toast:@"請先選擇檔案！"];
-        [self btnFilelist:self];
+        [self toast:@"請先選擇檔案！"]; [self btnFilelist:self];
         return NO;
     }
 }
@@ -58,36 +66,42 @@
     [sysDege socketStartWithMessage:[sysDege MRCode_Show_Videos]];
 }
 
+// 上一首
 - (IBAction)btnItemLast:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_12"];
-    [self toast:@"上一個"]; usleep(200000);
+    [self toast:@"上一個"]; 
 }
 
+// 下一首
 - (IBAction)btnItemNext:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_13"];
-    [self toast:@"下一個"]; usleep(200000);
+    [self toast:@"下一個"]; 
 }
 
-
+// 快轉
 - (IBAction)btnPlayFaster:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_17"];
-    [self toast:@"播放：快轉"]; usleep(200000);
+    [self toast:@"播放：快轉"]; 
 }
 
+// 減速
 - (IBAction)btnPlaySlower:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_18"];
-    [self toast:@"播放：減速"]; usleep(200000);
+    [self toast:@"播放：減速"]; 
 }
 
 // 停止
 - (IBAction)BtnStop:(id)sender {
     
-    [self socketStartWithFilterType:@"MRCode_WMP_19"];
-    [self toast:@"停止"]; usleep(200000);
+    // 不經過檔案選取判定直接送出
+    [sysDege setSocketTypeFilter:TYPE_CODE_VIDEO];
+    [sysDege socketStartWithMessage:@"MRCode_WMP_19"];
+    
+    [self toast:@"停止"]; 
 }
 
 // 播放/暫停
@@ -103,7 +117,7 @@
             statusPlay=0; [self toast:@"暫停"];
         }
     }
-    usleep(200000);
+    
 }
 
 // 靜音
@@ -119,19 +133,19 @@
             statusMute=0; [self toast:@"靜音：關"];
         }
     }
-    usleep(200000);
+    
 }
 
 - (IBAction)btnVolumeDown:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_16"];
-    [self toast:@"降低音量"]; usleep(200000);
+    [self toast:@"降低音量"]; 
 }
 
 - (IBAction)btnVolumeUp:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_15"];
-    [self toast:@"提高音量"]; usleep(200000);
+    [self toast:@"提高音量"]; 
 }
 
 // 全螢幕
@@ -147,7 +161,7 @@
             statusFulScr=0; [self toast:@"全螢幕：關"];
         }
     }
-     usleep(200000);
+     
 }
 
 // 重複播放
@@ -163,7 +177,6 @@
             statusReptPly=0; [self toast:@"重複播放：關"];
         }
     }
-    usleep(200000);
 }
 
 // 隨機播放
@@ -179,13 +192,16 @@
             statusRandPly=0; [self toast:@"隨機播放：關"];
         }
     }
-    usleep(200000);
 }
 
+// 關閉播放器
 - (IBAction)btnTurnOffPlayer:(id)sender {
     
-    [self socketStartWithFilterType:@"MRCode_WMP_00"];
-    [self toast:@"關閉播放器"]; usleep(200000);
+    // 不經過檔案選取判定直接送出
+    [sysDege setSocketTypeFilter:TYPE_CODE_VIDEO];
+    [sysDege socketStartWithMessage:@"MRCode_WMP_00"];
+    
+    [self toast:@"關閉播放器"]; 
 }
 
 // view消失
@@ -202,4 +218,7 @@
             bgColor:[UIColor whiteColor].CGColor
              inView:self.navigationController.view vertical:0.85];
 }
+
+// 停用按鈕
+
 @end

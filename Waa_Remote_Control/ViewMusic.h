@@ -24,4 +24,9 @@
 - (IBAction)btnRepeat:(id)sender;
 - (IBAction)btnRandom:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnForward;
+@property (weak, nonatomic) IBOutlet UIButton *btnBack;
+@property (weak, nonatomic) IBOutlet UIButton *btnNextOne;
+@property (weak, nonatomic) IBOutlet UIButton *btnLastOne;
+
 @end

@@ -17,6 +17,11 @@
     int statusReptPly;
 }
 
+@synthesize btnBack;
+@synthesize btnForward;
+@synthesize btnLastOne;
+@synthesize btnNextOne;
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     
@@ -24,6 +29,9 @@
     statusPlay=0; statusMute=0;
     statusRandPly=0; statusReptPly=0;
     
+    // 隱藏按鈕
+    btnLastOne.alpha=0;
+    btnNextOne.alpha=0;
 }
 
 // 送出訊息時強制設定檔案篩選類型, 確保一定會是對應類型檔案
@@ -46,15 +54,21 @@
 // 停止
 - (IBAction)btnStop:(id)sender {
     
-    [self socketStartWithFilterType:@"MRCode_WMP_19"];
-    [self toast:@"停止"]; usleep(200000);
+    // 不經過檔案選取判定直接送出
+    [sysDege setSocketTypeFilter:TYPE_CODE_VIDEO];
+    [sysDege socketStartWithMessage:@"MRCode_WMP_19"];
+
+    [self toast:@"停止"];
 }
 
 // close wmp
 - (IBAction)btnEndWMPlayer:(id)sender{
     
-    [self socketStartWithFilterType:@"MRCode_WMP_00"];
-    [self toast:@"關閉播放器"]; usleep(200000);
+    // 不經過檔案選取判定直接送出
+    [sysDege setSocketTypeFilter:TYPE_CODE_VIDEO];
+    [sysDege socketStartWithMessage:@"MRCode_WMP_00"];
+    
+    [self toast:@"關閉播放器"];
 }
 
 // 繼續或暫停
@@ -70,21 +84,20 @@
             statusPlay=0; [self toast:@"暫停"];
         }
     }
-    usleep(200000);
 }
 
 // 上一首
 - (IBAction)btnLastOne:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_12"];
-    [self toast:@"上一首"]; usleep(200000);
+    [self toast:@"上一首"]; 
 }
 
 // 下一首
 - (IBAction)btnNextOne:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_13"];
-    [self toast:@"下一首"]; usleep(200000);
+    [self toast:@"下一首"]; 
 }
 
 // 靜音
@@ -100,35 +113,35 @@
             statusMute=0; [self toast:@"靜音：關"];
         }
     }
-    usleep(200000);
+    
 }
 
 // 大聲
 - (IBAction)btnVolumeBigger:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_15"];
-    [self toast:@"提高音量"]; usleep(200000);
+    [self toast:@"提高音量"]; 
 }
 
 // 小聲
 - (IBAction)bntVolumeLower:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_16"];
-    [self toast:@"降低音量"]; usleep(200000);
+    [self toast:@"降低音量"]; 
 }
 
 // 快轉
 - (IBAction)btnForward:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_17"];
-    [self toast:@"播放：快轉"]; usleep(200000);
+    [self toast:@"播放：快轉"]; 
 }
 
 // 減速
 - (IBAction)btnBack:(id)sender {
     
     [self socketStartWithFilterType:@"MRCode_WMP_18"];
-    [self toast:@"播放：減速"]; usleep(200000);
+    [self toast:@"播放：減速"]; 
 }
 
 // 重複播放
@@ -144,7 +157,7 @@
             statusReptPly=0; [self toast:@"重複播放：關"];
         }
     }
-    usleep(200000);
+    
 }
 
 // 隨機播放
@@ -160,7 +173,7 @@
             statusRandPly=0; [self toast:@"隨機播放：關"];
         }
     }
-    usleep(200000);
+    
 }
 
 // 說明選單

@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewVideo : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
 - (IBAction)btnHelp:(id)sender;
-- (IBAction)btnMenu:(id)sender;
 - (IBAction)btnItemNext:(id)sender;
 - (IBAction)btnItemLast:(id)sender;
 - (IBAction)btnPlayFaster:(id)sender;
@@ -25,8 +23,11 @@
 - (IBAction)btnFullScreen:(id)sender;
 - (IBAction)btnPlayRepeat:(id)sender;
 - (IBAction)btnPlayRandom:(id)sender;
-//- (IBAction)btnStartOrEnd:(id)sender;
 - (IBAction)btnTurnOffPlayer:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnPlayFaster;
+@property (weak, nonatomic) IBOutlet UIButton *btnPlaySlower;
+@property (weak, nonatomic) IBOutlet UIButton *btnItemNext;
+@property (weak, nonatomic) IBOutlet UIButton *btnItemLast;
 
 @end
