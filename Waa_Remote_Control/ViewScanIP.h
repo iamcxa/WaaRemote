@@ -11,13 +11,12 @@
 @class ViewScanIP;
 
 @interface ViewScanIP : UIViewController<NSStreamDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *labelSocketMsg;
 
 @property (weak, nonatomic) IBOutlet UILabel *LabelServerIP;
 @property (weak, nonatomic) IBOutlet UITextField *textboxServerIp;
 @property (weak, nonatomic) IBOutlet UILabel *labelMessage;
+@property (weak, nonatomic) IBOutlet UIButton *btnHelp;
 
+- (IBAction)btnHelp:(id)sender;
 -(IBAction)btnConnect:(id)sender;
-
--(void)setSocketMsg:(NSString *)Message;
 @end

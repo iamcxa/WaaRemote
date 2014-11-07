@@ -15,6 +15,7 @@
 
 @implementation ViewScanIP
 
+@synthesize btnHelp;
 @synthesize labelMessage;
 
 - (void)viewDidLoad
@@ -22,6 +23,8 @@
     [super viewDidLoad];  NSLog(@"@IPScaner didLoad");
     
     labelMessage.alpha=1; labelMessage.text=@"請輸入ＩＰ";
+    
+    btnHelp.alpha=0;
     
     if ([sysDege lastTimeUsedServerIP]!=nil){
         self.textboxServerIp.text=[sysDege lastTimeUsedServerIP];
@@ -40,6 +43,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)btnHelp:(id)sender {
+
+    [[sysDege viewSwitchController]showViewHelp];
 }
 
 - (IBAction)btnConnect:(id)sender
@@ -61,10 +69,6 @@
     
 }
 
-
--(void)setSocketMsg:(NSString *)Message{
-    _labelSocketMsg.text=Message;
-}
 
 
 

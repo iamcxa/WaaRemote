@@ -233,9 +233,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="led_y.png" translatesAutoresizingMaskIntoConstraints="NO" id="4ex-vC-Kih">
                                 <rect key="frame" x="208" y="478" width="16" height="17"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="file_name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szf-dy-sBl">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="file_name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szf-dy-sBl">
                                 <rect key="frame" x="16" y="64" width="304" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -689,8 +689,17 @@
                     <view key="view" contentMode="scaleToFill" id="Zj3-LV-Yua">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPc-dT-Gvt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="BPc-dT-Gvt" id="RG1-KF-rKO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Be0-FC-ql0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -733,7 +742,7 @@
                                 <rect key="frame" x="189" y="318" width="106" height="106"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="連線" backgroundImage="v1.png">
-                                    <color key="titleColor" patternImage="FE299C3C-7DC2-4CA8-BECA-44CBD2A6E414" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="5930D51A-FFD5-4A67-AD3B-2AA0467A8B83" colorSpace="pattern"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -746,12 +755,23 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SH-wr-FGa">
+                                <rect key="frame" x="136" y="330" width="48" height="48"/>
+                                <state key="normal" image="help.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnHelp:" destination="cfz-y5-UiH" eventType="touchUpInside" id="dik-8Q-btr"/>
+                                    <action selector="btnHelp:" destination="up3-p3-nGp" eventType="touchUpInside" id="oN2-Mb-dE0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="LabelServerIP" destination="lRI-mA-gQm" id="LDO-fX-pFF"/>
+                        <outlet property="btnHelp" destination="1SH-wr-FGa" id="Um0-Xf-vIX"/>
                         <outlet property="labelMessage" destination="0aq-pc-s48" id="r1s-8e-kD2"/>
                         <outlet property="textboxServerIp" destination="WVJ-f9-isW" id="DZo-kF-h7z"/>
                         <segue destination="up3-p3-nGp" kind="modal" identifier="GotoViewMenu" modalTransitionStyle="crossDissolve" id="89G-7o-Eff"/>
@@ -763,7 +783,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FE299C3C-7DC2-4CA8-BECA-44CBD2A6E414" width="256" height="256">
+        <image name="5930D51A-FFD5-4A67-AD3B-2AA0467A8B83" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5248,7 +5268,7 @@ AAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQO4w
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wXL-Cz-QtJ"/>
-        <segue reference="YNI-iy-gbx"/>
+        <segue reference="gpa-dt-N6h"/>
+        <segue reference="e1A-ys-H1P"/>
     </inferredMetricsTieBreakers>
 </document>

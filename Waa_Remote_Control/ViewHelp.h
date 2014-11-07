@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewHelp :UIViewController{}
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong,nonatomic) NSString* defaultURL;
+
 
 
 @end

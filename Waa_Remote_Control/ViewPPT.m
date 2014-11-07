@@ -38,9 +38,22 @@
 }
 
 
-// view切換時顯示上一個選擇的檔案
+// view切換
 -(void)viewWillAppear:(BOOL)animated{
     
+    [self initFlags];
+}
+
+// ＡＰＰ退入幕後
+-(void)appWillEnterForegroundNotification{
+    
+    NSLog(@"＠＠trigger event when will enter foreground.");
+}
+
+// view 被切換
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    NSLog(@"@ViewPPT viewWillDisappear");
     [self initFlags];
 }
 
@@ -63,35 +76,26 @@
     // 顯示已選取檔案
     selectedFileName=[sysDege selectedFileName];
     
-    if (selectedFileName.length==0) {
+    txtFileSelectedNowName.text=@"尚未選擇簡報檔案";
+    
+    if (selectedFileName.length!=0) {
         
-        txtFileSelectedNowName.text=@"尚未選擇簡報檔案";
-        
-    }else{
-        
-        txtFileSelectedNowName.text=[@"目前檔案：" stringByAppendingString:selectedFileName];
+        if (![selectedFileName containsString:@"ppt"]) {
+            
+            // 清空已選取檔案
+            [sysDege setLastTimeUsedCmd:nil];
+            [sysDege setSelectedFileList:nil];
+            [sysDege setSelectedFileRow:0];
+            [sysDege setSelectedFileName:nil];
+            
+            // 強制該變數更新
+             selectedFileName=nil;
+        }else{
+            
+            // 指定文字給label
+            txtFileSelectedNowName.text=[@"選取：" stringByAppendingString:selectedFileName];
+        }
     }
-}
-
-//
--(void)appWillEnterForegroundNotification{
-    
-    NSLog(@"＠＠trigger event when will enter foreground.");
-}
-
-//
--(void)viewWillDisappear:(BOOL)animated{
-    
-    NSLog(@"@ViewPPT viewWillDisappear");
-    
-    // 清空已選取檔案
-    [sysDege setLastTimeUsedCmd:nil];
-    [sysDege setSelectedFileList:nil];
-    [sysDege setSelectedFileRow:0];
-    [sysDege setSelectedFileName:nil];
-    
-    // 重新設定旗標
-    [self initFlags];
 }
 
 // 送出訊息時強制設定檔案篩選類型, 確保一定會是ＰＰＴ類型檔案
