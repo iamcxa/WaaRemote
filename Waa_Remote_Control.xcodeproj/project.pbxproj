@@ -55,10 +55,7 @@
 		481A579A19439264006E9A0F /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A575D19439264006E9A0F /* power.png */; };
 		481A579B19439264006E9A0F /* power_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A575E19439264006E9A0F /* power_icon.png */; };
 		481A579C19439264006E9A0F /* power_icon_no.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A575F19439264006E9A0F /* power_icon_no.png */; };
-		481A579D19439264006E9A0F /* power_off_icom.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A576019439264006E9A0F /* power_off_icom.png */; };
 		481A579E19439264006E9A0F /* power_off_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A576119439264006E9A0F /* power_off_icon.png */; };
-		481A579F19439264006E9A0F /* power_reset_icom.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A576219439264006E9A0F /* power_reset_icom.png */; };
-		481A57A019439264006E9A0F /* power_sleep_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A576319439264006E9A0F /* power_sleep_icon.png */; };
 		481A57A119439264006E9A0F /* powerpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A576419439264006E9A0F /* powerpoint.png */; };
 		481A57A219439264006E9A0F /* powerpoint_audio_add.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A576519439264006E9A0F /* powerpoint_audio_add.png */; };
 		481A57A319439264006E9A0F /* powerpoint_audio_cut.png in Resources */ = {isa = PBXBuildFile; fileRef = 481A576619439264006E9A0F /* powerpoint_audio_cut.png */; };
@@ -128,6 +125,9 @@
 		48BC02AD195EAA1B00D03A56 /* image072.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48BC0285195EAA1A00D03A56 /* image072.jpg */; };
 		48BC02AE195EAA1B00D03A56 /* image074.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 48BC0286195EAA1A00D03A56 /* image074.jpg */; };
 		48BC02AF195EAA1B00D03A56 /* help.htm in Resources */ = {isa = PBXBuildFile; fileRef = 48BC0287195EAA1A00D03A56 /* help.htm */; };
+		48C925601A261D55001E3343 /* power_off_icom.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C9255D1A261D55001E3343 /* power_off_icom.png */; };
+		48C925611A261D55001E3343 /* power_reset_icom.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C9255E1A261D55001E3343 /* power_reset_icom.png */; };
+		48C925621A261D55001E3343 /* power_sleep_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 48C9255F1A261D55001E3343 /* power_sleep_icon.png */; };
 		8B542EBD195D3E9500732543 /* AppSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B542EBC195D3E9500732543 /* AppSocket.m */; };
 /* End PBXBuildFile section */
 
@@ -195,10 +195,7 @@
 		481A575D19439264006E9A0F /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
 		481A575E19439264006E9A0F /* power_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power_icon.png; sourceTree = "<group>"; };
 		481A575F19439264006E9A0F /* power_icon_no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power_icon_no.png; sourceTree = "<group>"; };
-		481A576019439264006E9A0F /* power_off_icom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power_off_icom.png; sourceTree = "<group>"; };
 		481A576119439264006E9A0F /* power_off_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power_off_icon.png; sourceTree = "<group>"; };
-		481A576219439264006E9A0F /* power_reset_icom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power_reset_icom.png; sourceTree = "<group>"; };
-		481A576319439264006E9A0F /* power_sleep_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power_sleep_icon.png; sourceTree = "<group>"; };
 		481A576419439264006E9A0F /* powerpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerpoint.png; sourceTree = "<group>"; };
 		481A576519439264006E9A0F /* powerpoint_audio_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerpoint_audio_add.png; sourceTree = "<group>"; };
 		481A576619439264006E9A0F /* powerpoint_audio_cut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerpoint_audio_cut.png; sourceTree = "<group>"; };
@@ -274,6 +271,9 @@
 		48BC0285195EAA1A00D03A56 /* image072.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image072.jpg; sourceTree = "<group>"; };
 		48BC0286195EAA1A00D03A56 /* image074.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image074.jpg; sourceTree = "<group>"; };
 		48BC0287195EAA1A00D03A56 /* help.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help.htm; sourceTree = "<group>"; };
+		48C9255D1A261D55001E3343 /* power_off_icom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power_off_icom.png; sourceTree = "<group>"; };
+		48C9255E1A261D55001E3343 /* power_reset_icom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power_reset_icom.png; sourceTree = "<group>"; };
+		48C9255F1A261D55001E3343 /* power_sleep_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power_sleep_icon.png; sourceTree = "<group>"; };
 		8B542EBB195D3E9500732543 /* AppSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppSocket.h; path = ../AppSocket.h; sourceTree = "<group>"; };
 		8B542EBC195D3E9500732543 /* AppSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppSocket.m; path = ../AppSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -442,12 +442,12 @@
 				481A575D19439264006E9A0F /* power.png */,
 				481A575E19439264006E9A0F /* power_icon.png */,
 				481A575F19439264006E9A0F /* power_icon_no.png */,
-				481A576019439264006E9A0F /* power_off_icom.png */,
 				481A576119439264006E9A0F /* power_off_icon.png */,
-				481A576219439264006E9A0F /* power_reset_icom.png */,
-				481A576319439264006E9A0F /* power_sleep_icon.png */,
 				481A576419439264006E9A0F /* powerpoint.png */,
 				481A576519439264006E9A0F /* powerpoint_audio_add.png */,
+				48C9255D1A261D55001E3343 /* power_off_icom.png */,
+				48C9255E1A261D55001E3343 /* power_reset_icom.png */,
+				48C9255F1A261D55001E3343 /* power_sleep_icon.png */,
 				481A576619439264006E9A0F /* powerpoint_audio_cut.png */,
 				481A576719439264006E9A0F /* powerpoint_icon.png */,
 				481A576819439264006E9A0F /* powerpoint_icon_no.png */,
@@ -617,7 +617,6 @@
 			files = (
 				481A577F19439264006E9A0F /* arc.png in Resources */,
 				48BC0290195EAA1B00D03A56 /* image016.jpg in Resources */,
-				481A57A019439264006E9A0F /* power_sleep_icon.png in Resources */,
 				48BC02A0195EAA1B00D03A56 /* image048.jpg in Resources */,
 				481A578B19439264006E9A0F /* ic_launcher.png in Resources */,
 				48BC0295195EAA1B00D03A56 /* image026.jpg in Resources */,
@@ -658,6 +657,7 @@
 				481A578619439264006E9A0F /* brak2.jpg in Resources */,
 				48BC02AC195EAA1B00D03A56 /* image071.jpg in Resources */,
 				481A579A19439264006E9A0F /* power.png in Resources */,
+				48C925621A261D55001E3343 /* power_sleep_icon.png in Resources */,
 				481A57AD19439264006E9A0F /* t1.jpg in Resources */,
 				48BC02AD195EAA1B00D03A56 /* image072.jpg in Resources */,
 				481A577E19439264006E9A0F /* after_play.png in Resources */,
@@ -667,6 +667,7 @@
 				48BC029A195EAA1B00D03A56 /* image036.jpg in Resources */,
 				48BC0296195EAA1B00D03A56 /* image028.jpg in Resources */,
 				481A578D19439264006E9A0F /* icon2.png in Resources */,
+				48C925601A261D55001E3343 /* power_off_icom.png in Resources */,
 				48BC028C195EAA1B00D03A56 /* image009.jpg in Resources */,
 				481A57B019439264006E9A0F /* v1.png in Resources */,
 				48BC0297195EAA1B00D03A56 /* image030.jpg in Resources */,
@@ -683,6 +684,7 @@
 				48BC0288195EAA1A00D03A56 /* image002.jpg in Resources */,
 				48BC0298195EAA1B00D03A56 /* image032.jpg in Resources */,
 				481A579619439264006E9A0F /* music_audio_off.png in Resources */,
+				48C925611A261D55001E3343 /* power_reset_icom.png in Resources */,
 				48BC029B195EAA1B00D03A56 /* image038.jpg in Resources */,
 				481A579019439264006E9A0F /* led_r.png in Resources */,
 				48BC02A1195EAA1B00D03A56 /* image050.jpg in Resources */,
@@ -691,10 +693,8 @@
 				48BC028B195EAA1B00D03A56 /* image008.jpg in Resources */,
 				481A579119439264006E9A0F /* led_r_no.png in Resources */,
 				481A57A219439264006E9A0F /* powerpoint_audio_add.png in Resources */,
-				481A579D19439264006E9A0F /* power_off_icom.png in Resources */,
 				481A579519439264006E9A0F /* music_audio_icon.png in Resources */,
 				481A578C19439264006E9A0F /* icon1.png in Resources */,
-				481A579F19439264006E9A0F /* power_reset_icom.png in Resources */,
 				481A579719439264006E9A0F /* music_icon.png in Resources */,
 				480065991A037336006A1390 /* Images.xcassets in Resources */,
 				48BC02A8195EAA1B00D03A56 /* image064.jpg in Resources */,
